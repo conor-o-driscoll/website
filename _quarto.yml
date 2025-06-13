@@ -3,6 +3,7 @@ project:
   output-dir: docs
   resources:
     - img/r-logo.svg
+    - CV/CV.pdf
     #- img/bluesky-logo.svg
   
 website:
