@@ -1,6 +1,6 @@
 ---
 title: "Curriculum Vitae: Download pdf [here](CV/CV.pdf)"
-subtitle: "Last Updated: 08-06-2025"
+subtitle: "Last Updated: 13-06-2025"
 format: html
 ---
 
