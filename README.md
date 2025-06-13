@@ -11,6 +11,10 @@
 
 [3] Potentially integrate animation blocks into "talks" subsection
 
+[4] Why does CV icon fail to render but the CV hyperlink works fine
+
+[5] Why does the website hyperlink in my CV fail to update on the website even though it is up to date in the file?
+
 
 *This repo was initially generated from a Quarto template available here: https://github.com/jtr13/website-template.*
  [Video tutorial on how to get started](https://youtu.be/YN75YXaLFGM)
