@@ -1,0 +1,135 @@
+---
+title: "Publications and Talks"
+format: 
+  html:
+    toc: TRUE
+    toc-title: On This Page
+---
+
+## Select Ongoing Projects
+
+1.  **Conor O'Driscoll**. 2025. "Commuting in Flux: The Roles of Place
+    and Personal Circumstance In Shaping Behavioural Plasticity".
+
+2.  **Conor O’Driscoll** and Milad Abbasiharofteh. 2025. "Roots and
+    Routes: Residential Relocation and Relatedness".
+
+3.  **Conor O’Driscoll** and Federica Rossi. 2025. "Residential
+    Relocation Decisions and Destinations: The Role of Working From
+    Home".
+
+4.  **Conor O’Driscoll** and Ana Maria Silva. 2025. "Working From Home
+    and Labour Market Outcomes: The Case of Earnings and Hours Worked".
+
+5.  **Conor O'Driscoll** and Luise Koeppen. 2025. "Subnational
+    Institutional Corruption and Political Discontent".
+
+6.  **Conor O’Driscoll**. 2025. "Navigating Change: Residential
+    Relocation, Travel Behaviours, and Built Environments". *Major
+    Revisions in Papers in Regional Science*.
+    
+    - [PowerPoint Slides: RSAI BIS 2024, Bristol, UK](PPTs/RSAI-BIS 2024.pdf)
+
+
+## Published Research Papers
+
+
+1.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín McCarthy;
+    Josh O’Driscoll. 2025. "Travel Behaviours and Built Environments on
+    School-Runs". *Regional Science Policy and Practice*, 17(1),
+    pp.1-14. doi:
+    [10.1016/j.rspp.2024.100153](https://doi.org/10.1016/j.rspp.2024.100153).
+
+2.  Kevin Credit and **Conor O’Driscoll**. 2024. "Assessing Modal
+    Tradeoffs and Associated Built Environment Characteristics Using a
+    Cost-Distance Framework". *Journal of Transport Geography*, 117,
+    pp.1-19. doi:
+    [10.1016/j.jtrangeo.2024.103870](https://doi.org/10.1016/j.jtrangeo.2024.103870).
+
+3.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
+    McCarthy. 2024. "The relationships between socio-demographics,
+    residential environments, travel considerations, and commute mode
+    choice in Ireland". *Regional Studies*, 58(3), pp.1-18. doi:
+    [10.1080/00343404.2023.2199779](https://doi.org/10.1080/00343404.2023.2199779).
+
+4.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
+    McCarthy. 2023. "Land-Use Mix in Ireland: Implications for
+    Sustainable Development". *Journal of Maps*, 19(1), pp.1-7. doi:
+    [10.1080/17445647.2023.2214165](https://doi.org/10.1080/17445647.2023.2214165).
+
+5.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
+    McCarthy. 2023. “Land-Use Mixing in Irish Cities: Implications for
+    Sustainable Development”. *Land Use Policy*, 128(5), pp.1-7. doi:
+    [10.1016/j.landusepol.2023.106615](https://doi.org/10.1016/j.landusepol.2023.106615).
+
+6.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
+    McCarthy. 2022. “Retail Sprawl and CO2 Emissions: Retail Centres in
+    Irish Cities”. *Journal of Transport Geography*, 102(6), pp.1-12.
+    doi:
+    [10.1016/j.jtrangeo.2022.103376](https://doi.org/10.1016/j.jtrangeo.2022.103376).
+
+
+
+## Public Outreach / Research Dissemination
+
+
+1.  **Conor O’Driscoll**. 2024. ["The Cost of Morning Commutes: The Case
+    of Kildare"](https://www.kfmradio.com/player/podcasts/episodes/friday-21st-june-2024-hour-2/). *Kildare
+    FM*.
+
+2.  **Conor O’Driscoll** and Kevin Credit. 2024. ["Here’s the real cost
+    of your morning rush hour commute in
+    Dublin"](https://www.rte.ie/brainstorm/2024/0920/1455070-dublin-travel-costs-commute-built-environment-time-density/).
+    *RTE Brainstorm*.
+
+3.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
+    McCarthy. 2023. ["How the relationship between socio- demographics,
+    residential environments and travel influence commuter
+    choices"](https://www.linkedin.com/pulse/how-relationship-between-socio-demographics-travel-commuter-journal/).
+    *Regional Studies Blog*.
+
+4.  **Conor O’Driscoll**. 2023. ["Retail Centre Locations in Cork: The
+    Case of
+    Carrigtwohill"](https://www.rte.ie/radio/radio1/drivetime/programmes/2023/0104/1344917-drivetime-wednesday-4-january-2023/).
+    *RTE Prime Time*.
+
+5.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
+    McCarthy. 2022. ["Planning For Sustainability: Future Retail Centre
+    Locations"](https://journals.ucc.ie/index.php/boolean/article/view/boolean-2022-6).
+    *The Boolean*, 6(8), pp.27-32.
+
+6.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
+    McCarthy. 2022. ["The Links Between Where We Live and How We
+    Commute"](https://www.rte.ie/brainstorm/2022/0829/1319376-land-use-transport-policies-commuting-walking-cycling-public-transport/).
+    *RTE Brainstorm*.
+
+7.  Jane Bourke; Josh O’Driscoll; **Conor O’Driscoll**. 2022. ["Does
+    fear of failure hamper Irish business
+    innovation?"](https://www.rte.ie/brainstorm/2022/0609/1303758-ireland-business-innovation-success-failure/#:~:text=Three%20insights%20from%20this%20report,innovation%20to%20secure%20economic%20growth).
+    *RTE Brainstorm*.
+
+8.  **Conor O’Driscoll**. 2021. ["Why out of town retail parks don’t
+    make sense in a climate
+    crisis"](https://www.rte.ie/brainstorm/2021/1005/1250821-carrigtwohill-cork-out-of-town-retail-parks-shopping-centres-climate-change/).
+    *RTE Brainstorm*.
+
+9.  **Conor O’Driscoll**. 2021. ["Shopping Malls, GHG Emissions and The
+    Role of Policymakers in "Green" Transportation Infrastructure in
+    Ireland"](https://www.regionalstudies.org/rsa-blog/shopping-malls-ghg-emissions-and-the-role-of-policymakers-in-green-transportation-infrastructure/).
+    *Regional Studies Association: Student Summer Series*.
+
+
+
+## Talks
+
+1. **Conor O'Driscoll**. 2024. [*Navigating Change: The PhD Journey and Life After*](PPTs/UCC July 2024.pdf).
+
+    - An invited workshop by colleagues at the Spatial and Regional Economic Research Centre, University College Cork. Topics covered in the workshop include: Navigating the PhD Journey, The Research Process, Publishing Research, and The Academic Job Market.
+    
+2. **Conor O'Driscoll**. 2024. [*Land-Use Patterns and Commuting in Cork*](PPTs/Land-Use Patterns and Commuting in Cork.pdf).
+
+    - This invited workshop, hosted by the Regional Studies Association (Irish Section), covered the topic of pressing transportation issues in Ireland. At this workshop, I presented ongoing research about commuting flows in the Cork Metropolitan Area, while other notable speakers included Dr. Kevin Credit of Maynooth University and Prof. Hannah Daly of University College Cork.
+    
+3. **Conor O'Driscoll**. 2024. [*Writing and Research in University*](PPTs/Writing and Research in University.pdf).
+
+    - This invited talk was hosted for undergraduate students about to undertake the first research project of their academic journeys. The purpose of this talk was to introduce them to writing conventions, techniques, and illustrate expectations surrounding what is “expected” in the writings of a university student.

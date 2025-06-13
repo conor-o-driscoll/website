@@ -1,19 +1,46 @@
 ---
-title: "About Me"
+title: "Conor O'Driscoll"
+subtitle: "Economic Geographer and Regional Scientist"
 about:
   id: me
-  template: broadside
-  image: img/profile.png
+  template: trestles
+  image: img/profile.jpg
+  links: 
+    - icon: twitter-x
+      text: twitter
+      href: https://twitter.com/conorodriscollx
+    - icon: linkedin
+      text: linkedin
+      href: https://www.linkedin.com/in/conor-o-driscoll-a0624a234/
+    - icon: google
+      text: google scholar
+      href: https://scholar.google.com/citations?user=-Y70_MYAAAAJ&hl=en&oi=ao
+      #Currently not available [i think it is an issue with the themes - need to create a css file for it to work]
+    #- icon: bluesky
+      #href: (https://bsky.app/profile/conorodriscoll99.bsky.social)
+    - icon: building
+      text: university webpage
+      href: https://www.rug.nl/staff/c.odriscoll/?lang=en
+    - icon: github
+      text: github
+      href: https://github.com/conor-o-driscoll/personal-website
+    - icon: cv
+      text: cv
+      href: CV/CV.pdf
 ---
 
 :::{#me}
 
-## Goals
+I am an [Assistant Professor](https://www.rug.nl/staff/c.odriscoll/?lang=en) in Economic Geography at the University of Groningen's [Faculty of Spatial Sciences](https://www.rug.nl/frw/?lang=en). I recieved my PhD (Economics) from University College Cork, Ireland, where I was based in the [Spatial and Regional Economic Research Centre (SRERC)](https://www.ucc.ie/en/srerc/) between 2020-2023.
 
-## Education
+I study how [location shapes economic and social outcomes for individuals](https://cora.ucc.ie/items/110a05f4-201f-4e5b-b0aa-0be716a1c134), focusing on the factors driving location decisions and the dynamic relationship between geography, mobility, and economic opportunity. I do quantitative research in Economic Geography, Regional Science, and Transportation Studies. In 2023, I won the Postgraduate Researcher of The Year (2021-2022) at the University College Cork College of Business and Law.
 
-## Experience
+I teach courses in [Introductory](https://ocasys.rug.nl/current/catalog/course/GESTAT1) and [Intermediate Statistics](https://ocasys.rug.nl/current/catalog/course/GESTAT2), [Quantitative Research Methods](https://ocasys.rug.nl/current/catalog/course/GEASRM), and [Economic Geography](https://ocasys.rug.nl/current/catalog/course/GEMEGTT). I supervise Bachelor Theses in our [Human Geography and Planning](https://www.rug.nl/bachelors/human-geography-and-planning/) programme, as well as Master Theses in our [Economic Geography](https://www.rug.nl/masters/economic-geography/) and [Real Estate Studies](https://www.rug.nl/masters/real-estate-studies/) programmes. I am the Chief Organiser of the Research Clinic series hosted by the Department of Economic Geography and I serve on the Faculty Council in the Faculty of Spatial Sciences 
+
+In my free time, I like to run, play [chess](https://www.chess.com/member/conorodriscoll1), cook, and [read](https://www.goodreads.com/user/show/169216111-conor-o-driscoll). I am a big Track and Field fan, but also enjoy watching football (soccer). I have had the honour of representing the Republic of Ireland 4 times in competitive athletics and have won numerous national titles across four track events.
+
 
 :::
 
-Thanks for checking out my web site!
+Thanks for checking out my web site! If you have questions or wish to collaborate, you can reach me at c [dot] odriscoll [at] rug [dot] nl
+
