@@ -31,7 +31,7 @@ website:
       - icon: building
         href: https://www.rug.nl/staff/c.odriscoll/?lang=en
       - icon: github
-        href: https://github.com/conor-o-driscoll/personal-website
+        href: https://conor-o-driscoll.github.io/website/
 
 #Can you change it so that the font is smaller and the icons go here? This format looks quite nice: https://www.erinbugbee.com/
   page-footer:

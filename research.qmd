@@ -122,14 +122,17 @@ format:
 
 ## Talks
 
-1. **Conor O'Driscoll**. 2024. [*Navigating Change: The PhD Journey and Life After*](PPTs/UCC July 2024.pdf).
+1. **Conor O'Driscoll**. 2025. ["Stuck in the Mud? Geographical Immobility Across The UK](PPTs/RSAI-BIS_stuck_paper_2025.pdf).
+
+
+2. **Conor O'Driscoll**. 2024. [*Navigating Change: The PhD Journey and Life After*](PPTs/UCC July 2024.pdf).
 
     - An invited workshop by colleagues at the Spatial and Regional Economic Research Centre, University College Cork. Topics covered in the workshop include: Navigating the PhD Journey, The Research Process, Publishing Research, and The Academic Job Market.
     
-2. **Conor O'Driscoll**. 2024. [*Land-Use Patterns and Commuting in Cork*](PPTs/Land-Use Patterns and Commuting in Cork.pdf).
+3. **Conor O'Driscoll**. 2024. [*Land-Use Patterns and Commuting in Cork*](PPTs/Land-Use Patterns and Commuting in Cork.pdf).
 
     - This invited workshop, hosted by the Regional Studies Association (Irish Section), covered the topic of pressing transportation issues in Ireland. At this workshop, I presented ongoing research about commuting flows in the Cork Metropolitan Area, while other notable speakers included Dr. Kevin Credit of Maynooth University and Prof. Hannah Daly of University College Cork.
     
-3. **Conor O'Driscoll**. 2024. [*Writing and Research in University*](PPTs/Writing and Research in University.pdf).
+4. **Conor O'Driscoll**. 2024. [*Writing and Research in University*](PPTs/Writing and Research in University.pdf).
 
     - This invited talk was hosted for undergraduate students about to undertake the first research project of their academic journeys. The purpose of this talk was to introduce them to writing conventions, techniques, and illustrate expectations surrounding what is “expected” in the writings of a university student.
