@@ -24,9 +24,6 @@ about:
     - icon: github
       text: github
       href: https://github.com/conor-o-driscoll
-    - icon: cv
-      text: cv
-      href: CV/CV.pdf
 ---
 
 :::{#me}
