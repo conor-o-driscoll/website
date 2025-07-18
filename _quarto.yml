@@ -40,7 +40,9 @@ website:
 
 format:
   html:
-    theme: minty
+    theme: 
+      - minty
+      - website_template.css
     toc: true
 
 editor: source
