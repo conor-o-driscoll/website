@@ -1,0 +1,31 @@
+---
+title: "Welcome to my website!"
+author: "Conor O'Driscoll"
+date: 2025-07-19
+categories: [Website, About Me]
+image: "/img/profile.jpg"
+description: "Welcome to my website! This post describes what you can expect to find on this platform and how I intend to use it."
+---
+
+Welcome to my website! My name is Conor O'Driscoll and I am an Assistant Professor in Economic Geography within the University of Groningen's Faculty of Spatial Sciences.
+
+This website will serve as a repository for research-related items, teaching materials, and other academic things people may find interesting. Any material borrowed from this website and used in the public domain should be referenced appropriately, but otherwise, I hope you enjoy it and find use in some of it. Below, I provide an outline of what you can expect from, and find on, this website.
+
+Research Materials and Activities
+======
+This website will be used as a repository for my past research activities as well as a platform to advertise and launch ongoing endeavours. All published articles, working papers, conference presentations, and other works will be made available on this platform. Related code and data files used to generate key statistical outputs will also be made available. Similarly, any public engagement associated with my research activities will be posted here. I welcome feedback on all of this work. 
+
+Should you have any questions or recommendations, I encourage you to get in touch. Likewise, if you would like to collaborate on an idea, please reach out to c [dot] odriscoll [at] rug [dot] nl
+
+Teaching Materials
+======
+This website will host select materials from my university teaching. This will primarily involve guides to utilising statistical softwares, like R and STATA, when conducting statistical analysis. But there will also be presentations, recommended readings, and literature lists. This material may be reviewed in my News and Musings, which will also serve as a general area for discussion.
+
+Miscellaneous
+------
+Other elements of this site contain a copy of my cv in pdf and raw html form as well as a News and Musings section in which you can find personal and professional updates, alongside blog posts related to my research and teaching activities.
+ 
+
+Happy reading and looking forward to seeing how this project evolves and grows!
+Conor
+

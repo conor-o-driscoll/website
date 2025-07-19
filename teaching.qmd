@@ -8,11 +8,12 @@ format:
 ---
 
 
-## University of Groningen
+<h2> University of Groningen </h2>
 
-### Economic Geography (MSc)
+<details>
+  <summary class="fw-bold" style="font-size: 1.5em;"> Economic Geography (MSc) </summary>
 
-This course examines how global trends—such as technological change, climate change, and demographic transitions—affect regions differently, leading to varying economic, social, and environmental outcomes. It focuses on understanding the causes of regional socio-economic inequalities and explores how governments and other actors attempt to address them through policy at different spatial scales.
+This course ([GEMEGTT](https://ocasys.rug.nl/current/catalog/course/GEMEGTT)) examines how global trends—such as technological change, climate change, and demographic transitions—affect regions differently, leading to varying economic, social, and environmental outcomes. It focuses on understanding the causes of regional socio-economic inequalities and explores how governments and other actors attempt to address them through policy at different spatial scales.
 
 The course has two main aims. First, it introduces students to key theoretical and empirical debates in Economic Geography. Second, it applies these insights to real-world practices in local and regional development. Topics include regional labour markets, entrepreneurship, globalization, and spatial policy tools such as city branding, business incentives, and land-use planning.
 
@@ -22,8 +23,9 @@ A key feature of the course is its applied orientation. Students learn how acade
 
 By the end of the course, students are able to analyse complex geographical patterns, understand the relationship between economic and spatial processes, and assess policy responses to regional challenges. They also gain awareness of relevant labour market opportunities and the professional context of economic geographers.
 
+<details>
+  <summary class="fw-bold" style="font-size: 1.25em;"> Recommended Readings </summary>
 
-Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
 1. Local and Regional Development, by Andy Pike, Andrés Rodríguez-Pose, and John Tomaney<br>
 2. An Introduction To Geographical and Urban Economics: A Spiky World, by Steven Brakman, Harry Garretsen, and Charles van Marrewijk<br>
 3. The New Geography of Jobs, by Enrico Moretti<br>
@@ -34,12 +36,17 @@ Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
 8. The Wealth of Cities and The Poverty of Nations, by Christof Parnreiter<br>
 9. The Great Convergence: Information Technology and The New Globalisation, by Richard Baldwin<br>
 
+</details>
 
-### Statistics and Quantitative Research Methods (BSc)
+</details>
+
+
+<details>
+  <summary class="fw-bold" style="font-size: 1.5em;"> Statistics and Quantitative Research Methods (BSc) </summary>
 
 This covers a trilogy of Introduction, Intermediate, and Applied Statistics courses which I currently teach at the University of Groningen. The studens are bachelor students studying Geography, Planning, and Demography. Relevant materials can be made available upon request.
 
-#### Introductory Statistics ([GESTAT1](https://ocasys.rug.nl/current/catalog/course/GESTAT1))
+<h4> Introductory Statistics ([GESTAT1](https://ocasys.rug.nl/current/catalog/course/GESTAT1)) </h4>
 
 Statistics 1 (GESTAT1) introduces students to a range of descriptive and inferential statistical techniques. Key topics include levels of measurement, spatial and non-spatial sampling, data presentation using tables and figures, and measures of central tendency and dispersion. The course also covers the central limit theorem, z-scores, z-tests, t-tests, non-parametric alternatives, and the binomial test. In addition, it addresses principles of research data management.
 
@@ -48,15 +55,19 @@ Students learn to select suitable statistical methods based on variable type and
 Throughout the course, attention is given to data quality, measurement accuracy, and validity. Students are expected to assess these factors carefully and apply appropriate techniques for analysis. Practical use of R supports this process, helping students to work with real data in a structured and transparent way.
 
 
-Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
+<details>
+  <summary class="fw-bold" style="font-size: 1.25em;"> Recommended Readings </summary>
+
 1. Statistics: A Very Short Introduction by David J. Hand<br>
 2. Statistics Without Tears: An Introduction For Non-Mathematicians, by Derek Rowntree<br>
 3. A Field Guide To Lies and Statistics: A Neuroscientist on How to Make Sense of A Complex World, by Daniel J. Levitin<br>
 4. The Uncounted, by Alex Cobham<br>
 5. Elementary Statistics For Geographers by James Burt, Gerald Barber, and David Rigby<br>
 
+</details>
 
-#### Intermediate Statistics ([GESTAT2](https://ocasys.rug.nl/current/catalog/course/GESTAT2))
+
+<h4> Intermediate Statistics ([GESTAT2](https://ocasys.rug.nl/current/catalog/course/GESTAT2)) </h4>
 
 
 Statistics 2 (GESTAT2) focuses on multivariate statistical techniques and builds on the foundation established in Statistics 1. The course covers key methods including chi-square tests, measures of association, correlation, simple and multiple linear regression, interaction and mediation effects, as well as binary, ordinal, and multinomial logistic regression. The course places emphasis on selecting appropriate uni- and multivariate methods based on the characteristics of variables and the design of the research.
@@ -65,15 +76,17 @@ Students learn to select suitable statistical methods based on variable type and
 
 Throughout the course, attention is given to data quality, measurement accuracy, and validity. Students are expected to assess these factors carefully and apply appropriate techniques for analysis. Practical use of R supports this process, helping students to work with real data in a structured and transparent way.
 
+<details>
+  <summary class="fw-bold" style="font-size: 1.25em;"> Recommended Readings </summary>
 
-Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
 1. Mastering 'Metrics: The Path From Cause To Effect, by Joshua D. Angrist and Jörn-Steffan Pischke<br>
 2. Applied Statistics Using STATA (and R): A Guide For The Social Sciences, by Mehmet Mehmetoglu and Tor Georg Jakobson<br>
 3. Elementary Statistics For Geographers by James Burt, Gerald Barber, and David Rigby<br>
 
+</details>
 
 
-#### Quantitative Research Methods ([GEASRM](https://ocasys.rug.nl/current/catalog/course/GEASRM))
+<h4> Quantitative Research Methods ([GEASRM](https://ocasys.rug.nl/current/catalog/course/GEASRM)) </h4>
 
 This course introduces students to the full process of conducting quantitative research in the field of Spatial Sciences. It covers all stages of the research process, from formulating research questions to data collection, analysis, and presentation of results. Students learn to design and carry out a quantitative survey aligned with a clearly defined research question, using appropriate methods and techniques.
 
@@ -82,7 +95,9 @@ The course includes key topics such as data management, research ethics, and sci
 Computer software is used to support data analysis, with a focus on practical application within Spatial Sciences. In addition to individual work, students collaborate in teams to conduct research, with an emphasis on academic standards and constructive teamwork. The course also encourages critical reflection on the research process, data quality, and the validity of conclusions.
 
 
-Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
+<details>
+  <summary class="fw-bold" style="font-size: 1.25em;"> Recommended Readings </summary>
+
 1. Mastering 'Metrics: The Path From Cause To Effect, by Joshua D. Angrist and Jörn-Steffan Pischke<br>
 2. Mostly Harmless Econometrics: An Empiricist's Companion, by Joshua D. Angrist and Jörn-Steffan Pischke<br>
 3. Applied Statistics Using STATA (and R): A Guide For The Social Sciences, by Mehmet Mehmetoglu and Tor Georg Jakobson<br>
@@ -90,14 +105,19 @@ Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
 5. The Book of Why: The New Science of Cause and Effect, by Judea Pearl<br>
 6. The Effect: An Introduction To Research Design and Causality, by Nick Huntington-Klein<br>
 
+</details>
 
-## University College Cork
+</details>
 
-### Statistics and Econometrics
+<h2> University College Cork </h2>
+
+
+<details>
+  <summary class="fw-bold" style="font-size: 1.5em;"> Statistics and Econometrics (BSc) </summary>
 
 This covers a series of courses I taught at University College Cork. The content relates to undergraduate statistics and econometrics, and was taught to students studying economics, finance, and commerce. Relevant materials can be made available upon request.
 
-#### Introductory Statistics
+<h4> Introductory Statistics (BSc) </h4>
 These courses start with introductions to descriptive statistics, inferential statistics, and probability. Much of this learning focuses on how these subjects relate to business practices. Students are introduced to elementary calculus, the mathematics of finance, differentiation, matrix algebra, alongside exponential, logarithmic, and polynomial functions. Students use this knowledge to calculate elasticities, solve for equilibria, and work with series and annuities.
 
 From there, a major emphasis is placed on the practical application of statistics to business contexts. Teaching centres around the practicalities of working with data. Students are exposed to key software used for analysing economic and financial data, such as Excel and STATA. They are also tasked with collecting, analysing, interpreting, and presenting economic data in written reports. Supplementing this are introductions to the numerous types of economic and financial data available, and the outlets from which these data can be acquired.
@@ -110,7 +130,9 @@ EC1200 (Quantitative Techniques For Economics 1)<br>
 EC1209 (Understanding and Interpreting Data)<br>
 MA1100 (Introductory Mathematics For Business)<br>
 
-Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
+<details>
+  <summary class="fw-bold" style="font-size: 1.25em;"> Recommended Readings </summary>
+
 1. Statistics: A Very Short Introduction by David J. Hand<br>
 2. Statistics Without Tears: An Introduction For Non-Mathematicians, by Derek Rowntree<br>
 3. A Field Guide To Lies and Statistics: A Neuroscientist on How to Make Sense of A Complex World, by Daniel J. Levitin<br>
@@ -118,9 +140,9 @@ Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
 5. Why Most Things Fail, by Paul Ormerod<br>
 6. Elementary Statistics For Geographers by James Burt, Gerald Barber, and David Rigby<br>
 
+</details>
 
-
-#### Intermediate Statistics and Econometrics
+<h4> Intermediate Statistics and Introductory Econometrics (BSc) </h4>
 These courses build upon foundational statistics and probability knowledge by equipping students with the skills to critically evaluate economic research, data, methods, and findings. This is supplemented by introductions to hypothesis testing and statistical inference using cross-sectional and time-series methods.
 
 From there, students are exposed to the relationships between economic theory and practice, and how different modelling techniques can be applied to different scenarios within a business context. In particular, simple linear regression, multiple linear regression, functional forms, and variable transformations are introduced while assessment emphasizes the interpretation of findings and implications of using different empirical techniques.
@@ -136,7 +158,9 @@ EC4215 (Business Econometrics 1)<br>
 Excel and STATA material<br>
 
 
-Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
+<details>
+  <summary class="fw-bold" style="font-size: 1.25em;"> Recommended Readings </summary>
+
 1. Mastering 'Metrics: The Path From Cause To Effect, by Joshua D. Angrist and Jörn-Steffan Pischke<br>
 2. Mostly Harmless Econometrics: An Empiricist's Companion, by Joshua D. Angrist and Jörn-Steffan Pischke<br>
 3. Econometrics By Example, by Damodar Gujarati<br>
@@ -152,6 +176,7 @@ Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
 13. Skin In The Game: Hidden Asymmetries in Daily Life, by Nassim Nicholas Taleb<br>
 14. Antifragile: Things That Gain From Disorder, by Nassim Nicholas Taleb<br>
 
+</details>
 
 
 Alongside these reading materials, I have also produced Introductory Guides and Practical Materials for STATA and Excel which can be made available upon request. Topics covered include:
@@ -163,13 +188,16 @@ Alongside these reading materials, I have also produced Introductory Guides and 
 - Binary, Multinomial, and Ordinal Logistic Regression (R)
 
 
+</details>
 
-### Macroeconomics
+
+<details>
+  <summary class="fw-bold" style="font-size: 1.5em;"> Macroeconomics (BSc) </summary>
 
 This covers a series of courses I taught at University College Cork. The content relates to undergraduate macroeconomics, and was taught to students studying economics, finance, and commerce. Relevant materials can be made available upon request.
 
 
-#### Introductory Macroeconomics
+<h4> Introductory Macroeconomics </h4>
 These courses start with the study of the economy as a whole, focusing on aggregate measures such as national income, unemployment, inflation, and economic growth. Students learn to work with theories of supply and demand, fiscal and monetary policy, international trade, and exchange rates, while also covering national income accounting, the measurement of economic activity, and the circular flow of income.
 
 The role of government in influencing economic outcomes is also explored. Topics such as fiscal policy, monetary policy, and the role of central banks are discussed, along with the challenges and trade-offs involved in implementing macroeconomic policies. This provides students with opportunities to apply theoretical concepts to analyze current economic events and policy debates, enhancing their critical thinking and analytical skills.
@@ -183,7 +211,9 @@ EC1503 (Economic Analysis for Food Business)<br>
 EC1122 (Markets, Governments and the Economics of Social Issues)<br>
 
 
-Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
+<details>
+  <summary class="fw-bold" style="font-size: 1.25em;"> Recommended Readings </summary>
+
 1. The Great Economists: How Their Ideas Can Help Us Today, by Linda Yueh<br>
 2. How To Think Like An Economist, by Robbie Mochrie.<br>
 3. Can't We Just Print More Money? Economics in Ten Simple Questions, by Jack Meaning<br>
@@ -196,9 +226,10 @@ Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
 10. A Brief History of Equality, by Thomas Picketty<br>
 11. Why Nations Fail: The Origins of Power, Prosperity, and Poverty, by Daron Acemoglu and James A. Robinson<br>
 
+</details>
 
 
-#### Intermediate Macroeconomics
+<h4> Intermediate Macroeconomics </h4>
 These courses build upon the work done in introductory modules by focusing on specific themes and issues within macroeconomics. Themes and topics studied include human capital, inequality, money and monetary policy, alongside national and international economic variables which affect business performance.
 
 Some of these courses then pivot to focus on social issues and policy, thereby requiring detailed analysis of issues like healthcare, pensions, and the welfare state, while some of these courses focus on financial markets. An overarching theme in these courses, however, is the role of governmental intervention in the economy alongside how Ireland is situated in the global macroeconomic environment. This provides students with opportunities to apply theoretical concepts to analyze current economic events and policy debates, enhancing their critical thinking and analytical skills.
@@ -214,7 +245,9 @@ EC2214 (The Macroeconomic Environment in a Global Context)<br>
 EC3151 (Economics of Social Policy 2)<br>
 
 
-Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
+<details>
+  <summary class="fw-bold" style="font-size: 1.25em;"> Recommended Readings </summary>
+
 1. Macroeconomics, by Daron Acemoglu, David Laibson, and John A. List<br>
 2. Economics For The Common Good, by Jean Tirole<br>
 3. Risky Business: Why Insurance Markets Fail and What To Do About It, by Amy Finkelstein, Liran Einav, and Raymond Fisman<br>
@@ -226,14 +259,18 @@ Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
 9. A Random Walk Down Wall Street: The Time-Tested Strategy For Successful Investing, by Burton G. Malkiel<br>
 10. The Intelligent Investor, by Benjamin Graham<br>
 
- 
+</details>
 
-### Microeconomics
+</details>
+
+
+<details>
+  <summary class="fw-bold" style="font-size: 1.5em;"> Microeconomics (BSc) </summary>
 
 This covers a series of courses I taught at University College Cork. The content relates to undergraduate microeconomics, and was taught to students studying economics, finance, and commerce. Relevant materials can be made available upon request.
 
 
-#### Introductory Microeconomics
+<h4> Introductory Microeconomics </h4>
 These courses start by introducing fundamental economic principles at the individual level, focusing on supply, demand, market equilibrium, opportunity costs, and elasticity. The material then evolves to emphasize consumer and producer behaviour under different conditions and within different market contexts.
 
 These courses then pivot to consider the role of firms and governments in the microeconomic environment. Of particular interest here is the efficient allocation of resources and leads students to a more nuanced understanding of how policies such as taxation, subsidies, and regulations affect market outcomes.
@@ -248,7 +285,9 @@ EC1212 (Economics of Business 1)<br>
 EC1500 (Ethics and Economic Decision Making in Food Business)<br>
 
 
-Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
+<details>
+  <summary class="fw-bold" style="font-size: 1.25em;"> Recommended Readings </summary>
+
 1. The Great Economists: How Their Ideas Can Help Us Today, by Linda Yueh.<br>
 2. How To Think Like An Economist, by Robbie Mochrie.<br>
 3. Freakonomics: A Rogue Economist Explores The Hidden Side of Everything, by Steven D. Levitt and Stephen J. Dubner.<br>
@@ -258,8 +297,9 @@ Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
 7. How To Teach Economics To Your Dog: A Quirky Introduction, by Rebecca Campbell and Anthony McGowan.<br>
 8. Edible Economics: A Hungry Economist Explains The World, by Ha-Joon Chang.<br>
 
+</details>
 
-#### Intermediate Microeconomics
+<h4> Intermediate Microeconomics </h4>
 These courses build upon introductory material by focusing on the interactions between producers and consumers within different types of markets. In particular, entrepreneurship, the competitive process and technological change, the determination of the relative prices of goods, and factors of production under various types of market structure are all covered.
 
 These courses then pivot in three distinct directions to focus on the government, the firm, and labour market. We consider the role of government in achieving social goals and public policy objectives. Students examine how government actions impact resource allocation, income distribution, and overall welfare. For the firm, we focus on budgets, risk and uncertainty, revenue functions, alongside production and cost analysis. While in labour markets, we emphasize the factors driving labour supply and demand, the acquisition of training and skills, technology and decision making, alongside government intervention in such markets, such as through minimum wages and taxation.
@@ -273,7 +313,9 @@ EC3127 (Economics of The Labour Market)<br>
 EC4211 (Economics of The Labour Market)<br>
 
 
-Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
+<details>
+  <summary class="fw-bold" style="font-size: 1.25em;"> Recommended Readings </summary>
+
 1. The Great Economists: How Their Ideas Can Help Us Today, by Linda Yueh.<br>
 2. How To Think Like An Economist, by Robbie Mochrie.<br>
 3. Freakonomics: A Rogue Economist Explores The Hidden Side of Everything, by Steven D. Levitt and Stephen J. Dubner.<br>
@@ -291,14 +333,27 @@ Books Which I Like (And Sometimes Recommend) On These (and Adjacent) Topics<br>
 15. Chicago Price Theory by Sonia Jaffe, Robert Minton, Casey B. Mulligan, and Kevin M. Murphy.<br>
 16. Microeconomic Theory by Andreu Mas-Collel, Michael Whinston, and Jerry Green.<br>
 
+</details>
+
+</details>
 
 
-## Research Supervision (BSc, MSc, and PhD)
+<h2> Research Supervision (BSc, MSc, and PhD) </h2>
+
+<details>
+  <summary class="fw-bold" style="font-size: 1.5em;"> Some Background </summary>
+
 I thoroughly enjoy supervising research projects, especially those at the MSc and PhD level. The topics I am interested in broadly fall under the umbrella subjects of Urban Studies, Urban Economics, Regional Science, Economic Geography, and Transportation. If the core focus of a given project falls within the remit of any of these subjects, then chances are that I will be interested in supervising it. One thing that I am passionate about is writing, and ensuring that students produce a high-quality written product which is among the top priorities for me when I supervise independent research projects. 
 
 To help students along in this journey, I have created a writing guide which provides a broad scaffold students can use when learning how to write effectively. You can access this guide [here](Writing_Guide/BSc and MSc Thesis Supervision.pdf).
 
-### BSc Research Project Supervision
+If you are a student and especially interested in working on a specific topic under my direct supervision, please email me at c [dot] odriscoll [at] rug [dot] nl
+
+</details>
+
+<details>
+  <summary class="fw-bold" style="font-size: 1.5em;"> BSc Research Project Supervision </summary>
+
 At the University of Groningen, I am heavily involved in the supervision of BSc theses. Usually, I take two groups of students: one per semester. When I supervise these groups on my own, my theme of choice is *Cities*. 
 
 I’m drawn to the subject of cities because they illuminate how human potential is concentrated, expressed, and contested in space. For much of history, cities have been foundational to economic growth, innovation, and social change. Their dense networks of people, ideas, and resources create agglomeration effects that not only boost productivity but also shape everyday life and long-term regional prosperity. Cities are not just economic engines—they are complex living systems where geography, economics, planning, and sociology converge, offering a lens into the structures and dynamics that define the modern world.
@@ -314,11 +369,19 @@ Sometimes, I share group supervision duties. In this context, the theme can chan
 1. To Be Added.
 2. To Be Added.
 
+</details>
 
-### MSc Thesis Supervision
+
+<details>
+  <summary class="fw-bold" style="font-size: 1.5em;"> MSc Thesis Supervision </summary>
 
 At the University of Groningen, I am heavily involved in the supervision of MSc thesis students in the Economic Geography and Real Estate Studies programme. Much like my philosophy for supervising BSc students, I tend to cast a wide net topic-wise, and encourage any quantitatively-oriented student to reach out if they have a cool idea they would like to explore which falls under the broad remit of Urban Studies, Urban Economics, Economic Geography, Regional Science, and Transportation.
 
-### PhD Thesis Supervision
+</details>
+
+<details>
+  <summary class="fw-bold" style="font-size: 1.5em;"> PhD Thesis Supervision </summary>
 
 I have no formal experience supervising PhD students, yet. Watch this space as in the coming months this will change.
+
+</details>
