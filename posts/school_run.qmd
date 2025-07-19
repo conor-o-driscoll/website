@@ -1,0 +1,46 @@
+---
+title: "Start Young, Drive Less: The Overlooked Power of the School-Run"
+author: "Conor O'Driscoll"
+date: 2025-07-25
+categories: [School Runs, Structural Equation Modelling, Ireland]
+image: "/img/school_run.png"
+description: "What if the key to transforming urban mobility isn’t the daily commute—but how we get our kids to school?"
+---
+
+School-runs are a common but underexamined part of daily mobility. In Ireland, they account for nearly one in five household trips, yet they’re often treated as an extension of the adult commute or folded into broader discussions about household logistics. Our recent study aimed to take the school-run seriously; not just as a variant of commuting, but as a travel behaviour shaped by a distinct set of social, spatial, and infrastructural dynamics.
+
+Drawing on census data from almost 300,000 secondary school students across Ireland, we linked individual travel behaviour to a range of built environment characteristics. We used [Generalised Structural Equation Modelling (GSEM)](https://www.stata.com/features/overview/generalized-sem/) to capture the direct and indirect relationships between factors like land-use mix, transport infrastructure, household structure, and mode choice. This approach allowed us to unpack how both context and constraint shape how students get to school.
+
+
+School-Runs Are Not Just Commutes with Backpacks
+======
+
+In some respects, school-runs mirror adult commuting: students are more likely to walk, cycle, or take public transport when they live closer to school, in more compact neighbourhoods, and in areas with better infrastructure. These patterns align closely with findings from commuting research.
+
+But school-runs also reflect the complexity of family routines. Even for secondary students, decisions about how to get to school are influenced by household structures, parental schedules, perceptions of safety, and the presence of siblings. Car-based trip-chaining is common, and family habits around transport tend to carry over across generations.
+
+Recognising these dynamics helps us move beyond individual preferences and towards a better understanding of the constraints and contexts that shape school travel.
+
+
+What We Found
+======
+
+Our findings can be summarised around three key insights:
+
+Built environment matters. Students living in more mixed-use, compact areas with better walking and transit infrastructure are significantly more likely to use sustainable modes. These effects hold even when we account for household income and other socioeconomic factors.
+
+Distance remains the strongest determinant. Longer school trips are strongly associated with car use. Students who live and study in the same neighbourhood, especially within the same Electoral Division — are much more likely to walk or take public transport. Travel distance continues to shape the choice set in powerful ways.
+
+Household context matters. Students from more affluent and two-parent households are more likely to be driven to school. While these households may live in areas with good infrastructure, access to a private vehicle seems to override other factors, highlighting the role of habit, convenience, and household coordination.
+
+We also found that the structure of the local transport network plays a key role. Areas with denser road networks tended to see higher rates of car use, while greater availability of walking and cycling infrastructure was associated with more active travel. In short, people tend to use the infrastructure that’s available to them.
+
+Why It Matters
+======
+
+There is growing policy interest in promoting active travel and reducing car dependency for health, environmental, and congestion reasons. But most interventions still focus on adult commuters. The school-run, by contrast, offers a more consistent and replicable point of intervention. It happens daily, follows predictable routes, and shapes the travel habits of young people.
+
+While behaviour change campaigns are important, our findings suggest that structural conditions, particularly built form, infrastructure quality, and travel distance, remain central to shifting how people move. If we want to support more sustainable school travel, we need to plan for it: shorten distances between home and school, build coherent and safe active travel networks, and improve the quality and reliability of public transport.
+
+Ultimately, school-runs are not just about getting from A to B. They reflect broader spatial, social, and institutional dynamics. Understanding them better can help us build cities that support more inclusive and sustainable forms of everyday mobility.
+
