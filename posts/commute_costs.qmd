@@ -2,7 +2,7 @@
 title: "What is the cost of commuting?"
 author: "Conor O'Driscoll"
 date: 2025-07-21
-categories: [Travel, Commuting, Random Forests, Statistics, Ireland]
+categories: [Commuting, Random Forests, Ireland]
 image: "/img/traffic.png"
 description: "Have you ever wondered how much your daily commute costs you? This post may provide you with some answers."
 
