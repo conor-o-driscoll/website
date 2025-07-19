@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/commute_costs.html",
       "/posts/welcome.html",
       "/posts/thesis_1000_words.html"
     ]

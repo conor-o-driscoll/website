@@ -1,0 +1,43 @@
+---
+title: "What is the cost of commuting?"
+author: "Conor O'Driscoll"
+date: 2025-07-21
+categories: [Travel, Commuting, Random Forests, Statistics, Ireland]
+image: "/img/traffic.png"
+description: "Have you ever wondered how much your daily commute costs you? This post may provide you with some answers."
+
+---
+
+It’s well known that where you live influences how you travel. A recent study, co-authored with [Dr. Kevin Credit](https://www.maynoothuniversity.ie/faculty-social-sciences/our-people/kevin-credit) takes a different approach by exploring how where you live impacts the cost of travelling. More specifically, we look at how different types of built environments shape the costs of using particulary modes of transport, and the costs of travelling along specific routes, when commuting in the Dublin metropolitan area.
+
+
+Understanding Travel Costs
+======
+
+At the heart of our study is the concept of mobility costs—a way of capturing how much effort, time, and inconvenience it takes to commute using different modes of transport. These costs aren’t just financial; they reflect how infrastructure, congestion, and land-use patterns shape the real-world effectiveness of getting from A to B. Rather than looking only at which transport modes people choose, we focus on how cost-effective those modes are in different local environments. Using a “cost-distance” approach, we estimate the relative efficiency of car travel, walking, cycling, and public transport across the Dublin region. This allows us to uncover how built environments influence travel indirectly, by making certain modes more or less viable in different areas.
+
+Drawing on 2016 Census data and sources like Google Maps, OpenStreetMap, and the Irish Revenue Commissioners, we link commuter flows to detailed transport networks. We then use [random forest models](https://arxiv.org/abs/2402.01502), a type of machine learning, to uncover how local environments shape mobility costs—often in complex, non-linear ways.
+
+
+What we found
+======
+
+Active travel (walking and cycling) is most cost-effective in central Dublin and denser, walkable areas—but this benefit fades in overly dense or congested areas. We link this to the fact that these characteristics, while initially beneficial, can eventually lead to overcrowded streets, longer wait times at crossings, and more frequent stops. In these settings, travelling on foot or by bike may become stressful, when compared to other modes.
+
+Surprisingly, public transport is also quite inefficient in very dense areas. One might expect that higher density would support better service, shorter wait times, and greater usage. However, we suspect this result emerges because, in Ireland, road space is shared between cars and buses. The result? Cars and buses get stuck in the same traffic, making the trade-off between cars and public transport one which revolves around convenience and reliability—trade-offs cars win every time given the lack of countervailing measures (e.g., congestion pricing) in Irish city centres.
+
+These patterns highlight how urban form and infrastructure design shape the real cost of commuting—not just in money, but in time, effort, and convenience.
+
+
+Why this matters
+======
+
+If cities want to encourage sustainable travel, they need to reduce the relative cost of walking, cycling, and public transport. That means investing in segregated infrastructure, like bus and bike lanes that bypass congestion. But it also means designing coherent, connected transport networks, and thus directly influencing the viability of different transport modes across the urban-rural continuum.
+
+One key observation we make is that Dublin's public transport and cycling networks may be lagging behind those of global cities. For public transport, this observation stems from the lack of segregated transport infrastructure, while for active transport, it stems from the fragmentation of networks. 
+
+Projects like BusConnects are steps in the right direction. But unless they’re supported by smart land-use planning that curbs sprawl, their impact will be limited. Simply put: we can’t build our way out of car dependence without also re-shaping the environments people move through.
+
+For policymakers and urban designers, the message is clear: making sustainable travel easier isn’t just about offering alternatives: it’s about making those alternatives cost-effective, reliable, and competitive with the car.
+
+For the full technical details, please refer to the [full paper](https://doi.org/10.1016/j.jtrangeo.2024.103870).
