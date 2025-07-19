@@ -44,3 +44,5 @@ While behaviour change campaigns are important, our findings suggest that struct
 
 Ultimately, school-runs are not just about getting from A to B. They reflect broader spatial, social, and institutional dynamics. Understanding them better can help us build cities that support more inclusive and sustainable forms of everyday mobility.
 
+For the full technical details, please check out the full paper [here](https://doi.org/10.1016/j.rspp.2024.100153)!
+
