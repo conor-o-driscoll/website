@@ -5,6 +5,9 @@ project:
   - img/r-logo.svg
   - CV/CV.pdf
 website:
+  twitter-card: true
+  open-graph: true
+  google-analytics: "G-E5KK0XXE44"
   title: Conor O'Driscoll
   navbar:
     left:
