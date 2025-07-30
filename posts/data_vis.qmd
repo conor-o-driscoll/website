@@ -2,7 +2,7 @@
 title: "Always visualise your data: Simpsons Paradox in action"
 author: "Conor O'Driscoll"
 date: 2025-07-30
-categories: [Commuting, Random Forests, Ireland]
+categories: [Data Visualisation, Applied Statistics (Beginners), Simpson's Paradox]
 #image: "/img/traffic.png"
 description: "What if the data you’re analyzing tells one story in aggregate—but the exact opposite when you break it down?"
 ---
