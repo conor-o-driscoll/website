@@ -1,0 +1,230 @@
+---
+title: "Always visualise your data: Simpsons Paradox in action"
+author: "Conor O'Driscoll"
+date: 2025-07-30
+categories: [Commuting, Random Forests, Ireland]
+#image: "/img/traffic.png"
+description: "What if the data you’re analyzing tells one story in aggregate—but the exact opposite when you break it down?"
+---
+
+If you've ever opened a dataset and jumped straight into statistical testing, you're not alone. It’s tempting to rush toward a result — an effect, a relationship, a difference — and get to work writing it up. But what if the "result" you find hides a deeper contradiction? What if the truth is visible in your data, but only if you look at it the right way?
+
+This is where data visualization comes in. Visualization is how we make our data legible not just to others, but to ourselves. Indeed, I would make the case that you cannot fully understand what is going on in your data without some form of data visualisation as it helps us detect patterns, check assumptions, and avoid being misled.
+
+To illustrate this, let’s explore one of the most famous cases where misleading aggregate data can lead to erroneous conclusions: Simpson’s Paradox, using the classic UC Berkeley admissions dataset from 1973.
+
+
+Setting The Scene
+======
+
+Imagine that you’re interested in studying gender bias in university admissions. You obtain real administrative data from UC Berkeley’s graduate programs from 1973 and start with what seems like a straightforward question:
+
+_Were men more likely to be admitted than women?_
+
+You begin by exploring what type of data you have available in your dataset. 
+
+``` {r, echo=FALSE, output=FALSE}
+
+if(!("webexercises" %in% installed.packages()[,"Package"])) install.packages("webexercises")
+if(!("tidyverse" %in% installed.packages()[,"Package"])) install.packages("tidyverse")
+
+library("webexercises")
+library("tidyverse")
+
+```
+
+In this post, we will use the UCBAdmissions dataset: A well-known built-in R dataset derived from real administrative records of graduate admissions at UC Berkeley in 1973.
+
+``` {r}
+
+#The relevant packages have been loaded elsewhere
+
+#Load the data
+data(UCBAdmissions)
+ucb_df <- as.data.frame(UCBAdmissions)
+
+#What are the variable names?
+names(ucb_df)
+
+#A broad overview of the structure these variables take
+glimpse(ucb_df)
+
+```
+Ok. These commands already tells us a lot about the structure of the dataset. There are four variables (columns) and 24 unique data points (rows). More specifically, we can see that it counts the number of applications for six departments by admissions status and sex. To really ensure that you understand the structure of this dataset, try answering the following questions:
+
+
+::: {.webex-check .webex-box}
+
+1. What type of variable is Admit? `r mcq(c("Ratio", "Interval", answer = "Binary", "Nominal", "Ordinal"))`
+
+2. What type of variable is Gender? `r mcq(c("Ratio", "Interval", answer = "Nominal", "Ordinal"))`
+
+3. What type of variable is Freq? `r mcq(c(answer = "Ratio", "Interval", "Binary", "Nominal", "Ordinal"))`
+
+4. What type of variable is Dept? `r mcq(c("Ratio", "Interval", "Binary", answer = "Nominal", "Ordinal"))`
+
+5. What type of variable is labelled as `fct`? `r mcq(c("Binary", "Nominal", "Ordinal", answer = "All of these"))`
+
+6. What type of variable is labelled as `dbl`? `r mcq(c("Interval", "Ratio", answer = "Both of these"))`
+
+:::
+
+
+Aggregate Trends: A Broad Overview 
+======
+
+
+Now that we know how our dataset is structured and broadly what the variables look like, we can revisit our main research question: _Were men more likely to be admitted than women?_
+
+How might we begin answering such a question? A logical first step might be to summarize overall admission rates by sex:
+
+``` {r}
+
+#Calculate overall admission rates by gender
+overall_admit <- ucb_df %>%
+  group_by(Gender, Admit) %>%
+  summarise(Freq = sum(Freq)) %>%
+  tidyr::pivot_wider(names_from = Admit, 
+                     values_from = Freq) %>%
+  mutate(Total = Admitted + Rejected,
+         AdmitRate = Admitted / Total) %>%
+  ungroup()
+
+
+#Display the table
+print(overall_admit)
+
+```
+
+To ensure that you understand what this code is doing, try answering the following questions:
+
+::: {.webex-check .webex-box}
+
+7. True or False: Grouping by `Gender` and `Admit` allows us to generate seperate counts of admissions and rejections by Gender and Department. `r torf(FALSE)`
+
+8. True or False: Grouping by `Admit` is unnecessary to generate the values used to compute `AdmitRate`. `r torf(FALSE)`
+
+9. If we wanted to make this table more professional in its presentation, which of the following packages might we use? `r mcq(c("ggplot2", "tidyverse", answer = "kableExtra", "stargazer"))`
+
+10. Which type of table does this example most closely resemble? `r mcq(c("summary statistics table", "crosstable", answer = "frequency table"))`
+
+:::
+
+At first glance, the results seem clear: men are more likely to be admitted to graduate school in UC Berkeley than woman.
+
+::: {.webex-check .webex-box}
+
+11. Which column do we use to come to this conclusion? `r mcq(c("Gender", "Admitted", "Rejected", "Total", answer = "AdmitRate"))`
+
+:::
+
+
+Digging A Bit Deeper: Department-Specific Heterogeneity?
+======
+
+
+You might stop here and think your work is done. But this only tells us what is going on in the aggregate. Unless you are a macroeconomist, you should know better than to trust aggregate data; something interesting probably lies beneath the surface. So, with this in mind, we shall dig a bit deeper.
+
+Let’s start by breaking this down by department. The data includes six departments, labeled A–F. What happens when we examine admission rates within departments?
+
+``` {r}
+dept_admit <- ucb_df %>%
+  group_by(Dept, Gender, Admit) %>%
+  summarise(Freq = sum(Freq)) %>%
+  tidyr::pivot_wider(names_from = Admit, 
+                     values_from = Freq) %>%
+  mutate(Total = Admitted + Rejected,
+         AdmitRate = Admitted / Total)
+
+print(dept_admit)
+```
+
+
+::: {.webex-check .webex-box}
+
+12. One of the following statements best describes the core difference between `dept_admit` and `overall_admit`. Pick the most appropriate: `r longmcq(c(answer = "overall_admit counts admissions and rejections by sex; dept_admit further breaks this down by sex", "overall_admit gives us aggregate trends while dept_admit provides more disaggregated insights", "dept_admit fails to account for admission status while overall_admit does"))`
+
+:::
+
+Now the story flips: in most departments, women have higher admission rates than men. So how can the overall numbers suggest the opposite? This reversal is a textbook example of Simpson’s Paradox - a phenomenon where a trend appears in different groups but reverses when the groups are combined.
+
+In this case, women were more likely to apply to departments with lower overall admission rates (e.g., departments C, D, E, F), while men applied more to departments with higher admission rates (departments A and B). The aggregate numbers hide this because they mix different denominators across departments.
+
+This illustrates a broader lesson: data summaries without disaggregation can obscure the underlying structure of your data. And without visualization, this kind of paradox is hard to detect.
+
+Let’s visualize the department-level admission rates by gender.
+
+``` {r}
+ggplot(dept_admit, aes(x = Dept, 
+                       y = AdmitRate, 
+                       fill = Gender)) +
+  geom_col(position = "dodge") +
+  labs(title = "Admission Rates by Gender and Department (UC Berkeley, 1973)",
+       y = "Admission Rate", 
+       x = "Department") +
+  scale_fill_manual(values = c("Male" = "#377eb8", 
+                               "Female" = "#e41a1c")) +
+  theme_minimal()
+```
+  
+::: {.webex-check .webex-box}
+
+13. Which of the following charts best describes the chart displayed above? `r mcq(c("histogram", "pie chart", answer = "bar chart", "scatterplot", "stem-and-leaf diagram"))`
+
+14. What do the letters `x` and `y` refer to, in statistical terms? `r longmcq(c(answer = "X refers to an independent variable; Y refers to a dependent variable", "X refers to an dependent variable; Y refers to a independent variable", "X refers to an endogenous variable; Y refers to a exogenous variable", "X refers to the variable which determines the value of Y", "Y refers to the variable which determines the value of X"))`
+
+15. Which of the following might best describe why we have put `AdmitRate` as the Y variable in this chart? `r  longmcq(c("Because admission rates determine which department an applicant chooses", answer = "Because we want to compare how likely applicants are to be admitted across departments and genders", "Because AdmitRate is a control variable in the admissions process", "Because AdmitRate belongs on the Y-axis for statistical validity")) `
+
+:::
+
+
+This plot shows that in nearly all departments, women had similar or higher admission rates than men. The illusion of bias in the aggregate comes from differences in application patterns, not unfair decisions within departments. To confirm this, let's also show how department choice varied by gender.
+
+``` {r}
+applicants <- ucb_df %>%
+  group_by(Dept, Gender) %>%
+  summarise(Applicants = sum(Freq))
+
+ggplot(applicants, aes(x = Dept, 
+                       y = Applicants, 
+                       fill = Gender)) +
+  geom_col(position = "dodge") +
+  labs(title = "...",
+       y = "...", 
+       x = "Department") +
+  scale_fill_manual(values = c("Male" = "#377eb8", 
+                               "Female" = "#e41a1c")) +
+  theme_minimal()
+```
+  
+This second chart reveals that men were more likely to apply to departments A and B, which had higher acceptance rates, while women applied more often to departments C through F, where competition was steeper.
+
+::: {.webex-check .webex-box}
+
+16. What is the core difference between the two charts presented above? `r longmcq(c("The first displays raw admission counts, while the second displays admission rates", answer = "The first displays admission rates, while the second displays raw admission counts", "the first chart is inappropriate and brings no added value to the analysis, while the second chart is highly valuable", "the second chart is inappropriate and brings no added value to the analysis, while the first chart is highly valuable", "there is no core difference between the two charts; this is a trick question"))`
+
+:::
+
+
+Wrapping Up
+======
+
+This example is more than a historical curiosity—it’s a powerful reminder of what can go wrong when we skip visual exploration. Without breaking down the data into meaningful subgroups or visualizing it, we risk drawing misleading conclusions from aggregated numbers—a mistake that can easily obscure important patterns or biases hidden within the data. Here are a few key takeaways:
+
+1. Never Rely on Aggregates Alone
+Always ask: What groups might I be collapsing? Can different subgroups tell different stories?
+
+2. Use the Right Visualization for the Question
+Tables are great for precision, but bar plots, dot plots, and faceted graphics help reveal structure. In this case, side-by-side bar charts made the paradox visible in seconds.
+
+3. Visuals Help You Understand Your Own Data
+Good graphics aren’t just for presentations. They’re how you, as a researcher or analyst, come to understand the texture of the data you’re working with.
+
+4. Tabulation Has Added Value When It Reveals Structure
+A well-designed cross-tab or grouped summary tells you what’s driving a result. Don’t just count things—count them strategically.
+
+Hungry For More?
+======
+
+
+For more information on the exact data used in this post, check out the full paper [here](https://www.science.org/doi/10.1126/science.187.4175.398). Alternatively, type `help(UCBAdmissions)` into the R console if you wish to replicate or extend the analyses conducted here.

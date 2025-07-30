@@ -5,11 +5,9 @@
 
 #TO-DO list:
 
-[1] Generate CSS file so that fonts and aesthetics can better match what I am aiming for;
+[1] Start "Applied Statistics" Series
 
-[2] Explore templates for news and musings sections
-
-[3] Potentially integrate animation blocks into "talks" subsection
+[2] Potentially integrate animation blocks into "talks" subsection
 
 
 *This repo was initially generated from a Quarto template available here: https://github.com/jtr13/website-template.*

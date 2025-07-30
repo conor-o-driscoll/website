@@ -5,7 +5,6 @@ date: 2025-07-21
 categories: [Commuting, Random Forests, Ireland]
 image: "/img/traffic.png"
 description: "Have you ever wondered how much your daily commute costs you? This post may provide you with some answers."
-
 ---
 
 It’s well known that where you live influences how you travel. A recent study, co-authored with [Dr. Kevin Credit](https://www.maynoothuniversity.ie/faculty-social-sciences/our-people/kevin-credit) takes a different approach by exploring how where you live impacts the cost of travelling. More specifically, we look at how different types of built environments shape the costs of using particulary modes of transport, and the costs of travelling along specific routes, when commuting in the Dublin metropolitan area.

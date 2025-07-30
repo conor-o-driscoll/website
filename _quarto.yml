@@ -2,46 +2,39 @@ project:
   type: website
   output-dir: docs
   resources:
-    - img/r-logo.svg
-    - CV/CV.pdf
-    #- img/bluesky-logo.svg
-  
+  - img/r-logo.svg
+  - CV/CV.pdf
 website:
-  title: "Conor O'Driscoll"
+  title: Conor O'Driscoll
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - href: CV.qmd
-        text: CV
-      - href: research.qmd
-        text: Publications and Talks
-      - href: teaching.qmd
-        text: Teaching Materials
-      - href: blog.qmd
-        text: News and Musings
+    - href: index.qmd
+      text: Home
+    - href: CV.qmd
+      text: CV
+    - href: research.qmd
+      text: Publications and Talks
+    - href: teaching.qmd
+      text: Teaching Materials
+    - href: blog.qmd
+      text: News and Musings
     tools:
-      - icon: twitter-x
-        href: https://twitter.com/conorodriscollx
-      - icon: linkedin
-        href: https://www.linkedin.com/in/conor-o-driscoll-a0624a234/
-        #Currently not available [i think it is an issue with the themes - need to create a css file for it to work]
-      #- icon: bluesky
-        #href: (https://bsky.app/profile/conorodriscoll99.bsky.social)
-      - icon: building
-        href: https://www.rug.nl/staff/c.odriscoll/?lang=en
-      - icon: github
-        href: https://conor-o-driscoll.github.io/website/
-
-#Can you change it so that the font is smaller and the icons go here? This format looks quite nice: https://www.erinbugbee.com/
+    - icon: twitter-x
+      href: https://twitter.com/conorodriscollx
+    - icon: linkedin
+      href: https://www.linkedin.com/in/conor-o-driscoll-a0624a234/
+    - icon: building
+      href: https://www.rug.nl/staff/c.odriscoll/?lang=en
+    - icon: github
+      href: https://conor-o-driscoll.github.io/website/
   page-footer:
-    right: "Built with ![](img/r-logo.svg){height=20px style='vertical-align: middle; filter: grayscale(100%);'} and [Quarto](https://quarto.org/)"
-    left: "&copy; Copyright 2025, Conor O'Driscoll"
-
+    right: 'Built with ![](/img/r-logo.svg){height=20px style=''vertical-align: middle;
+      filter: grayscale(100%);''} and [Quarto](https://quarto.org/)'
+    left: '&copy; Copyright 2025, Conor O''Driscoll'
 format:
   html:
     theme: minty
     toc: true
-
+    include-after-body: include/webex.js
+    css: include/webex.css
 editor: source
-
