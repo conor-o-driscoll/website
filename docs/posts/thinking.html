@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Conor O’Driscoll">
+<meta name="dcterms.date" content="2025-08-07">
+<meta name="description" content="Thinking statistically doesn’t start with numbers or formulas, it starts with noticing.">
 
-<title>blog – Conor O'Driscoll</title>
+<title>Thinking Statistically: A Primer – Conor O’Driscoll</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-description','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-E5KK0XXE44"></script>
 
 <script type="text/javascript">
@@ -107,41 +79,16 @@ gtag('js', new Date());
 gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="include/webex.css">
-<meta property="og:title" content="Conor O’Driscoll">
+<link rel="stylesheet" href="../include/webex.css">
+<meta property="og:title" content="Thinking Statistically: A Primer – Conor O’Driscoll">
+<meta property="og:description" content="Thinking statistically doesn’t start with numbers or formulas, it starts with noticing.">
+<meta property="og:image" content="/img/math_lady.jpg">
 <meta property="og:site_name" content="Conor O'Driscoll">
-<meta name="twitter:title" content="Conor O’Driscoll">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Thinking Statistically: A Primer – Conor O’Driscoll">
+<meta name="twitter:description" content="Thinking statistically doesn’t start with numbers or formulas, it starts with noticing.">
+<meta name="twitter:image" content="/img/math_lady.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -151,7 +98,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Conor O’Driscoll</span>
     </a>
   </div>
@@ -162,23 +109,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./CV.html"> 
+    <a class="nav-link" href="../CV.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">Publications and Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
+    <a class="nav-link" href="../teaching.html"> 
 <span class="menu-text">Teaching Materials</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../blog.html"> 
 <span class="menu-text">News and Musings</span></a>
   </li>  
 </ul>
@@ -193,191 +140,162 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="About Me">About Me <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Applied Statistics (Beginners)">Applied Statistics (Beginners) <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Commuting">Commuting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Data Visualisation">Data Visualisation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ireland">Ireland <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Random Forests">Random Forests <span class="quarto-category-count">(1)</span></div><div class="category" data-category="School Runs">School Runs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Simpson's Paradox">Simpson's Paradox <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Structural Equation Modelling">Structural Equation Modelling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Thesis Writing">Thesis Writing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Website">Website <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#statistics-as-a-way-of-seeing" id="toc-statistics-as-a-way-of-seeing" class="nav-link active" data-scroll-target="#statistics-as-a-way-of-seeing">Statistics As A Way Of Seeing</a></li>
+  <li><a href="#statistics-is-about-asking-better-questions" id="toc-statistics-is-about-asking-better-questions" class="nav-link" data-scroll-target="#statistics-is-about-asking-better-questions">Statistics is about asking [better] questions</a></li>
+  <li><a href="#becoming-the-right-kind-of-skeptic" id="toc-becoming-the-right-kind-of-skeptic" class="nav-link" data-scroll-target="#becoming-the-right-kind-of-skeptic">Becoming The Right Kind of Skeptic</a></li>
+  <li><a href="#work-a-bit-harder-at-thinking-critically" id="toc-work-a-bit-harder-at-thinking-critically" class="nav-link" data-scroll-target="#work-a-bit-harder-at-thinking-critically">Work A Bit Harder At Thinking Critically</a></li>
+  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping Up</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Thinking Statistically: A Primer</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Applied Statistics (Beginners)</div>
+  </div>
+  </div>
 
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-     </select>
+<div>
+  <div class="description">
+    Thinking statistically doesn’t start with numbers or formulas, it starts with noticing.
   </div>
 </div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Applied Statistics (Beginners)" data-listing-date-sort="1754517600000" data-listing-file-modified-sort="1754579693617" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1639">
-<div class="thumbnail">
-<p><a href="./posts/thinking.html" class="no-external"></a></p><a href="./posts/thinking.html" class="no-external">
-<p><img loading="lazy" src="./img/math_lady.jpg" class="thumbnail-image" style="height: 150px;"></p>
-</a><p><a href="./posts/thinking.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/thinking.html" class="no-external">Thinking Statistically: A Primer</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/thinking.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/thinking.html" class="no-external">Thinking statistically doesn’t start with numbers or formulas, it starts with noticing.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/thinking.html" class="no-external"></a></p><a href="./posts/thinking.html" class="no-external">
-<div class="listing-reading-time">
-9 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Thesis Writing" data-listing-date-sort="1754344800000" data-listing-file-modified-sort="1752963012156" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="671">
-<div class="thumbnail">
-<p><a href="./posts/thesis_1000_words.html" class="no-external"></a></p><a href="./posts/thesis_1000_words.html" class="no-external">
-<p><img loading="lazy" src="./img/thesis.png" class="thumbnail-image" style="height: 150px;"></p>
-</a><p><a href="./posts/thesis_1000_words.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/thesis_1000_words.html" class="no-external">How to write a thesis in 1000 words or less</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/thesis_1000_words.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/thesis_1000_words.html" class="no-external">Are you struggling to write your thesis?</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/thesis_1000_words.html" class="no-external"></a></p><a href="./posts/thesis_1000_words.html" class="no-external">
-<div class="listing-reading-time">
-4 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Data Visualisation,Applied Statistics (Beginners),Simpson" s="" paradox'="" data-listing-date-sort="1753826400000" data-listing-file-modified-sort="1753868821391" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1841">
 
-<div class="thumbnail">
-<a href="./posts/data_vis.html" class="no-external">
 
-<p class="card-img-top"><img src="posts/data_vis_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="quarto-title-meta">
 
-</a>
-</div>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Conor O’Driscoll </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 7, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
-<div class="body">
 
-<h3 class="no-anchor listing-title"><a href="./posts/data_vis.html" class="no-external">Always visualise your data: Simpsons Paradox in action</a></h3>
-<div class="listing-subtitle"><a href="./posts/data_vis.html" class="no-external"></a></div>
+</header>
 
- 
 
-<div class="delink listing-description"><a href="./posts/data_vis.html" class="no-external">What if the data you’re analyzing tells one story in aggregate—but the exact opposite when you break it down?</a></div>
+<section id="statistics-as-a-way-of-seeing" class="level1">
+<h1>Statistics As A Way Of Seeing</h1>
+<p>Every social and spatial scientist works with two worlds at once. There is the world we can see; that is, the concrete stuff of daily life: housing prices, bus schedules, job changes, school applications. Then there is the world we infer: the processes we believe are shaping all that surface activity: inequality, migration, gentrification, opportunity, discrimination, efficiency.</p>
+<p>Statistics sits right at that intersection. It is not just a set of techniques for crunching numbers. It is a disciplined way of making sense of experience, especially in messy, complex social settings.</p>
+<p>But if you’ve ever opened a statistics textbook and felt like it was solving problems you don’t have, or skipping the ones you care about, you’re not alone. Too often, stats is introduced through dry definitions and unfamiliar jargon, rather than through the questions that drive social inquiry.</p>
+<p>So this first post is not about p-values or confidence intervals. It is about what it means to reason statistically; to adopt a particular way of seeing the world that is especially suited to the challenges of the social and spatial sciences: uncertainty, complexity, partial knowledge, and competing explanations.</p>
+</section>
+<section id="statistics-is-about-asking-better-questions" class="level1">
+<h1>Statistics is about asking [better] questions</h1>
+<p>The kind of thinking involved in Statistics may seem quite different from what you are used to. But once we strip away all the jargon and really examine what it is <em>precisely</em> we are doing, you will quickly realise that the kind of thinking involved in statistics is not entirely new to you. In fact, many of your day-to-day assumptions and decisions already depend on statistical thinking.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose I tell you that I have two friends: one is around six feet tall and the other is five feet tall. What would be your best guess as to each one’s sex?</p>
+<p>Of course, you have not seen all men, or all women, but experience probably tells you that by-and-large, men tend to be taller than women.</p>
+<p>Therefore, I expect that you feel fairly confident in assuming that my smaller friend is female, while my taller friend is male. In other words, in the <em>absence of any other information</em>, you probably think it’s more likely that a tall adult is male and a small adult is female.</p>
+</div>
+</div>
+<p>We do this all the time. When you say: “On average, I cycle 50km per week”, or “We can expect a lot of rain at this time of year”, or “It is more likely that you will do well in your exams if you begin studying early” you are making statistical statements even though you have performed no calculations. Indeed, each of these examples is showing off one particular type of statistical thinking; answer the questions below to figure out which.</p>
+<div class="webex-check webex-box">
+<p>What type of statistical thinking best corresponds to each of the following scenarios:</p>
+<ol type="1">
+<li><p>On average, I cycle 50km per week. <select class="webex-select"><option value="blank"></option><option value="">Generalizing</option><option value="">Predicting</option><option value="answer">Summarizing</option><option value="">Assessing</option></select></p></li>
+<li><p>We can expect a lot of rain at this time of year. <select class="webex-select"><option value="blank"></option><option value="answer">Generalizing</option><option value="">Predicting</option><option value="">Assessing</option><option value="">Summarizing</option></select></p></li>
+<li><p>It is more likely that you will do well in your exams if you begin studying early. <select class="webex-select"><option value="blank"></option><option value="">Assessing</option><option value="answer">Predicting</option><option value="">Generalizing</option><option value="">Summarizing</option></select></p></li>
+</ol>
+</div>
+<p>When we summarize our past experience in a rough-and-ready way, or generalize from previous experiences, and use this information to make predictions about what we expect, we are subconsciously making broader sense of our lived experiences. That is why thinking statistically is not about chasing certainty, it is about navigating ambiguity with discipline. We use data to challenge our assumptions, to explore patterns we might not otherwise see, and to resist being misled by what seems obvious.</p>
+</section>
+<section id="becoming-the-right-kind-of-skeptic" class="level1">
+<h1>Becoming The Right Kind of Skeptic</h1>
+<p>When people think about statistics, they often think about numbers. Because they are numbers, people thus tend to think that statistics are cold, hard facts that have been bestowed upon us by nature. But statistics are human-made. People choose what to count, how to count it, and how to frame the result. That means statistics are not just facts, they are interpretations.</p>
+<p>To think statistically, then, is to think critically. It is about learning to ask: Is that plausible? Compared to what? How do they know that? These habits of mind matter, especially in a world full of misleading headlines and dodgy comparisons.</p>
+<p>The more you practice statistics as a mindset, the more these habits become second nature; a kind of internal skepticism paired with external curiosity.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Today, information is available nearly instantaneously, but it is becoming increasingly difficult to tell what is true and what is not. Even though misinformation has been a problem that has existed since ancient Greece, the unique problem we face today is that it has proliferated and is closely intertwined on the internet with real information, making it sometimes difficult to identify.</p>
+<p>Some of you who might respond by saying “it is not my job to evaluate statistics critically”. I say that it may not be your job, but it is your responsibility to own your opinions. Taking ownership of these opinions requires you to think critically about the words and numbers you encounter, and scrutinize/examine them as best you can.</p>
+</div>
+</div>
+<p>Test your intuition using the following examples, where <code>TRUE</code> = Plausible and <code>False</code> = Not Plausible:</p>
+<div class="webex-check webex-box">
+<ol start="4" type="1">
+<li><p>A crystal wine glass fell off a table onto a thick carpet without breaking. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+<li><p>A crystal wine glass fell off the roof of a forty-storey skyscraper onto the footpath without breaking. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>The best salesperson in Company X makes 1,000 sales every day. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>The cost of a telephone has decreased by 12,000% since the formation of the Communication Satellite Corportation. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+</ol>
+</div>
+<p>Problems 4 and 5 were hopefully easy for most of you. Problem 6 is a bit trickier because it is not immediately obvious where to begin. Assuming that it takes: i) five seconds to dial a phone number, ii) another five seconds for the phone to ring, iii) 10 seconds to deliver your sales pitch, and iv) 40 seconds to collect the buyers bank details and address. That adds up to one call per minute. Finally, lets assume that every phone call ends in a sale. Even under these highly optimistic conditions, you come out sixty sales per hour, and 480 sales in an eight hour work day with no breaks. Need I say any more?</p>
+<p>Claim 7 is difficult to verify if you do not spot the immediate contradiction. If a cost decreases by 100 percent it means that, irrespective of the starting price, the price is now zero. If a cost decreases by 200 percent, it means that someone is paying <em>you</em> the same amount of money that you used to pay them for their product. Thus, while a decrease in price of 100% is quite rare, a decrease of 12000% seems wildly unlikely. You might think this is obvious. Tell that to the editors of <em>Science</em> (a leading scientific journal) who <a href="https://www.science.org/doi/abs/10.1126/science.223.4636.553">published</a> such a statement.</p>
+<p>The fact that claim 7 is expressed as a percentage introduces further complexity. Percentages seem so simple and incorruptable, but they are often confusing. For example, if your salary drops by 50% tomorrow, you will not “break-even” by increasing your new salary by 50% because the baselines have changed.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you were recieving €1,000 each week and that suddenly dropped to €500 (a 50% reduction), a 50% increase on that pay only brings you to €750.</p>
+</div>
+</div>
+<p>Similarly, if interest rates rise from 3 to 4 percent, that constitutes an increase of one percentage point, or an increase of 33 percent. Meanwhile, if interest rates drop from 4 to 3 percent, that constitutes a decrease of one percentage point, but a decrease of 25 percent. Has your head exploded yet?</p>
+</section>
+<section id="work-a-bit-harder-at-thinking-critically" class="level1">
+<h1>Work A Bit Harder At Thinking Critically</h1>
+<p>In another somewhat famous case, the state of New Jersey adopted legislation that denied additional benefits to mothers who have children while already on welfare. Some legislators believed that women were having babies in New Jersey simply to increase the amount on their welfare checks. Within two months, legislators were declaring that the “family cap” law was a success because <em>births</em> had already fallen by 16 percent, as reported in the <a href="https://www.nytimes.com/1995/09/21/us/welfare-in-transition-new-jersey-the-gop-s-family-cap-has-a-democratic-history.html"><em>New York Times</em></a>. Now, maybe things are different in New Jersey, but I believe that it takes nine months for a pregnancy to come to term, so how can this effect possibly be attributed to the policy?</p>
+<p>Other claims, like <em>More people have cell phones than toilets</em> (reported by <a href="https://newsfeed.time.com/2013/03/25/more-people-have-cell-phones-than-toilets-u-n-study-shows/"><em>Time</em> Magazine</a> in 2013) are a bit trickier because the answer depends on a host of factors, like who/how we count and what we compare. One potentially reasonable place to start might be the observation that many people in the developing world do not have indoor plumbing, whereas many people in the developed world have more than one cell phone. From this angle, the claim seems plausible. This is not to say that we should accept it, but rather that we cannot reject it out-of-hand as being ridiculous. In this case, what matters isn’t whether you instantly know the answer, but whether you know how to start thinking about it.</p>
+<p>Statistical thinking begins not with formulas, but with noticing. Noticing change. Noticing contrast. Noticing when something feels off. You do not need advanced math to do this. You need curiosity, a willingness to slow down, and a readiness to challenge your first impression.</p>
+</section>
+<section id="wrapping-up" class="level1">
+<h1>Wrapping Up</h1>
+<p>Statistics is not just about techniques. It is about developing better instincts and organising your curiosity. It helps you ask clearer questions and give more careful answers.</p>
+<p>It will not turn you into a calculator. But it will help you see more clearly. To doubt usefully, not cynically. To ask things like: Where did that number come from? What is the comparison? What is the alternative?</p>
+<p>If you have ever had a hunch something was not quite right, or spotted a pattern in your surroundings, congratulations. You have already started thinking statistically.</p>
 
-</div>
-<div class="metadata"><a href="./posts/data_vis.html" class="no-external">
 
- <div class="listing-reading-time">10 min</div> 
-</a></div>
+</section>
 
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="School Runs,Structural Equation Modelling,Ireland" data-listing-date-sort="1753394400000" data-listing-file-modified-sort="1752961979537" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="612">
-<div class="thumbnail">
-<p><a href="./posts/school_run.html" class="no-external"></a></p><a href="./posts/school_run.html" class="no-external">
-<p><img loading="lazy" src="./img/school_run.png" class="thumbnail-image" style="height: 150px;"></p>
-</a><p><a href="./posts/school_run.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/school_run.html" class="no-external">Start Young, Drive Less: The Overlooked Power of the School-Run</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/school_run.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/school_run.html" class="no-external">What if the key to transforming urban mobility isn’t the daily commute—but how we get our kids to school?</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/school_run.html" class="no-external"></a></p><a href="./posts/school_run.html" class="no-external">
-<div class="listing-reading-time">
-4 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="Commuting,Random Forests,Ireland" data-listing-date-sort="1753048800000" data-listing-file-modified-sort="1753859136647" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="595">
-<div class="thumbnail">
-<p><a href="./posts/commute_costs.html" class="no-external"></a></p><a href="./posts/commute_costs.html" class="no-external">
-<p><img loading="lazy" src="./img/traffic.png" class="thumbnail-image" style="height: 150px;"></p>
-</a><p><a href="./posts/commute_costs.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/commute_costs.html" class="no-external">What is the cost of commuting?</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/commute_costs.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/commute_costs.html" class="no-external">Have you ever wondered how much your daily commute costs you? This post may provide you with some answers.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/commute_costs.html" class="no-external"></a></p><a href="./posts/commute_costs.html" class="no-external">
-<div class="listing-reading-time">
-3 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="Website,About Me" data-listing-date-sort="1752876000000" data-listing-file-modified-sort="1752949840360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="318">
-<div class="thumbnail">
-<p><a href="./posts/welcome.html" class="no-external"></a></p><a href="./posts/welcome.html" class="no-external">
-<p><img loading="lazy" src="./img/profile.jpg" class="thumbnail-image" style="height: 150px;"></p>
-</a><p><a href="./posts/welcome.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/welcome.html" class="no-external">Welcome to my website!</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/welcome.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/welcome.html" class="no-external">Welcome to my website! This post describes what you can expect to find on this platform and how I intend to use it.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/welcome.html" class="no-external"></a></p><a href="./posts/welcome.html" class="no-external">
-<div class="listing-reading-time">
-2 min
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -1014,7 +932,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with <img src="./img/r-logo.svg" style="vertical-align: middle; filter: grayscale(100%);" height="20"> and <a href="https://quarto.org/">Quarto</a></p>
+<p>Built with <img src="../img/r-logo.svg" style="vertical-align: middle; filter: grayscale(100%);" height="20"> and <a href="https://quarto.org/">Quarto</a></p>
 </div>
   </div>
 </footer>

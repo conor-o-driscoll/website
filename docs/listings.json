@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/thinking.html",
       "/posts/thesis_1000_words.html",
       "/posts/data_vis.html",
       "/posts/school_run.html",
