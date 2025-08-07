@@ -2,7 +2,7 @@
 title: "Welcome to my website!"
 author: "Conor O'Driscoll"
 date: 2025-07-19
-categories: [Website, About Me]
+categories: [About Me]
 image: "/img/profile.jpg"
 description: "Welcome to my website! This post describes what you can expect to find on this platform and how I intend to use it."
 ---
