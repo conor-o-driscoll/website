@@ -87,3 +87,9 @@ That is why good statistical thinking matters. It helps us ask better questions,
 
 And if that sounds useful, that is because it is.
 
+
+Bibliography
+======
+
+1. Statistics: A Very Short Introduction by David J. Hand<br>
+2. Statistics Without Tears: An Introduction For Non-Mathematicians, by Derek Rowntree<br>

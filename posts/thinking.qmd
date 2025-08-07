@@ -127,3 +127,10 @@ It will not turn you into a calculator. But it will help you see more clearly. T
 
 If you have ever had a hunch something was not quite right, or spotted a pattern in your surroundings, congratulations. You have already started thinking statistically.
 
+
+Bibliography
+======
+
+1. Statistics Without Tears: An Introduction For Non-Mathematicians, by Derek Rowntree<br>
+2. A Field Guide To Lies and Statistics: A Neuroscientist on How to Make Sense of A Complex World, by Daniel J. Levitin<br>
+
