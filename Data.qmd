@@ -1,0 +1,76 @@
+---
+title: "Data, Data, Data"
+author: "Conor O'Driscoll"
+---
+
+Introduction:
+
+
+What Is Data?
+
+- definition;
+- description;
+- datasets [pp.16-24 in textbook] - link to from observation to data
+
+
+Collecting Data
+
+- pp.16-24 in textbook
+
+Data: Some Key Considerations
+
+- What are you measuring?
+- How are you measuring it?
+- How meaningful are your measures?
+
+Introduction
+
+Data is the core input of statistics. But more than that, they are the raw material on which the discipline of statistics is built, as well as the raw material from which individual statistics themselves are calculated. 
+
+::: callout-note
+The word data itself comes from the Latin _datum_, basically meaning "something given". As such, many people opt to describe data as a plural term (i.e., the data are poor), rather than as a singular (i.e., the data is poor). But it is also common to treat the word data as if it were a continuum. For example, you would never say the water are wet. Rather, you would say water is wet. I tend to jump between both depending on the context.
+:::
+
+Data are typically numbers: the results of measurements, counts, or other processes. But it is not always numbers. Sometimes, data represents categories, or it could even represent plain text, sentences and pictures, depending on the context in which you are working. In saying that, closer examination will usually reveal that when you try to use such data in any type of analysis, it is usually transformed in some way such that it becomes numeric. 
+
+It is all well-and-good saying that statistics primarily deals with numeric data, but for this data to be useful - that is, for us to be able to do some meaningful analysis - these numbers need to mean something. For example, we need to know, first-and-foremost, what the measurements we have collected are measurements of, and just what has been counted, when data is expressed in counts. Further, to produce reliable and accurate results, we also ought to know a fair deal about how these numbers were collected, alongside who and where they were collected from.
+
+Did everyone we asked give answers to our questionnaire, or did only some people answer? If only some people answered, are they properly representative of the wider group we wish to study, or has it been distorted in some way? For example, did a disproportionately large number of males answer our survey? Did people only answer specific questions? If so, how do we handle the missing data for the remaining questions? Is there something specific about that question that people did not like, or do these questions appear to have been avoided by specific groups of people (i.e., ethnic minorities).
+
+Likewise, we need to know if our data is up to date, and whether the measurement instrument we use is reliable. Can we assume that people accurately self-report their income, rent/mortgage payments, and commute times? Or are they better treated as a rough estiminate?
+
+There are an infinite number of questions we could ask in this realm. What matters is that we stay alert to any which could influence the conclusions we draw. Failure to consider these questions is what vindicates people who are suspicious of statistics as they constitute a clear failure to apply and interpret the numbers appropriately.
+
+With that in mind, another way of thinking about data is to consider it a form of evidence. Without data, our ideas and theories about the world around us are little more than speculations. Data provide a grounding, linking our ideas and theories to reality, while also allowing us to test and validate this understanding. Statistical methods can then be used to compare the data with our ideas and theories, to see how good a match they are. A poor match forces us to think again and reformulate them based on what we observe in the data, while a good match might signal that we have a good intuitive understanding of the problem at hand.
+
+Implicit in this is that, to be meaningful, our ideas and theories must yield plausible predictions; predictions which we can also compare with our data. If our theories and ideas to do not tell us what we should expect to observe, or if the predictions are so general that any data will conform with our theories (e.g., astrology), then evidently our theories and ideas are no good.
+
+Data also allow us to steer our way through a complex world and make decisions about the best actions to take. We take our measurements, count our totals, and use statistical methods to extract information from these data to describe how the world is behaving and what we should do to make it behave how we want. These principles are illustrated when we seek to evaluate complex regional or social policies.
+
+Data plays a fundamental role in tying observations about the world around us to our ideas and understanding of that world. 
+
+
+For example, a relatively basic category like "sex" can take two categories: male and female. Literally speaking, these are words, but when using them in any form of quantitative analysis, they are converted into numbers (usually, 1 and 0), where a value of 1 might represent Males and a value of 0 might represent females or _vice versa_.
+
+In his book, _Statistics: A Very Short Introduction_, David Hand makes the nice point that even when working with more complicated categories, like entire sentences, these can be processed into word counts, or measures of similarity between words and phrases; and that this is the sort of representation used by search engines like Google.
+
+I prefer to think of data as an umbrella term capturing any inputs you use when conducting an analysis which contributes to the formation of an answer to your proposed (research) question. In saying that, although many forms of data do not start out as numeric, they will eventually be transformed into numbers, making it somewhat fair to generalise that data is a numeric object; especially seeing as most forms of statistics require numerical data as inputs.
+
+
+*Insert MCQ - Which of the following might count as "data", given the above description*.
+
+
+
+
+It is convenient to think of data as providing a simplified representation of whatever we are studying; be it people, firms, or places. Admittedly, the representation would not be perfect, because many underlying characteristics of people, firms, and places cannot be neatly captured by numeric measures, but they often tell us enough such that the core characteristics of interest can be identified. In saying that, it is important to bear in mind that data quality is extremely important. Like in life, if you have poor material to work with then the results you generate will also be poor. We can do amazing things with statistics, but we cannot perform miracles.
+
+
+
+From Observation To Data: A Refresher
+======
+
+Sometimes, we observe a single thing — a person, a place, an event — and note several of its features. More interestingly, we often observe many things that are similar in some respects but quite different in others. We notice patterns across people, places, or time. We end up with a collection of observations, or, in the language of statistics, data.
+
+Faced with such a collection, it is natural to start comparing. What is the same? What is different? What might explain those differences? This is where statistical thinking deepens. The overarching question becomes: what can we learn from this data?
+
+Statistics helps us summarize what we have found so we can be clear about the facts. But it also helps us go further: to compare, to explain, and to predict. It reminds us to be cautious. What appears true in one context may not hold in another, as I am sure you are all acutely aware. If we want to generalize more confidently, the logical starting point is to gather more experience - that is, collect more data. This speaks to the fact that the more contexts, situations, and experiences we observe, the more confident we can be in drawing conclusions and making suggestions. In other words, if we want to generalize more confidently, we need more data, which happens to be the logic underpinning one of the most powerful ideas in statistics: the Central Limit Theorem.

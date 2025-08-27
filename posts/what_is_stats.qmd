@@ -18,6 +18,18 @@ library("webexercises")
 ```
 
 
+#Revise entirely
+
+What it means to think statistically: A Refresher
+
+Observations and Anecdotes
+
+Likelihood and Probability
+
+What is statistics
+- p3-4 textbook
+
+
 Thinking Statistically: A Refresher
 ======
 

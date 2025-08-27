@@ -10,6 +10,8 @@ format:
 
 1.  **Conor O'Driscoll**. 2025. "Commuting in Flux: The Roles of Place
     and Personal Circumstance In Shaping Behavioural Plasticity".
+    
+    - [PowerPoint Slides: ERSA 2025, Athens, Greece](PPTs/ERSA_EVENT_2025.pdf)
 
 2.  **Conor O’Driscoll** and Milad Abbasiharofteh. 2025. "Roots and
     Routes: Residential Relocation and Relatedness".
@@ -17,6 +19,8 @@ format:
 3.  **Conor O’Driscoll** and Federica Rossi. 2025. "Residential
     Relocation Decisions and Destinations: The Role of Working From
     Home".
+    
+    - [PowerPoint Slides: ERSA 2025, Athens, Greece](PPTs/ERSA_WFH_2025.pdf)
 
 4.  **Conor O’Driscoll** and Ana Maria Silva. 2025. "Working From Home
     and Labour Market Outcomes: The Case of Earnings and Hours Worked".
