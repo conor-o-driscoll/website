@@ -2,76 +2,44 @@
 title: "What Is Statistics?"
 author: "Conor O'Driscoll"
 date: 2025-08-08
-categories: [Applied Statistics (Beginners), Applied Statistics (Intermediate)]
+categories: [Applied Statistics (Beginners)]
 image: "/img/stats.jpg"
 description: "statistics is how we learn from evidence."
 
 ---
 
-
-``` {r, echo=FALSE, output=FALSE}
-
-if(!("webexercises" %in% installed.packages()[,"Package"])) install.packages("webexercises")
-
-library("webexercises")
-
-```
-
-
-#Revise entirely
-
-What it means to think statistically: A Refresher
-
-Observations and Anecdotes
-
-Likelihood and Probability
-
-What is statistics
-- p3-4 textbook
-
-
 Thinking Statistically: A Refresher
 ======
 
-Our ability to notice things, observe patterns, and make connections between people, places, and events is the foundation of our ability to think statistically. This kind of thinking may seem quite different from what you're used to, especially if your only encounter with statistics has been through dense equations or dry lectures. But once we strip away the jargon and focus on what we're actually doing, you'll quickly see that this kind of reasoning is not new to you at all. The post XXX goes into more detail on this point. 
-
-Statistical thinking is evidenced in many of our day-to-day observations, such as: "On average, I cycle 50km per week", or "We can expect a lot of rain at this time of year", or "It is more likely that you will do well in your exams if you begin studying early". Each of these statements is statistical in nature, even though you haven’t performed any calculations. They all summarize past experience in a rough-and-ready way and use that summary to make a prediction or a generalization. They show how we move from anecdote to pattern, from individual experiences to broader claims.
-
-Moreover, many other types of day-to-day observations involve statistical thinking. Many involve counting and measuring (even though we would rarely say that we "quantify" stuff regularly). If you do not believe me, think for yourself how often your observations of the world concern questions like "How much?", "How big?", "How far?", "How often?", "How difficult?", "How quickly?", "How well?". These are quantitative judgments, and they are everywhere.
+Statistical thinking begins with something very simple: noticing. We notice events, we notice people, we notice differences. We see rents climbing in our city, or hear friends complain about how much they’re paying, and we wonder: is this just a few unlucky cases, or does it say something bigger about the housing market? This is the heart of thinking statistically. It is not about complicated formulas, but about moving from what we observe to what we might reasonably believe about the world. The post _[Thinking Statistically: A Primer](https://conor-o-driscoll.github.io/website/posts/thinking.html)_ goes into more detail on this point. 
 
 
-From Anecdote To Pattern
-======
-
-When we look at a data point — a higher dropout rate, a cluster of job losses, a spike in rents — the statistical mindset does not just take it at face value. One of the great temptations in everyday life is to generalize from vivid examples. A bad experience with a GP becomes "the NHS is broken." A few pricey listings on Paraius becomes "this city is unaffordable." But if we want to understand the world at the level of systems, structures, or policies, we need more than stories. We need patterns.
-
-That is where statistics comes in. We might think of it as the science of turning data into understanding because it gives us a language to talk about variation, uncertainty, and difference without relying solely on intuition or ideology. But the understanding it offers is always provisional. The numbers never speak for themselves. We interpret them, and those interpretations depend on the questions we ask and the data we have.
-
-Rather than seeing statistics as a way to eliminate uncertainty, we should see it as a way to work productively within it.
-
-
-From Observation To Data
+From Observations To Patterns
 ======
 
 Sometimes, we observe a single thing — a person, a place, an event — and note several of its features. More interestingly, we often observe many things that are similar in some respects but quite different in others. We notice patterns across people, places, or time. We end up with a collection of observations, or, in the language of statistics, data.
 
 Faced with such a collection, it is natural to start comparing. What is the same? What is different? What might explain those differences? This is where statistical thinking deepens. The overarching question becomes: what can we learn from this data?
 
-Statistics helps us summarize what we have found so we can be clear about the facts. But it also helps us go further: to compare, to explain, and to predict. It reminds us to be cautious. What appears true in one context may not hold in another, as I am sure you are all acutely aware. If we want to generalize more confidently, the logical starting point is to gather more experience - that is, collect more data. This speaks to the fact that the more contexts, situations, and experiences we observe, the more confident we can be in drawing conclusions and making suggestions. In other words, if we want to generalize more confidently, we need more data, which happens to be the logic underpinning one of the most powerful ideas in statistics: the Central Limit Theorem.
+One of the great temptations in everyday life is to leap from a vivid example to a sweeping claim. A frustrating encounter with a GP becomes “the NHS is broken.” A handful of pricey flat listings becomes “this city is unaffordable.” But while anecdotes grab attention, they rarely tell the whole story. If we want to understand whether a city is truly unaffordable, for example, we need more than isolated cases: we need patterns.
+
+That means gathering many observations and looking for regularities across them. Instead of just noting that a friend’s rent has doubled, we might ask: what are average rents across the city? How do they compare to incomes? How do they vary between neighbourhoods or over time? These “how much” questions — how much bigger, how much more frequent, how much more difficult — are everywhere in daily life, and they are precisely where statistical thinking deepens. We move from anecdotes to collections of observations, and from collections to evidence that can support or challenge our claims.
+
+This is why statistics is best understood not as a tool for eliminating uncertainty, but as a way of working productively with it. The numbers never speak for themselves. They help us move from stories to systems, from isolated cases to general patterns.
 
 
-Likelihood, Not Certainty
+Likelihood and Certainty
 ======
 
-At its core, statistical thinking is about likelihood, not certainty. We weigh the chances (i.e., *probability*). We expect patterns to hold "in general" or "on average" or "in the long run," not in every case. That is why statistics matters so much for the social and spatial sciences. People and societies are complex, varied, and hard to predict. But with good data and careful reasoning, we can still learn a lot.
+Even with careful observation, we rarely get perfect answers. Instead, we learn to talk in terms of likelihood.  At its core, statistical thinking is about likelihood, not certainty. We weigh the chances (i.e., *probability*). We expect patterns to hold "in general" or "on average" or "in the long run," but it never promises that every case will follow the rule. 
 
-Two central goals of statistics are:
+This is what makes statistics so powerful for the social sciences. People, places, and societies are complex and unpredictable. But with good data and careful reasoning we can still learn a lot. We can be clear about what we know, open about what we don’t, and realistic about how confident we should be.
 
-[1] summarizing what we found out so that we, and others, can be clear about what the facts are.
+Statistics helps us summarize what we have found so we can be clear about the facts. But it also helps us go further: to compare, to explain, and to predict. It reminds us to be cautious. What appears true in one context may not hold in another, as I am sure you are all acutely aware. Before we can test a hypothesis or quantify uncertainty, we need to know what matters, what varies, and what might be related. This requires a theoretical understanding of the problem you are studying just as much as it requires an understanding of what is happening in your data.
 
-[2] using the summary to make comparisons with what is known of other situations, or predictions about what may turn out to be true in situations elsewhere or in the future.
+If we want to generalize more confidently, the logical starting point is to gather more experience - that is, collect more data. This speaks to the fact that the more contexts, situations, and experiences we observe, the more confident we can be in drawing conclusions and making suggestions. In other words, if we want to generalize more confidently, we need more data, which happens to be the logic underpinning one of the most powerful ideas in statistics: the Central Limit Theorem.
 
-These goals might sound soft, even vague. But they are the foundation of all statistical work. Before we can test a hypothesis or quantify uncertainty, we need to know what matters, what varies, and what might be related. This requires a theoretical understanding of the problem you are studying just as much as it requires an understanding of what is happening in your data.
+Thinking statistically then, is not about memorising formulas or crunching numbers. It is about developing a habit of mind: noticing variation, looking for patterns, and reasoning in terms of likelihood. Done well, it sharpens our instincts and grounds our judgments. It helps us move beyond stories to understanding, and beyond uncertainty to insight.
 
 In that sense, statistics does not replace your instincts. It organizes and strengthens them. You already ask whether something seems off. You already notice patterns. What statistics offers is a way to build on those instincts: to sharpen them, test them, and sometimes correct them. It helps you become more precise in your questions and more careful in your answers. And that is a powerful skill, no matter what field you are in.
 
@@ -79,29 +47,25 @@ In that sense, statistics does not replace your instincts. It organizes and stre
 What Is Statistics?
 ======
 
-Statistics is a word that causes confusion, not because it is complicated, but because it has so many meanings. It can refer to a subject of study, to methods of analysing data, to the data themselves, or to the specific numbers we calculate. For example, a researcher might study statistics, use statistics to analyse data, interpret official statistics, and report a statistic like the average income.
+Statistics is a word that causes confusion, not because it is complicated, but because it has so many meanings. It can refer to a subject of study, to methods of analysing data, to the data themselves, or to the specific numbers we calculate. For example, a researcher might study statistics, use statistics to analyse data, interpret official statistics, and report a statistic like average income. This is partly why, in our statistics courses, we tend to adopt the following definition of statistics:
 
-Statistics is everywhere — in the news, in sports, in science, in policy, in marketing, in medicine. But it also suffers from deep misconceptions. Many see it as dry, overly technical, or even manipulative. Some fear it as a mathematical jungle. Others distrust it because they have seen how numbers can be twisted to support a narrative. But the problem is not usually the statistics, it is how they are used, what is being measured, and what those measures really mean.
-
-In fact, the modern world of statistics is less about arithmetic and more about reasoning, exploration, and interpretation. The computer has largely taken over the calculations. What matters now is clarity of thought: asking good questions, interpreting results wisely, and making sense of the data we have.
-
-You might think of statistics as the technology of extracting meaning from data. Or the technology of handling uncertainty. Or the discipline of making inferences from the unknown. All of these get at the same core idea: statistics is how we learn from evidence.
-
-Statistics arises out of caution. We know our observations of the world are imperfect. But rather than ignore this, statistics embraces it. It gives us tools to measure and reason through uncertainty; to weigh possibilities, to understand variation, and to gauge how far wrong we might be. It is one of the only disciplines that directly tackles the problem of error.
-
-::: callout-note
-This is why statistics and data are so tightly linked. Data — often numbers, but not always — give us a way to represent the world. These representations are never perfect, but they are often good enough to work with. Of course, poor data leads to poor conclusions. The rise of big data and advanced tools has not changed that. As ever, good judgement matters.
+::: callout-important
+Statistics is the methodology for collecting, presenting, analysing, and interpreting data.
 :::
 
-It is no surprise then that statistics attracts suspicion. Part of it is statistics anxiety — a common experience among students. But it is also a deeper cultural mistrust: of numbers used to persuade, distract, or deceive. And sometimes, rightly so. We have all seen statistics used selectively, or turned into targets that then get gamed (as with Goodhart’s Law). But again, the fault lies not in the numbers themselves, rather, in how they are chosen, interpreted, and applied.
+Many students are introduced to statistics so that they can interpret and understand research carried out in their field of interest. But statistics is everywhere — in the news, in sports, in science, in policy, in medicine. Yet it is often misunderstood. Many people see it as dry, overly technical, or even manipulative. Some fear it as a tangle of formulas; others distrust it because numbers can be twisted to tell a story. This suspicion around statistics is understandable. We’ve all seen numbers used to persuade, distract, or deceive. Sometimes statistics are gamed — when a measure becomes a target, it can lose its meaning (Goodhart’s Law). But the problem is rarely the statistics themselves; it’s how they are used, what is being measured, and how we interpret the results.
 
-That is why good statistical thinking matters. It helps us ask better questions, use better methods, and interpret results more responsibly. It reminds us that statistics is not a silver bullet — it is a way of seeing. And used well, it can guide us through uncertainty, reveal hidden patterns, and sharpen our understanding of the world.
+In fact, modern statistics is less about arithmetic and more about reasoning, exploration, and interpretation. Computers handle most calculations today, freeing us to focus on the questions we ask, the assumptions we make, and the conclusions we draw. In that sense, statistics is a technology — a set of tools for extracting meaning from data, for navigating uncertainty, and for learning from evidence.
 
-And if that sounds useful, that is because it is.
+At its core, statistics embraces the imperfection of our observations. We know that any single measurement is flawed; our data are simplified representations of a complex world. Statistics gives us ways to measure and reason through these uncertainties, to understand variation, and to weigh how far wrong we might be. Hence why good statistical thinking matters.
 
+::: callout-note
+This is why data and statistics are inseparable. Data, often numerical but not always, allow us to represent what we are studying. They are never perfect, but they are workable — and with good judgement, they let us move from noticing patterns to understanding systems. Poor data, of course, lead to poor conclusions irrespective of the tools used.
+:::
 
 Bibliography
 ======
 
-1. Statistics: A Very Short Introduction by David J. Hand<br>
+1. Statistics: A Very Short Introduction, by David J. Hand<br>
 2. Statistics Without Tears: An Introduction For Non-Mathematicians, by Derek Rowntree<br>
+3. Elementary Statistics For Geographers, by James E. Burt, Gerald M. Barber, and David L. Rigby

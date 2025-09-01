@@ -2,7 +2,7 @@
 title: "Start Young, Drive Less: The Overlooked Power of the School-Run"
 author: "Conor O'Driscoll"
 date: 2025-07-25
-categories: [School Runs, Structural Equation Modelling, Ireland]
+categories: [Research Papers, Applied Statistics (Advanced)]
 image: "/img/school_run.png"
 description: "What if the key to transforming urban mobility isn’t the daily commute—but how we get our kids to school?"
 ---

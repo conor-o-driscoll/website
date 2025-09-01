@@ -2,7 +2,7 @@
 title: "How to write a thesis in 1000 words or less"
 author: "Conor O'Driscoll"
 date: 2025-08-05
-categories: [Thesis Writing]
+categories: [Writing]
 image: "/img/thesis.png"
 description: "Are you struggling to write your thesis?"
 

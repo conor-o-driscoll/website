@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Conor O’Driscoll">
-<meta name="dcterms.date" content="2025-08-08">
-<meta name="description" content="statistics is how we learn from evidence.">
+<meta name="dcterms.date" content="2025-08-16">
+<meta name="description" content="Qualitative or Quantitative? Nominal, Ordinal, Interval, and Ratio.">
 
-<title>What Is Statistics? – Conor O’Driscoll</title>
+<title>Different Types of Data: Part 2 – Conor O’Driscoll</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,13 +81,13 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../include/webex.css">
-<meta property="og:title" content="What Is Statistics? – Conor O’Driscoll">
-<meta property="og:description" content="statistics is how we learn from evidence.">
-<meta property="og:image" content="/img/stats.jpg">
+<meta property="og:title" content="Different Types of Data: Part 2 – Conor O’Driscoll">
+<meta property="og:description" content="Qualitative or Quantitative? Nominal, Ordinal, Interval, and Ratio.">
+<meta property="og:image" content="/img/diff_data2.jpeg">
 <meta property="og:site_name" content="Conor O'Driscoll">
-<meta name="twitter:title" content="What Is Statistics? – Conor O’Driscoll">
-<meta name="twitter:description" content="statistics is how we learn from evidence.">
-<meta name="twitter:image" content="/img/stats.jpg">
+<meta name="twitter:title" content="Different Types of Data: Part 2 – Conor O’Driscoll">
+<meta name="twitter:description" content="Qualitative or Quantitative? Nominal, Ordinal, Interval, and Ratio.">
+<meta name="twitter:image" content="/img/diff_data2.jpeg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -148,11 +148,10 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#thinking-statistically-a-refresher" id="toc-thinking-statistically-a-refresher" class="nav-link active" data-scroll-target="#thinking-statistically-a-refresher">Thinking Statistically: A Refresher</a></li>
-  <li><a href="#from-observations-to-patterns" id="toc-from-observations-to-patterns" class="nav-link" data-scroll-target="#from-observations-to-patterns">From Observations To Patterns</a></li>
-  <li><a href="#likelihood-and-certainty" id="toc-likelihood-and-certainty" class="nav-link" data-scroll-target="#likelihood-and-certainty">Likelihood and Certainty</a></li>
-  <li><a href="#what-is-statistics" id="toc-what-is-statistics" class="nav-link" data-scroll-target="#what-is-statistics">What Is Statistics?</a></li>
-  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  <li><a href="#different-types-of-data-collection" id="toc-different-types-of-data-collection" class="nav-link active" data-scroll-target="#different-types-of-data-collection">Different Types of Data Collection</a></li>
+  <li><a href="#the-structure-of-a-dataset" id="toc-the-structure-of-a-dataset" class="nav-link" data-scroll-target="#the-structure-of-a-dataset">The Structure of a Dataset</a></li>
+  <li><a href="#qualitative-and-quantitative-data" id="toc-qualitative-and-quantitative-data" class="nav-link" data-scroll-target="#qualitative-and-quantitative-data">Qualitative and Quantitative Data</a></li>
+  <li><a href="#data-types-nominal-ordinal-interval-ratio" id="toc-data-types-nominal-ordinal-interval-ratio" class="nav-link" data-scroll-target="#data-types-nominal-ordinal-interval-ratio">Data Types: Nominal, Ordinal, Interval, Ratio</a></li>
   </ul>
 </nav>
     </div>
@@ -161,7 +160,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">What Is Statistics?</h1>
+<h1 class="title">Different Types of Data: Part 2</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Applied Statistics (Beginners)</div>
   </div>
@@ -169,7 +168,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 <div>
   <div class="description">
-    statistics is how we learn from evidence.
+    Qualitative or Quantitative? Nominal, Ordinal, Interval, and Ratio.
   </div>
 </div>
 
@@ -186,7 +185,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 8, 2025</p>
+      <p class="date">August 16, 2025</p>
     </div>
   </div>
   
@@ -198,46 +197,47 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </header>
 
 
-<section id="thinking-statistically-a-refresher" class="level1">
-<h1>Thinking Statistically: A Refresher</h1>
-<p>Statistical thinking begins with something very simple: noticing. We notice events, we notice people, we notice differences. We see rents climbing in our city, or hear friends complain about how much they’re paying, and we wonder: is this just a few unlucky cases, or does it say something bigger about the housing market? This is the heart of thinking statistically. It is not about complicated formulas, but about moving from what we observe to what we might reasonably believe about the world. The post <em><a href="https://conor-o-driscoll.github.io/website/posts/thinking.html">Thinking Statistically: A Primer</a></em> goes into more detail on this point.</p>
+<section id="different-types-of-data-collection" class="level1">
+<h1>Different Types of Data Collection</h1>
+<p>When we talk about “data,” we’re really talking about many different things at once: how the information was collected, how it is structured, and how it can be measured. Understanding these distinctions is the first step toward using data responsibly and effectively.</p>
+<p>Data can be collected in many different ways. Surveys and questionnaires ask people directly about their opinions, behaviors, or experiences. Experiments create controlled situations designed to test specific hypotheses. Observations involve recording what you see in the world without interfering. Administrative records capture information as part of routine operations, like hospital admissions or school enrollments. Increasingly, digital traces—such as website clicks or social media activity—provide vast new sources of information.</p>
+<p>Each of these methods has strengths and limitations: surveys capture personal perspectives but depend on honest responses, administrative data is often large and reliable but may miss key details, and experiments are powerful for identifying cause and effect but can be costly or artificial. The way data is collected shapes what it can and cannot tell you.</p>
 </section>
-<section id="from-observations-to-patterns" class="level1">
-<h1>From Observations To Patterns</h1>
-<p>Sometimes, we observe a single thing — a person, a place, an event — and note several of its features. More interestingly, we often observe many things that are similar in some respects but quite different in others. We notice patterns across people, places, or time. We end up with a collection of observations, or, in the language of statistics, data.</p>
-<p>Faced with such a collection, it is natural to start comparing. What is the same? What is different? What might explain those differences? This is where statistical thinking deepens. The overarching question becomes: what can we learn from this data?</p>
-<p>One of the great temptations in everyday life is to leap from a vivid example to a sweeping claim. A frustrating encounter with a GP becomes “the NHS is broken.” A handful of pricey flat listings becomes “this city is unaffordable.” But while anecdotes grab attention, they rarely tell the whole story. If we want to understand whether a city is truly unaffordable, for example, we need more than isolated cases: we need patterns.</p>
-<p>That means gathering many observations and looking for regularities across them. Instead of just noting that a friend’s rent has doubled, we might ask: what are average rents across the city? How do they compare to incomes? How do they vary between neighbourhoods or over time? These “how much” questions — how much bigger, how much more frequent, how much more difficult — are everywhere in daily life, and they are precisely where statistical thinking deepens. We move from anecdotes to collections of observations, and from collections to evidence that can support or challenge our claims.</p>
-<p>This is why statistics is best understood not as a tool for eliminating uncertainty, but as a way of working productively with it. The numbers never speak for themselves. They help us move from stories to systems, from isolated cases to general patterns.</p>
+<section id="the-structure-of-a-dataset" class="level1">
+<h1>The Structure of a Dataset</h1>
+<p>Broadly speaking, it is convenient to regard data as having two aspects: one aspect covers the objects we wish to study (e.g., schoolchildren), the other covers the characteristics of those objects (e.g., test scores). In statistics, it is common to call these characteristics <em>variables</em>, with each object having a value for every variable under study.</p>
+<p>In any one study, we might be interested in multiple kinds of objects. we might want to understand and make statements not only about schoolchildren, but also about the schools they attend, the neighbourhoods they live in, the quality of teachers within their school etc. Moreover, we will typically not be interested in any single variable, but rather the relationships between different variables. We may even be interested in seeing how these relationships differ across different types of objects (e.g., boys and girls).</p>
+<p>Once collected, data is usually organized into a dataset. At its simplest, a dataset is a table in which the rows represent cases (also called observations or units) and the columns represent variables. Cases might be individuals, households, companies, cities, or even single transactions. Variables describe characteristics of those cases, such as age, income, location, or test scores. For example, in a dataset on students, each row might represent a student, while the columns record their gender, age, hours studied, and exam results. Thinking in terms of cases and variables is fundamental because it frames how we analyze data.</p>
+<div class="webex-check webex-box">
+<p>Now seems like a good moment to stop and test yourself to ensure that you truly understand what you are reading. Indicate whether each of the statements below is <code>TRUE</code> or <code>FALSE</code>.</p>
+<ol type="1">
+<li><p>In a typical dataset, columns represent different characteristics of the objects being studied while rows represent unique objects. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+<li><p>Cases typically represent <em>what</em> we are studying while variables typically represent <em>who or what</em> we are studying. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>In a dataset tracking the commuting preferences of individuals in Groningen, some relevant variables might include the mode of transport they use, their age, and their gender, while cases might capture different individuals at one (or multiple) points in time. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+<li><p>In a dataset tracking the commuting preferences of individuals in Groningen, some relevant cases might include the mode of transport they use, their age, and their gender, while variables might capture different individuals at one (or multiple) points in time. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+</ol>
+</div>
 </section>
-<section id="likelihood-and-certainty" class="level1">
-<h1>Likelihood and Certainty</h1>
-<p>Even with careful observation, we rarely get perfect answers. Instead, we learn to talk in terms of likelihood. At its core, statistical thinking is about likelihood, not certainty. We weigh the chances (i.e., <em>probability</em>). We expect patterns to hold “in general” or “on average” or “in the long run,” but it never promises that every case will follow the rule.</p>
-<p>This is what makes statistics so powerful for the social sciences. People, places, and societies are complex and unpredictable. But with good data and careful reasoning we can still learn a lot. We can be clear about what we know, open about what we don’t, and realistic about how confident we should be.</p>
-<p>Statistics helps us summarize what we have found so we can be clear about the facts. But it also helps us go further: to compare, to explain, and to predict. It reminds us to be cautious. What appears true in one context may not hold in another, as I am sure you are all acutely aware. Before we can test a hypothesis or quantify uncertainty, we need to know what matters, what varies, and what might be related. This requires a theoretical understanding of the problem you are studying just as much as it requires an understanding of what is happening in your data.</p>
-<p>If we want to generalize more confidently, the logical starting point is to gather more experience - that is, collect more data. This speaks to the fact that the more contexts, situations, and experiences we observe, the more confident we can be in drawing conclusions and making suggestions. In other words, if we want to generalize more confidently, we need more data, which happens to be the logic underpinning one of the most powerful ideas in statistics: the Central Limit Theorem.</p>
-<p>Thinking statistically then, is not about memorising formulas or crunching numbers. It is about developing a habit of mind: noticing variation, looking for patterns, and reasoning in terms of likelihood. Done well, it sharpens our instincts and grounds our judgments. It helps us move beyond stories to understanding, and beyond uncertainty to insight.</p>
-<p>In that sense, statistics does not replace your instincts. It organizes and strengthens them. You already ask whether something seems off. You already notice patterns. What statistics offers is a way to build on those instincts: to sharpen them, test them, and sometimes correct them. It helps you become more precise in your questions and more careful in your answers. And that is a powerful skill, no matter what field you are in.</p>
+<section id="qualitative-and-quantitative-data" class="level1">
+<h1>Qualitative and Quantitative Data</h1>
+<p>Not all variables look the same, and this leads us to a key distinction between qualitative and quantitative data. Quantitative data is measured with numbers, such as income, exam scores, or height. Some of these numbers are discrete, meaning they can only take on whole-number values—like the number of children in a household, or the number of books someone has read this month. Others are continuous, meaning they can take on any value within a range, like height, income, or time spent commuting.</p>
+<p>This distinction matters because it affects how we summarize and analyze the data. For example, with discrete variables, counts and frequencies are often natural summaries, while continuous variables often require measures like averages, ranges, or percentiles.</p>
+<p>Qualitative data, on the other hand, refers to categories or descriptions, such as marital status, eye color, or whether someone prefers tea or coffee. This distinction is important because it determines what kinds of analysis are appropriate. You can calculate averages and percentages for quantitative variables, but those operations make little sense for qualitative data. For qualitative variables, frequencies or proportions are often more useful.</p>
+<p>Although qualitative data is not inherently numerical, in practice we often assign numbers to categories so that we can analyze them statistically. For example, marital status might be coded as 1 = single, 2 = married, 3 = divorced. Similarly, survey responses like “strongly disagree” to “strongly agree” might be assigned values from 1 to 5. These numbers don’t turn the data into true quantities — they are simply labels that make the data easier to store, summarize, and compare. But the meaning of the numbers depends entirely on the type of variable we are working with, which brings us to the standard classification of data types: nominal, ordinal, interval, and ratio.</p>
+<div class="webex-check webex-box">
+<p>But before we get to that, why not stop and test yourself to ensure that you truly understand what you are reading? Indicate whether each of the statements below is <code>TRUE</code> or <code>FALSE</code>.</p>
+<ol start="6" type="1">
+<li><p>The mode of transport people use to travel to work is a quantitative variable. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>The typical house/apartment number in a regular neighbourhood is a continuous variable. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>Post Codes are discrete quantitative variables. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>Post Codes are qualitative variables. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+<li><p>Tyre pressure is a continuous variable. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+</ol>
+</div>
 </section>
-<section id="what-is-statistics" class="level1">
-<h1>What Is Statistics?</h1>
-<p>Statistics is a word that causes confusion, not because it is complicated, but because it has so many meanings. It can refer to a subject of study, to methods of analysing data, to the data themselves, or to the specific numbers we calculate. For example, a researcher might study statistics, use statistics to analyse data, interpret official statistics, and report a statistic like average income. This is partly why, in our statistics courses, we tend to adopt the following definition of statistics:</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Statistics is the methodology for collecting, presenting, analysing, and interpreting data.</p>
-</div>
-</div>
-<p>Many students are introduced to statistics so that they can interpret and understand research carried out in their field of interest. But statistics is everywhere — in the news, in sports, in science, in policy, in medicine. Yet it is often misunderstood. Many people see it as dry, overly technical, or even manipulative. Some fear it as a tangle of formulas; others distrust it because numbers can be twisted to tell a story. This suspicion around statistics is understandable. We’ve all seen numbers used to persuade, distract, or deceive. Sometimes statistics are gamed — when a measure becomes a target, it can lose its meaning (Goodhart’s Law). But the problem is rarely the statistics themselves; it’s how they are used, what is being measured, and how we interpret the results.</p>
-<p>In fact, modern statistics is less about arithmetic and more about reasoning, exploration, and interpretation. Computers handle most calculations today, freeing us to focus on the questions we ask, the assumptions we make, and the conclusions we draw. In that sense, statistics is a technology — a set of tools for extracting meaning from data, for navigating uncertainty, and for learning from evidence.</p>
-<p>At its core, statistics embraces the imperfection of our observations. We know that any single measurement is flawed; our data are simplified representations of a complex world. Statistics gives us ways to measure and reason through these uncertainties, to understand variation, and to weigh how far wrong we might be. Hence why good statistical thinking matters.</p>
+<section id="data-types-nominal-ordinal-interval-ratio" class="level1">
+<h1>Data Types: Nominal, Ordinal, Interval, Ratio</h1>
+<p>Nominal data consists of categories without any natural order, such as blood type or favorite fruit. Ordinal data adds an order to the categories, but the spacing between them is not consistent. For example, a satisfaction scale from “poor” to “excellent.” Interval data is numeric and has meaningful spacing between values, but lacks a true zero point. We say something lacks a “true zero” when a value of 0 <em>does not</em> indicate absence of said variable, such as a temperture reading of 0 degrees celcius - you would never say that this means there is no temperature. Ratio data includes all the properties of interval data, but with a true zero, such as height, distance, or income. This last type allows for meaningful ratio comparisons, like saying someone who earns £40,000 makes twice as much as someone earning £20,000, something not possible with interval data, or, more precisely, something not possible when the data lacks a true zero.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -248,17 +248,12 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is why data and statistics are inseparable. Data, often numerical but not always, allow us to represent what we are studying. They are never perfect, but they are workable — and with good judgement, they let us move from noticing patterns to understanding systems. Poor data, of course, lead to poor conclusions irrespective of the tools used.</p>
+<p>Ratio and interval scales both measure quantities, but there is a key difference: the zero point. Interval scales, like temperature in Celsius or Fahrenheit, have an arbitrary zero — 0°C does not mean “no heat” — so while we can measure differences, we cannot meaningfully say one value is twice another. Ratio scales, like weight or height, have a true zero, which represents a complete absence of the quantity. This absolute zero allows us to make multiplicative comparisons: an object weighing 10 kg is meaningfully twice as heavy as one weighing 5 kg. In short, a true zero provides a fixed anchor that makes ratios and proportional statements meaningful, whereas an arbitrary zero allows only for comparisons of differences.</p>
+<p>Admittedly, while it is important to understand the theoretical differences between interval and ratio data, this distinction rarely comes into play in practice.</p>
 </div>
 </div>
-</section>
-<section id="bibliography" class="level1">
-<h1>Bibliography</h1>
-<ol type="1">
-<li>Statistics: A Very Short Introduction, by David J. Hand<br></li>
-<li>Statistics Without Tears: An Introduction For Non-Mathematicians, by Derek Rowntree<br></li>
-<li>Elementary Statistics For Geographers, by James E. Burt, Gerald M. Barber, and David L. Rigby</li>
-</ol>
+<p>These distinctions may sound abstract, but they matter a great deal in practice. The type of data determines which statistical methods are valid. You can calculate averages for ratio or interval data, but not for nominal data. You can rank ordinal data, but you cannot assume the differences between ranks are equal. Confusing these categories can lead to misleading results. Equally, ignoring how data was collected or structured can mean placing trust in biased or incomplete information.</p>
+<p>In short, data is never just data. Its source, structure, and type all shape what we can learn from it. By paying attention to how data is collected, how it is organized, and what kind of information it contains, we can ask better questions, avoid common mistakes, and make stronger, more reliable conclusions.</p>
 
 
 </section>

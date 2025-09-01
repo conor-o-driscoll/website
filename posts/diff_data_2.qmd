@@ -1,0 +1,100 @@
+---
+title: "Different Types of Data: Part 2"
+author: "Conor O'Driscoll"
+date: 2025-08-16
+categories: [Applied Statistics (Beginners)]
+image: "/img/diff_data2.jpeg"
+description: "Qualitative or Quantitative? Nominal, Ordinal, Interval, and Ratio."
+
+---
+
+``` {r, echo=FALSE, output=FALSE}
+
+if(!("webexercises" %in% installed.packages()[,"Package"])) install.packages("webexercises")
+
+library("webexercises")
+
+```
+
+
+Different Types of Data Collection
+======
+
+When we talk about “data,” we’re really talking about many different things at once: how the information was collected, how it is structured, and how it can be measured. Understanding these distinctions is the first step toward using data responsibly and effectively.
+
+Data can be collected in many different ways. Surveys and questionnaires ask people directly about their opinions, behaviors, or experiences. Experiments create controlled situations designed to test specific hypotheses. Observations involve recording what you see in the world without interfering. Administrative records capture information as part of routine operations, like hospital admissions or school enrollments. Increasingly, digital traces—such as website clicks or social media activity—provide vast new sources of information. 
+
+Each of these methods has strengths and limitations: surveys capture personal perspectives but depend on honest responses, administrative data is often large and reliable but may miss key details, and experiments are powerful for identifying cause and effect but can be costly or artificial. The way data is collected shapes what it can and cannot tell you.
+
+
+The Structure of a Dataset
+======
+
+Broadly speaking, it is convenient to regard data as having two aspects: one aspect covers the objects we wish to study (e.g., schoolchildren), the other covers the characteristics of those objects (e.g., test scores). In statistics, it is common to call these characteristics _variables_, with each object having a value for every variable under study. 
+
+In any one study, we might be interested in multiple kinds of objects. we might want to understand and make statements not only about schoolchildren, but also about the schools they attend, the neighbourhoods they live in, the quality of teachers within their school etc. Moreover, we will typically not be interested in any single variable, but rather the relationships between different variables. We may even be interested in seeing how these relationships differ across different types of objects (e.g., boys and girls).
+
+Once collected, data is usually organized into a dataset. At its simplest, a dataset is a table in which the rows represent cases (also called observations or units) and the columns represent variables. Cases might be individuals, households, companies, cities, or even single transactions. Variables describe characteristics of those cases, such as age, income, location, or test scores. For example, in a dataset on students, each row might represent a student, while the columns record their gender, age, hours studied, and exam results. Thinking in terms of cases and variables is fundamental because it frames how we analyze data.
+
+
+::: {.webex-check .webex-box}
+
+Now seems like a good moment to stop and test yourself to ensure that you truly understand what you are reading. Indicate whether each of the statements below is `TRUE` or `FALSE`.
+
+
+1. In a typical dataset, columns represent different characteristics of the objects being studied while rows represent unique objects. `r torf(TRUE)`
+
+2. Cases typically represent _what_ we are studying while variables typically represent _who or what_ we are studying. `r torf(FALSE)`
+
+3. In a dataset tracking the commuting preferences of individuals in Groningen, some relevant variables might include the mode of transport they use, their age, and their gender, while cases might capture different individuals at one (or multiple) points in time. `r torf(TRUE)`
+
+4. In a dataset tracking the commuting preferences of individuals in Groningen, some relevant cases might include the mode of transport they use, their age, and their gender, while variables might capture different individuals at one (or multiple) points in time. `r torf(FALSE)`
+
+:::
+
+
+Qualitative and Quantitative Data
+======
+
+Not all variables look the same, and this leads us to a key distinction between qualitative and quantitative data. Quantitative data is measured with numbers, such as income, exam scores, or height. Some of these numbers are discrete, meaning they can only take on whole-number values—like the number of children in a household, or the number of books someone has read this month. Others are continuous, meaning they can take on any value within a range, like height, income, or time spent commuting. 
+
+This distinction matters because it affects how we summarize and analyze the data. For example, with discrete variables, counts and frequencies are often natural summaries, while continuous variables often require measures like averages, ranges, or percentiles.
+
+Qualitative data, on the other hand, refers to categories or descriptions, such as marital status, eye color, or whether someone prefers tea or coffee. This distinction is important because it determines what kinds of analysis are appropriate. You can calculate averages and percentages for quantitative variables, but those operations make little sense for qualitative data. For qualitative variables, frequencies or proportions are often more useful.
+
+Although qualitative data is not inherently numerical, in practice we often assign numbers to categories so that we can analyze them statistically. For example, marital status might be coded as 1 = single, 2 = married, 3 = divorced. Similarly, survey responses like “strongly disagree” to “strongly agree” might be assigned values from 1 to 5. These numbers don’t turn the data into true quantities — they are simply labels that make the data easier to store, summarize, and compare. But the meaning of the numbers depends entirely on the type of variable we are working with, which brings us to the standard classification of data types: nominal, ordinal, interval, and ratio.
+
+::: {.webex-check .webex-box}
+
+But before we get to that, why not stop and test yourself to ensure that you truly understand what you are reading? Indicate whether each of the statements below is `TRUE` or `FALSE`.
+
+6. The mode of transport people use to travel to work is a quantitative variable. `r torf(FALSE)`
+
+7. The typical house/apartment number in a regular neighbourhood is a continuous variable. `r torf(FALSE)`
+
+8. Post Codes are discrete quantitative variables. `r torf(FALSE)`
+
+9. Post Codes are qualitative variables. `r torf(TRUE)`
+
+10. Tyre pressure is a continuous variable. `r torf(TRUE)`
+
+:::
+
+
+Data Types: Nominal, Ordinal, Interval, Ratio
+=======
+
+Nominal data consists of categories without any natural order, such as blood type or favorite fruit. Ordinal data adds an order to the categories, but the spacing between them is not consistent. For example, a satisfaction scale from “poor” to “excellent.” Interval data is numeric and has meaningful spacing between values, but lacks a true zero point. We say something lacks a "true zero" when a value of 0 _does not_ indicate absence of said variable, such as a temperture reading of 0 degrees celcius - you would never say that this means there is no temperature. Ratio data includes all the properties of interval data, but with a true zero, such as height, distance, or income. This last type allows for meaningful ratio comparisons, like saying someone who earns £40,000 makes twice as much as someone earning £20,000, something not possible with interval data, or, more precisely, something not possible when the data lacks a true zero.
+
+::: callout-note
+
+Ratio and interval scales both measure quantities, but there is a key difference: the zero point. Interval scales, like temperature in Celsius or Fahrenheit, have an arbitrary zero — 0°C does not mean “no heat” — so while we can measure differences, we cannot meaningfully say one value is twice another. Ratio scales, like weight or height, have a true zero, which represents a complete absence of the quantity. This absolute zero allows us to make multiplicative comparisons: an object weighing 10 kg is meaningfully twice as heavy as one weighing 5 kg. In short, a true zero provides a fixed anchor that makes ratios and proportional statements meaningful, whereas an arbitrary zero allows only for comparisons of differences.
+
+Admittedly, while it is important to understand the theoretical differences between interval and ratio data, this distinction rarely comes into play in practice.
+
+:::
+
+These distinctions may sound abstract, but they matter a great deal in practice. The type of data determines which statistical methods are valid. You can calculate averages for ratio or interval data, but not for nominal data. You can rank ordinal data, but you cannot assume the differences between ranks are equal. Confusing these categories can lead to misleading results. Equally, ignoring how data was collected or structured can mean placing trust in biased or incomplete information.
+
+
+In short, data is never just data. Its source, structure, and type all shape what we can learn from it. By paying attention to how data is collected, how it is organized, and what kind of information it contains, we can ask better questions, avoid common mistakes, and make stronger, more reliable conclusions.

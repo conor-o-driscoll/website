@@ -1,0 +1,32 @@
+---
+title: "ERSA 2025: Some Reflections"
+author: "Conor O'Driscoll"
+date: 2025-09-01
+categories: [About Me, Research Papers]
+image: "/img/ersa_2025.JPG"
+description: "My thoughts and reflections on the 65th annual conference of the European Regional Science Association."
+---
+
+Over the past week i had the pleasure of attending the 65th annual conference of the regional science association. 
+
+Overall, the conference was a major success for me. I got to meet some really interesting people, especially: [Steven Bond-Smith](https://uhero.hawaii.edu/people/steven-bond-smith/), [Inessa Tregubova](https://en.geography.huji.ac.il/people/inessa-tregubova), [Tuomas Väisänen](https://waeiski.github.io/), [Liv Osland](https://www.hvl.no/en/employee/?user=liv.osland), and [Lukas Makovsky](https://sites.google.com/view/lukas-makovsky/home). But I also got to catch up with some old friends who I seldom see outside of such events. 
+
+The conference venue was interesting: a run-down university just outside the city centre of Athens (a truly beautiful city, I must stress). There were many many (over 900!) presenters and the sessions were long, so the days were quite intense. But the quality of presentations was, on balance, reasonably high, which facilitated many nice and stimulating discussions on pressing topics for spatial and social scientists. The food at the conference was amazing, culminating in a fabulous dinner in an events centre type-of-place that overlooked the whole city and harbour. It was breathtaking.
+
+Attending conferences is a super nice opportunity for academics to share and discuss the research they are currently undertaking. In doing so, we usually receive quite helpful feedback on making our projects better, but also get to meet likeminded people who like to think about similar problems. This can lead to potentially exciting collaborations on different research projects, but it more generally allows you to expand your professional network and keep pace with the rapidly developing knowledge base in your respective field.
+
+At ERSA, I presented two research papers I am currently working on. The first concerns the relationship between widespread working-from-home adoption and locational mobility. More specifically, [Federica Rossi](https://onlineservices.polimi.it/manifesti/manifesti/controller/ricerche/RicercaPerDocentiPublic.do?evn_DIDATTICA=evento&lang=IT&k_doc=746154) and I explore the relationship between working from home frequently and i) the probability that individuals relocate their residence and ii) the probability of individuals moving to specific types of places (i.e., cities, suburbs, and rural areas). 
+
+The discussion surrounding this paper was really stimulating, and i had the pleasure of meeting really impressive scholars who are working on tangential issues. The result? Some really nice discussions on i) how to make my current research better and more impactful, and ii) how we might collaborate together on future research projects.
+
+The second project is my first solo-authored research paper. The core focus of this paper is to explore the relative importance of local built environments and major life events in shaping commuting behaviour. Theoretically, our understanding of these dynamics is somewhat limited. And I have some pretty cool data that allows me to explore this issue in great detail. So I also applied for the prestigious Epainos award - an award that recognises excellence in early career research. 
+
+Unfortunately, I did not win the award. Inessa Tregubova won the Epainos award in 2025 for her innovative work linking GPS data, working-from-home proclivities, and spatial equilibrium models - a very very cool project. On my end, I received terrific feedback on how I might make my paper more impactful from a theoretical and empirical perspective; and I am hoping to use this feedback to inspire my application for next year’s Epainos award.
+
+With a new academic year starting up again, I thought it potentially useful to reflect on my experiences, as it will be many months before I get the opportunity to attend another international conference. Some takeaway points for me are:
+
+- 2 hour sessions are too long. 90 minutes is just right.
+- There should not be more than 4 presenters in any session.
+- Sessions dedicated to Young Scientists are an amazing initiative, and it is especially nice that ERSA schedules all such sessions on their own - providing excellent exposure to early career academics.
+- I need to become a bit better at i) preparing the narrative of my presentations and ii) planning my presentations so that they are ~5 minutes shorter than the allocated time (delays are inevitable).
+- Conferences are super fun and i am excited to go to more.

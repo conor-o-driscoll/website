@@ -1,0 +1,106 @@
+---
+title: "Different Types of Data: Part 1"
+author: "Conor O'Driscoll"
+date: 2025-08-15
+categories: [Applied Statistics (Beginners)]
+image: "/img/diff_data1.jpeg"
+description: "Internal and External. Primary and Secondary."
+---
+
+``` {r, echo=FALSE, output=FALSE}
+
+if(!("webexercises" %in% installed.packages()[,"Package"])) install.packages("webexercises")
+
+library("webexercises")
+
+```
+
+
+What Is Data? A Continuation
+======
+
+Data describe the universe we wish to study. There are no ends to the universes which can be studied, and therefore the universes represented by data.
+
+Data is everywhere. From the number of emails in your inbox to city traffic counts, data help us make sense of the world. But not all data are the same. Understanding the types of data, where they come from, and how they’re documented is essential for using them effectively.
+
+Sources of Data: Internal vs. External
+======
+
+At the most basic level, we distinguish between data that already exist in some form, from data that we propose to collect ourselves in the course of our research. Data are said to be internal when they are available in some form through existing records/files of an institution undertaking the study. That is, the data are already available to you internally and thus you do not have to collect it. With this in mind, a key characteristic of internal data is that the researcher knows an awful lot about how the data was collected and what they are measuring. Examples include sales figures, employee records, or website analytics. These data are often easier to access and tailor-made for your (organisation's) specific needs. 
+
+Data are said to be external when they are obtained from an external entity/organisation. That is, the data are coming from outside sources. In these situations, many important characteristics about the data (i.e., how they were collected and measured) may not be known. Examples include census data, market reports, or climate records from government agencies. External data can enrich internal analysis by providing context or allowing comparisons across organizations or regions.
+
+Both internal and external data can be valuable, but they may differ in format, quality, and availability. Understanding the source helps determine how much you can trust it and how it can be used. Indeed, it is not unusual to derive results in a statistical analysis that cannot be explained without detailed knowledge of the data source.
+
+Because internal data is often tailor-made to suit a specific objective, many institutions, researchers, and organisations collect what are otherwise very similar data but are both measured and used in different ways. One obvious example here concerns geographical statistics (i.e., urbanisation) across countries. Many countries have different definitions for cities and urban areas, thus making measurements of urbanisation very different. Yet most are interested in measuring urbanisation in some sense. The differing objectives and approach to collecting such data raises immediate issues for researchers and organisations interested in, say, comparing urbanisation levels across countries. At times, statisticians are called upon to make comparisions across countries, in this case, for which data collection procedures are different, data accurracy differs, and even data definitions differ - hence the considerable resources dedicated by organisations like the UN to gather and integrate such disparate data sources. With this in mind, caution should always be exercised in the use of external data.
+
+::: {.webex-check .webex-box}
+
+To test your understanding of the different types of data, try to answer the following questions:
+
+1. You work in the Sales Department of Albert Heijn's corporate offices and wish to study the profit margins of the in-store bakeries across the Netherlands. The data you are using is ... `r mcq(c(answer = "Internal", "External", "Neither", "A Mix of Both"))`
+
+2. You work for the University of Groningen and wish to use CBS microdata to study wage distributions across different Dutch municipalities. The data you are using is ... `r mcq(c("Internal", answer = "External", "Neither", "A Mix of Both"))`
+
+3. You want to study how your personal expenditures on groceries have changed over the past twelve months. To this effect, you have kept all of your receipts and wish to conduct some statistical analysis. The data you are using is ... `r mcq(c(answer = "Internal", "External", "Neither", "A Mix of Both"))`
+
+:::
+
+
+Primary Versus Secondary Data
+======
+
+Another useful distinction is between _primary_ and _secondary_ data. Primary data are data collected firsthand by a researcher, organization, or system for a specific purpose. They come directly from the original source. Some examples include: survey responses, experiments, observations, sales transactions. Secondary data are data that were collected by someone else, often for a different purpose, and are later reused for analysis. Some examples include: census statistics, published research datasets, government or NGO reports.
+
+Internal data are always primary because they are collected firsthand within the organization for a specific purpose. The advantage of primary data is that you have control over the process, measurement, and definitions. The downside is that collecting primary data can be costly and time-consuming.
+
+Secondary data, by contrast, are collected by someone else, often for a different purpose, and are reused for your analysis. Examples include government statistics, academic datasets, or industry reports. Secondary data are usually easier and cheaper to access, but you must critically evaluate whether they are appropriate, reliable, and up-to-date for your questions.
+
+When using external data, it is important to always important to get as close to the primary source as possible. The difficulty with secondary sources is that they may contain data that has been altered by recording or editing errors, selective data omission, rounding, aggregation, questionable merging of datasets from different sources, or various _ad hoc_ corrections. For example, never use an encyclopedia to get a list of the 10 largest cities in Europe; use the data collected by [Eurostat](https://ec.europa.eu/eurostat) - the statistics agency dedicated to collecting consistent socio-economic statistics across European countries.
+
+Often, good research combines both: using secondary data for context or historical perspective, and collecting primary data to answer specific, current questions.
+
+::: {.webex-check .webex-box}
+
+To test your understanding of the different types of data, try to answer the following questions:
+
+4. You wish to study sentiments of stock markets before, during, and after financial crises. You reason that reports from leading newspapers of the time offer reasonable approximations of how society felt about financial markets. So you read through these articles and generate an index from the information provided. The type of data you are using is ... `r mcq(c(answer = "Primary", "Secondary", "Neither", "A Mix of Both"))`
+
+5. You are studying student housing affordability in Barcelona, Spain, and conduct a survey at the Univeristy of Barcelona which asks questions concerning things like income, rental prices, and living arrangements. The type of data you are using is ... `r mcq(c(answer = "Primary", "Secondary", "Neither", "A Mix of Both"))`
+
+6. You are studying the evolution of property prices in England and Wales since the Great Recession and use the property price index developed in [Ahlfeldt, Carozzi, and Makovsky (2023)](https://cep.lse.ac.uk/_new/publications/abstract.asp?index=10580) to do this. The data you are using is `r mcq(c("Primary", answer = "Secondary", "Neither", "A Mix of Both"))`
+
+7. You are studying labour market outcomes across the United States and use U.S Census data to do so. The data you are using is `r mcq(c("Primary", answer = "Secondary", "Neither", "A Mix of Both"))`.
+
+:::
+
+
+Metadata: Data about Data
+======
+
+Finally, any serious discussion of data types is incomplete without mentioning metadata.
+
+Metadata are data about data. They describe how, when, where, and by whom the data were collected, as well as definitions, units, and any limitations. For example, a dataset of school test scores might include metadata detailing the grade level, the subjects tested, the testing dates, and how missing values were handled.
+
+Metadata are essential for interpreting and reusing data correctly. Without metadata, even well-collected data can be confusing or misleading. Think of metadata as the instruction manual for your dataset — it tells you what the numbers or categories really mean and how to use them responsibly. They are usually presented in document (i.e., pdf) or spreadsheet (i.e., excel) format, and if they do not come directly with the data themselves, will usually be readily available from whatever source they come from.
+
+Any dataset worth its salt contains some form of metadata. Admittedly, some will be better than others, but nearly all modern datasets have something to work from.
+
+::: {.webex-check .webex-box}
+
+Considering the characteristics of metadata, answer the following question:
+
+8. Metadata are readily available with primary data. `r longmcq(c(answer = "No, not unless you make metadata to accompany whatever primary data you have collected.", "Yes, any dataset worth its salt contains some form of metadata. Therefore, every dataset will come with some", "No. It is impossible to have metadata for primary data since you must collect the data yourself"))`
+
+:::
+
+Data can be distinguished in several ways. Source (internal or external) and collection method (primary or secondary) are two ways which we have explored today. But there are others, namely by nature, something that will be explored in my next post.
+
+Alongside the data itself, metadata provides essential documentation about its structure, meaning, and quality. Recognizing these distinctions helps you select the right data, apply it effectively, and interpret it responsibly; because data is powerful only when we understand where it comes from, how it was collected, and what it truly represents.
+
+Bibliography
+======
+
+1. Statistics: A Very Short Introduction, by David J. Hand<br>
+2. Elementary Statistics For Geographers by James Burt, Gerald Barber, and David Rigby<br>
+

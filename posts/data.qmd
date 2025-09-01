@@ -1,0 +1,73 @@
+---
+title: "What is Data?"
+author: "Conor O'Driscoll"
+date: 2025-08-11
+categories: [Applied Statistics (Beginners)]
+image: "/img/data.jpg"
+description: "Data describe the universe we wish to study."
+---
+
+Statistics and Data: A Refresher
+======
+
+Sometimes, we observe a single thing — a person, a place, an event — and note several of its features. More interestingly, we often observe many things that are similar in some respects but quite different in others. We notice patterns across people, places, or time. We end up with a collection of observations, or, in the language of statistics, data.
+
+
+What Is Data?
+======
+
+At their simplest, data are pieces of information — observations about the world that we record in some form. A single measurement, like the temperature outside your window at 9 a.m., the price of a coffee, or the number of emails you received yesterday, is a data point. These individual observations can seem small or insignificant on their own, but they become powerful when we begin to organize, compare, and analyze them.
+
+Data are the raw material on which the discipline of statistics is built, as well as the raw material from which individual statistics are calculated. They are how we turn experience into insight. Just as a painter starts with brushstrokes and a sculptor with clay, researchers, policymakers, and businesses start with data. Every chart, table, and model in the world begins with some observation of something, somewhere, at some time.
+
+When most people think of data, they think of numbers — prices, temperatures, test scores, population counts. Numbers are easy to compare, summarize, and analyze, which is why quantitative data dominate most datasets.
+
+But data don’t have to be numerical. Words, categories, images, and even sounds can be data if they represent something about the world in a structured way. For example, a survey might record people’s favorite color, a collection of photos could capture land use patterns, or a transcript of an interview could be coded into themes for analysis.
+
+The key is that data are representations. They simplify some aspect of reality so we can work with it. Whether numbers or categories, quantitative or qualitative, the purpose is the same: to turn observations into something we can organize, compare, and interpret.
+
+
+From Data Points To Datasets
+======
+
+A single observation rarely tells us much. To understand patterns, we need more than one data point — we need a collection of observations, or a dataset. Datasets allow us to ask questions like: How do house prices vary across neighborhoods? How does rainfall change over the course of a year? How do exam scores differ between schools?
+
+Datasets give structure to our observations. They let us see variation, compare groups, and detect trends. A few data points can suggest a pattern, but a well-structured dataset allows us to test whether that pattern is real, typical, or just a fluke. It’s the difference between noticing one expensive apartment in a city and understanding the broader reality of housing affordability, for example.
+
+
+Measurement and Interpretation
+======
+
+Data are not just facts handed down by nature. They are created, measured, and recorded by humans (or human-designed instruments). This introduces choices and interpretations at every stage: What should we measure? How should we measure it? When and where should we record it? Even seemingly simple decisions — like whether to record height in centimeters or inches — can shape the analysis that follows.
+
+Because of this, data always carry context. Understanding that context is part of thinking statistically. A number without context can mislead; it’s only by knowing how, why, and under what conditions it was collected that we can use it wisely and interpret it correctly. For example, if you are using survey data, it is important to think about whether everyone asked gave answers to all the questions. If not, is there some systematic bias which might explain why some people answered and others did not? Similarly, we need to know if the data we are using are up to date and whether the instrument use to measure and collect data is reliable.
+
+
+Data Quality and Representation
+======
+
+One way to look at data is to view it as _evidence_. Without data, our ideas and theories about the world are little more than speculations. Thus, data provide a grounding, linking our ideas to reality and allowing us to validate and test our understanding.
+
+Not all data are created equal. Some are precise and reliable; others are messy, inconsistent, or incomplete. Poor-quality data can lead to misleading conclusions, no matter how sophisticated the analysis. Data quality depends on factors such as accuracy, completeness, consistency, and timeliness.
+
+For example, consider a dataset of city rental prices. If a few entries are wrong — a typo that lists €10,000 instead of €1,000 — the average rent can be skewed, giving a false impression of affordability. Missing data, such as unreported rents in certain neighborhoods, can bias conclusions. Even the way categories are defined, like “downtown” or “suburban,” can affect what the data seem to show.
+
+Recognizing the limitations of data is just as important as analyzing the numbers themselves. Good data analysis begins with careful inspection: understanding what is measured, checking for errors, and considering what might be missing.
+
+The choices we make in measurement matter. For example, if we measure student performance only through test scores, we ignore other important aspects like creativity, teamwork, or critical thinking. Similarly, using surveys to measure happiness depends on how questions are phrased and who responds. Measurement is never perfect, but careful design can make data useful and meaningful.
+
+Data can also summarize, categorize, and structure information. A dataset may record exact values (e.g., temperature), counts (e.g., number of hospital visits), or categories (e.g., occupation type). The way data are structured influences what we can ask and what conclusions we can draw.
+
+
+Wrapping Up
+======
+
+Ultimately, data are the bridge between the world we see and the patterns we try to understand. Individual data points become datasets; datasets reveal variation, relationships, and trends; and careful attention to quality and measurement ensures that the patterns we see are meaningful and trustworthy.
+
+Thinking critically about data — where it comes from, how it was collected, and what it actually represents — is as important as any statistical technique. Raw numbers alone do not explain anything. It is through analysis, comparison, and interpretation that data become insight, guiding decisions, shaping policies, and helping us make sense of complex social, economic, and natural phenomena.
+
+
+Bibliography
+======
+
+1. Statistics: A Very Short Introduction, by David J. Hand<br>
