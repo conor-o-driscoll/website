@@ -97,4 +97,31 @@ Admittedly, while it is important to understand the theoretical differences betw
 These distinctions may sound abstract, but they matter a great deal in practice. The type of data determines which statistical methods are valid. You can calculate averages for ratio or interval data, but not for nominal data. You can rank ordinal data, but you cannot assume the differences between ranks are equal. Confusing these categories can lead to misleading results. Equally, ignoring how data was collected or structured can mean placing trust in biased or incomplete information.
 
 
+::: {.webex-check .webex-box}
+
+Before moving further, try to correctly answer the following questions by selecting the most appropriate data type for each scenario.
+
+11. What type of data is “Blood type (A, B, AB, O)”? `r mcq(c("ordinal", answer = "nominal", "interval", "ratio"))`
+
+12. What type of data is “Customer satisfaction rating on a 1–5 scale”? `r mcq(c(answer = "ordinal", "nominal", "interval", "ratio"))`
+
+13. What type of data is “Temperature in Celsius”? `r mcq(c("ordinal", "nominal", answer = "interval", "ratio"))`
+
+14. What type of data is “Annual income in dollars”? `r mcq(c("ordinal", "nominal", "interval", answer = "ratio"))`
+
+15. What type of data is “Ranking of students by exam score (1st, 2nd, 3rd, etc.)”? `r mcq(c("nominal", answer = "ordinal", "interval", "ratio"))`
+
+16. What type of data is “Number of pets someone owns”? `r mcq(c("ordinal", "nominal", "interval", answer = "ratio"))`
+
+17. What type of data is “Cuisine preference ranking (e.g., Italian, Mexican, Japanese)”? `r mcq(c("nominal", answer = "ordinal", "interval", "ratio"))`
+
+18. What type of data is “IQ score”? `r mcq(c("ordinal", "nominal", answer = "interval", "ratio"))`
+
+19. What type of data is “Clothing size (S, M, L, XL)”? `r mcq(c("nominal", answer = "ordinal", "interval", "ratio"))`
+
+20. What type of data is “Distance run in kilometers”? `r mcq(c("ordinal", "nominal", "interval", answer = "ratio"))`
+
+:::
+
+
 In short, data is never just data. Its source, structure, and type all shape what we can learn from it. By paying attention to how data is collected, how it is organized, and what kind of information it contains, we can ask better questions, avoid common mistakes, and make stronger, more reliable conclusions.
