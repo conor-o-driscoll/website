@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Conor O’Driscoll">
-<meta name="dcterms.date" content="2025-08-19">
-<meta name="description" content="A practical application of some of my earlier posts.">
+<meta name="dcterms.date" content="2025-08-18">
+<meta name="description" content="Digging a bit deeper into RStudio">
 
-<title>Datasets and Data Types As Seen in R – Conor O’Driscoll</title>
+<title>The Three P’s: Programming, Packages, and Projects – Conor O'Driscoll</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -115,13 +81,13 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../include/webex.css">
-<meta property="og:title" content="Datasets and Data Types As Seen in R – Conor O’Driscoll">
-<meta property="og:description" content="A practical application of some of my earlier posts.">
-<meta property="og:image" content="/img/r_data.jpg">
+<meta property="og:title" content="The Three P’s: Programming, Packages, and Projects – Conor O’Driscoll">
+<meta property="og:description" content="Digging a bit deeper into RStudio">
+<meta property="og:image" content="/img/r_proj.png">
 <meta property="og:site_name" content="Conor O'Driscoll">
-<meta name="twitter:title" content="Datasets and Data Types As Seen in R – Conor O’Driscoll">
-<meta name="twitter:description" content="A practical application of some of my earlier posts.">
-<meta name="twitter:image" content="/img/r_data.jpg">
+<meta name="twitter:title" content="The Three P’s: Programming, Packages, and Projects – Conor O’Driscoll">
+<meta name="twitter:description" content="Digging a bit deeper into RStudio">
+<meta name="twitter:image" content="/img/r_proj.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -182,10 +148,9 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#understanding-data-types-in-r-from-nominal-to-ratio" id="toc-understanding-data-types-in-r-from-nominal-to-ratio" class="nav-link active" data-scroll-target="#understanding-data-types-in-r-from-nominal-to-ratio">Understanding Data Types in R: From Nominal To Ratio</a></li>
-  <li><a href="#loading-in-a-dataset" id="toc-loading-in-a-dataset" class="nav-link" data-scroll-target="#loading-in-a-dataset">Loading in a dataset</a></li>
-  <li><a href="#exploring-the-structure-of-datasets" id="toc-exploring-the-structure-of-datasets" class="nav-link" data-scroll-target="#exploring-the-structure-of-datasets">Exploring the structure of datasets</a></li>
-  <li><a href="#looking-at-your-data-a-primer" id="toc-looking-at-your-data-a-primer" class="nav-link" data-scroll-target="#looking-at-your-data-a-primer">Looking at your data: A Primer</a></li>
+  <li><a href="#starting-to-programme-in-r" id="toc-starting-to-programme-in-r" class="nav-link active" data-scroll-target="#starting-to-programme-in-r">Starting To Programme in R</a></li>
+  <li><a href="#navigating-errors-functions-and-packages" id="toc-navigating-errors-functions-and-packages" class="nav-link" data-scroll-target="#navigating-errors-functions-and-packages">Navigating Errors: Functions and Packages</a></li>
+  <li><a href="#r-projects" id="toc-r-projects" class="nav-link" data-scroll-target="#r-projects">R Projects</a></li>
   </ul>
 </nav>
     </div>
@@ -194,7 +159,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Datasets and Data Types As Seen in R</h1>
+<h1 class="title">The Three P’s: Programming, Packages, and Projects</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Working With R</div>
     <div class="quarto-category">Applied Statistics (Beginners)</div>
@@ -203,7 +168,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 <div>
   <div class="description">
-    A practical application of some of my earlier posts.
+    Digging a bit deeper into RStudio
   </div>
 </div>
 
@@ -220,7 +185,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 19, 2025</p>
+      <p class="date">August 18, 2025</p>
     </div>
   </div>
   
@@ -232,134 +197,69 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </header>
 
 
-<section id="understanding-data-types-in-r-from-nominal-to-ratio" class="level1">
-<h1>Understanding Data Types in R: From Nominal To Ratio</h1>
-<p>When we begin working with data in R, one of the first challenges is learning how to think about the different types of variables. In statistics, we often distinguish between four levels of measurement: nominal, ordinal, interval, and ratio. These levels aren’t just technicalities. They determine what we can meaningfully do with our data, and just as importantly, what we cannot do. R doesn’t enforce these distinctions for us, but it does represent variables in certain ways (i.e., as numbers, factors, or characters) that shape how we interact with them.</p>
-<p>To make these ideas more concrete, let’s start by loading a dataset. R comes with several datasets built in (sometimes called “data frames”), which makes practice very easy. One of the most famous is the <code>iris</code> dataset, which contains measurements of sepal and petal dimensions for 150 flowers across three species. In your <code>R</code> Console, you can type <code>help(iris)</code> if you want more information on the dataset.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="starting-to-programme-in-r" class="level1">
+<h1>Starting To Programme in R</h1>
+<p>One of the strong points of <code>R</code> (and <code>RStudio</code>) is its extensive community. It is very easy to find answers to questions about functions or commands on Google (using sources like Stack Overflow, Cross Validated, Reddit, and R Bloggers) or ChatGPT. So, whenever you have a problem, a question or a doubt, try these tools to find the answer!</p>
+<p>Moreover, <code>R</code> contains a help repository about all the functions. You can use the <code>help()</code> function to access the supporting material related to a specific function or package. You can also find a help tab in the bottom-right corner of <code>RStudio</code>. Another very useful resource is represented by the <code>R</code> Cheatsheets. Those are compacted documents with some of the most useful functions to work in R in different topics and applications: <a href="https://posit.co/resources/cheatsheets/?type=posit-cheatsheets&amp;_page=1/">https://posit.co/resources/cheatsheets/?type=posit-cheatsheets&amp;_page=1/</a></p>
+<p>One problem shared by these resources in general is that they require you to know what you are talking about when describing <code>R</code>-related queries and problems. From the community forum angle, this is important because this community is so diverse in its expertise and background that oftentimes, different levels of R knowledge are assumed, and different R conventions are employed. Other times however, it is simply because you can describe the same problem in one hundred different ways, but some ways are better, and more efficient, than others. Another problem not really faced by the forums but very much relevant to OpenAI is the varying quality of solutions. Answers in forums are judged by the community while answers in OpenAI are judged by you, the person who has the problem to begin with.</p>
+<p>To competently navigate this landscape therefore, you need to (roughly) know what you are looking for, and in this case that basically means learning how to “read code”. To read code, you must either gain extensive experience in working with code (i.e., through research), or you must study coding in some capacity. It is worth pointing out that I believe that the best way to learn how to do statistical analyses and to code is to practice. Studying these resources will only get you so far, and in our experience, doing statistics and using <code>R</code> in real life is the best way to develop proficiency. In this way, learning statistics and <code>R</code> is quite literally like learning a new language.</p>
+</section>
+<section id="navigating-errors-functions-and-packages" class="level1">
+<h1>Navigating Errors: Functions and Packages</h1>
+<p><code>R</code> requires a high level of precision when working with it. For example, it is case sensitive. If you have a dataset called <code>Dataset</code> and you tell <code>R</code> to create some graphs using <code>dataset</code>, your code will not work. Similarly, some functions and commands only work with a specific type of data/variable. Finally, if you tell <code>R</code> to import a dataset or a file, and that file is not stored in the correct directory (i.e., the project directory/folder), <code>R</code> will not be able to find it, and your code will not work.</p>
+<p><code>R</code> will generally tell you what is wrong with some degree of clarity, but sometimes these error messages can be cryptic. Most of the error messages you are likely to encounter early on in your <code>R</code> experience are, fortunately, relatively straightforward to fix. Many of you are likely to encounter errors before you do any data work.</p>
+<p>Some errors will occur if there has been problems loading in the dataset you wish to use. The contents of this message will usually read <code>Error in [code]: object [code] not found</code> or <code>Error in [code]: object [code] not found</code>. In nearly all cases this is the result of either misspelling the dataset name or it is the result of <code>R</code> not being able to find the dataset you are referring to (more on this below). Remember you must load the dataset into <code>R</code> every time you want to use it!</p>
+<p>Another error occurs when you basically make a typo in your code. For example, you spell a variable name wrong, or you put a comma in the wrong place. In these cases, you may get errors which say something like <code>Error: Unexpected […] in [code]</code>. This message means that, whatever code you have just tried to run, <code>R</code> is having difficulties making sense of it. More specifically, <code>R</code> thinks there is a mistake and will not be able to execute the code until you make changes. In many cases, <code>R</code> may even tell you precisely where this code is, often in the form of “lines and chunks”. For example, it might say this Error occurred in <code>Chunk 1 and line 20</code> – providing you with clear instructions on where to look for this mistake.</p>
+<p><code>R</code> comes with some basic built-in functionalities. For example, you can use <code>R</code> to do simple arithmetic operations like addition, subtraction, multiplication, and division. You can also use <code>R</code> to create variables, store data, and manipulate data in various ways. However, the power of <code>R</code> really comes from the fact that you can add extra tools to it through packages. These packages contain pre-written code that you can use to do more advanced tasks that may not be possible or efficient with just the basic functionalities of <code>R</code>.</p>
+<p>Every function in <code>R</code> requires a certain number of inputs (so-called “arguments”) so that the function can work properly. For example, you cannot calculate the mean of a variable without first specifying data points. Or you cannot draw a bar chart without first picking the relevant variables. Your function will not work if you specify your inputs/arguments incorrectly. If you make a mistake of this nature, the error may read as <code>Error in [function]: argument [argument] is missing, with no default</code> or <code>Error in [Function(Argument)]: unused argument [argument]</code>. To solve these errors, you need to make sure that function is being used properly (read the help documentation!) and that all inputs are correctly specified.</p>
+<p><code>R</code> packages extend the default functionality of <code>R</code> by providing additional functions, data, and documentation. They are written by the worldwide community of <code>R</code> users. You can think of <code>R</code> packages like apps that you can install on your mobile phone. In order to access the functions and the data contained in one specific <code>R</code> package, you need to install the package (you only need to do this once, if the package has not been installed before, exactly like an app) and you can do this using the <code>install.packages()</code> function.</p>
+<p>Once an <code>R</code> package has been installed, you need to open it (you need to do this in every session in which you use that <code>R</code> package) and you can do this using the <code>library()</code> function. This is necessary because there are so many packages in <code>R</code> that many share the same functionality and contain the same commands.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>R</code> comes with extensive built-in documentation for every function, dataset, and object. The <code>help()</code> function is the primary way to access this documentation. For example, running <code>help(iris)</code> or <code>?iris</code> in the console brings up a page describing the <code>iris</code> dataset: how many rows and columns it has, what each variable represents, and sometimes even references to the original source. Using <code>help()</code> is essential when you are exploring a new dataset or learning a new function, because it provides the authoritative explanation of how the object is structured and what operations make sense. It also shows examples of usage, which is invaluable when you are experimenting in <code>R</code> for the first time.</p>
+<p>A consequence of this is that some packages do the same things and employ the same name for commands (i.e., <code>filter()</code>) even though these commands are slightly different in how they work in different packages. This creates what are known as “conflicts” (i.e., the same command name is used for two distinct tasks). By telling <code>R</code> that you specifically want to use, say, the <code>tidyverse</code> package, you are reducing the chance that conflicts will emerge. If that does not work however, <code>R</code> will clearly signal this and tell you which commands get priority. In general, commands from packages “activated” last get priority. Conflicts are not a problem in themselves, but understanding what they are and why the occur will prove extremely useful as you come to grips with <code>R</code>.</p>
+<p>For some additional information on how to install and load packages in <code>R</code> by watching the following video: <a href="https://www.youtube.com/watch?v=-%20wTcDqJWSzA&amp;list=PLGPGLQRuosDKwjTbOknj12ASPFpJ-V6vK&amp;index=8">https://www.youtube.com/watch?v=- wTcDqJWSzA&amp;list=PLGPGLQRuosDKwjTbOknj12ASPFpJ-V6vK&amp;index=8</a> <br></p>
 </div>
 </div>
+<p>Another common error message you are likely to encounter will read something like <code>Error in [code]: Could not find function [code]</code>. This error means you are trying to use a function belonging to a package which is not yet installed or loaded. To solve this error, you have to install the package (if it is not installed yet) and load it with the <code>install.packages()</code> and <code>library()</code> functions. Remember that every time you start <code>R</code>, you must load in any packages you want to use!</p>
 </section>
-<section id="loading-in-a-dataset" class="level1">
-<h1>Loading in a dataset</h1>
-<p>When we are working with any dataset in R, the first task is to load it into our R environment. Typically, we do this using the <code>load()</code>command. But because <code>iris</code> is comes built into <code>R</code>, we do not need to do this, nor do we have to downlaod anything. All we have to do is type <code>data(iris)</code> to make it available in our session.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Call the dataset that we would like to use</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Once called, you should see the <code>iris</code> dataset appear in your environment tab. Its name should be <code>iris</code> and you should see the label <code>&lt;Promise&gt;</code> next to it. This signals that the dataset is ready for use.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This <code>&lt;Promise&gt;</code> and activation step only happen when working with <code>R</code>’s built-in datasets. When we load external data (i.e., datasets used in the CP assignments), they become instantly available for use and manipulation.</p>
-<p>In this case, the <code>iris</code> dataset is also instantly available for use and manipulation, you just have to explicitly do something with the dataset for it to become activated. For example, if you hover your mouse over the <code>iris</code> object and click on it, you will see that the <code>&lt;Promise&gt;</code> label disappears and is replaced with […]. Similarly, if you run any form of command, as we will do shortly, using the dataset in question, then it will automatically activate.</p>
-</div>
-</div>
-<p>Once loaded into <code>R</code>, we can do a whole host of things to the dataset. One recommended starting point is to create a carbon copy of the raw data you are using. This can be helpful if you plan on manipulating the data or changing it in some way. It is always advisable to keep an unaltered copy of the raw data on hand in case you make a bags of it and need to start over - if you alter the only copy of your raw data and it turns out to be incorrect, you could land yourself in hot water.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Generate a copy of our dataset and call it iris_data</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>iris_data <span class="ot">&lt;-</span> iris</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>All we have done here is created an identical object but given it a new name. In <code>R</code>-speak, what we have done is, using the object <code>iris</code>, we created a new object called <code>iris_data</code>. The direction of the arrow illustrates which object is an input of the function, and which is an output. For example, we could also do it this way:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Flip the sign of the arrow</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>iris <span class="ot">-&gt;</span> iris_flip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>It is, however, much less typical to structure your code this way because there are normally far more inputs than there are outputs. So having your ouptuts on the left-hand side of the arrow (i.e., <code>iris_data &lt;- iris</code>) allows you utilise the full breadth of the document when constructing code and commands.</p>
-</section>
-<section id="exploring-the-structure-of-datasets" class="level1">
-<h1>Exploring the structure of datasets</h1>
-<p>Okay. Enough about loading datasets in. If we want to explore our dataset in more detail, we can go about it in a few ways. On one hand, you can use your mouse and simply hover over your dataset, click on it, and navigate the table that automatically opens. This table is your data. Each cell represents a data point. In most datasets, the rows will represent cases; so that, in this case, each row represents a different flower. Meanwhile, the columns will usually represent variables - that is, the different characteristics of each flower that this dataset captures.</p>
-<p>In this case, for example, we see that there are five variables (characteristics) in total and 150 observations (flowers) in total. We can confirm this in the table, but also in the environment tab, as this information now replaces the <code>&lt;Promise&gt;</code> label. For each of these 150 flowers, we have information about their petals and sepals, as well as the type of iris species they belong to. We see that, for four of these variables, their values are expressed as numbers, whereas for the fifth, its values are expressed in words.</p>
-<p>This is about the most we can gather from this table without having to make educated guesses about the underlying structure of the data. To dig a bit deeper we will have to use some code to examine the structure of the dataset and its different variables. Many of these commands will give us the same information as did the table anyway, so it is often more convenient to skip the table and jump straight into the code. That being said, it is always valuable to look at your raw data, something which will be explored in more detail in later posts.</p>
-<p>Anyway, lets say we want to explicitly examine the structure of the dataset. By that I mean we want to examine the type of data each variable captures. To do this, we can use the <code>str()</code> command.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Examine a dataset's structure</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   150 obs. of  5 variables:
- $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
- $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
- $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
- $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
- $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-</div>
-</div>
-<p>The output of this command is quite informative. We see the total number of observations (flowers) and variables (characteristics). But we also see the structure of each variable. We can confirm now that <code>R</code> interprets four of the five variables as <code>numeric</code>, meaning it treats them as numbers. Interestingly, <code>R</code> does not distinguish between the <em>type</em> of numeric data these variables are. Although they all appear to be ratio variables, we cannot be sure without digging a bit deeper. Fortunately, we do not need to dig deeper, as in practice all that matters in nine-cases-out-of-ten is whether these data are numbers or not. In other words, in practice the distinction between ratio and interval seldom comes into play beyond the extent to which we use theory to interpret their meaning - at least not at the level of Beginners statistics.</p>
-<p>Meanwhile, the fifth variable in our dataset is classified as a <code>Factor</code> variable. This factor variable has three levels, described through words (although in the output we can only see two) and each level is associated with a specific value. You cannot really infer this directly from the output, but take it from me as being true. This variable thus appears to contain two types of data: words and numbers. What gives?</p>
-<div class="webex-check webex-box">
+<section id="r-projects" class="level1">
+<h1>R Projects</h1>
+<p>As your work in <code>R</code> grows, it becomes important to organize your files and maintain reproducibility. This is where <code>R</code> Projects come in. <code>R</code> projects are organized workflows within the R programming environment, designed to manage code, data, and outputs in a structured way.</p>
+<p>For those of you with experience using other statistical software, such as <code>STATA</code>, <code>SPSS</code>, or <code>GIS</code>, the concept of a “working directory” may sound familiar. A working directory is what <code>R</code> assumes to be your workspace, and when looking for files to import, or when exporting files, the first place it will go to is this directory. By default, <code>RStudio</code> will pick the user-directory on your computer or the directory “My Documents” as this workspace, so this is what you usually see in the Files tab the first time you open <code>RStudio</code>.</p>
+<p>Projects are basically <code>R</code>’s equivalent of a “(working) directory”. This is where <code>R</code> looks for files that you ask it to load, and where it will put any files that you ask it to save. Indeed, keeping all the files associated with a given project (input data, <code>R</code> scripts, analytical results, and figures) together in one directory is such a wise and common practice that RStudio has built-in support for this via projects.</p>
+<p>Each project has its own <code>R</code> session, helping to prevent objects from other projects from interfering. For more advanced users, <code>R</code> projects integrate seamlessly with Git, allowing you to track changes over time. This is actually how I keep this website and these blog posts up-to-date.</p>
+<p>To create a new project, you can navigate to the top-right corner of <code>RStudio</code> (below the red X and above the global environment). From there, you can either open an existing project, or create a new one. For creating a new project, you will normally go through the following steps:</p>
 <ol type="1">
-<li><p><code>TRUE</code> or <code>FALSE</code>: The variable <code>Species</code> is categorical. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
-<li><p><code>TRUE</code> or <code>FALSE</code>: The variable <code>Species</code> is interval. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
-<li><p>Which of the following most accurately describes the structure of the variable <code>Species</code>: <select class="webex-select"><option value="blank"></option><option value="">interval</option><option value="">ratio</option><option value="answer">nominal</option><option value="">ordinal</option></select></p></li>
+<li><p>Click <code>File &gt; New Project</code> OR Click <code>Project: (None) &gt; New Project</code> <br></p></li>
+<li><p>If you have not made a dedicated folder already for your project, click <code>New Directory</code>. If you have made a dedicated folder already, click <code>Existing Directory</code>. More advanced users to integrate <code>Version Control</code> should they wish to do so, but I will not cover that here. <br></p></li>
+<li><p>If you clicked <code>New Directory</code> in 2., you need to decide what type of project you will make. The most straightforward is the first option (<code>New Project</code>), but you can also click <code>Quarto Project</code> if you intend to use quarto files as the main source of analysis. <br></p></li>
+<li><p>If you clicked <code>Existing Directory</code> in 2., you need to tell <code>R</code> where the folder you want your <code>R</code> project to live in is located and what it is called. You need to do this so <code>R</code> knows where to save all the relevant project files. <br></p></li>
+<li><p>Following from 3a, you need to give your directory a name. This will become the name of the folder which stores your <code>R</code> project. The box below <code>Directory Name</code> allows you to tell <code>R</code> where you want this folder to be stored. <br></p></li>
 </ol>
-</div>
-<p>Well, this is something of a trick. Levels in factor variables are better thought of as labels, labels that are discrete in nature. Thus, the label <code>setosa</code>, for example, is really just a placeholder to give more intuitive meaning to the actual value within the cell, which is 1. This is an interesting case where the distinction between discrete and continuous variables becomes important. Factors in R are technically stored as integers under the hood, with each level corresponding to a number. You can check this by converting a factor back into numeric form: what once looked like setosa, versicolor, and virginica will suddenly appear as 1, 2, and 3.</p>
-<p>The crucial point is that even though factors are stored as numbers, those numbers do not carry any quantitative meaning. Adding 1 and 2 does not give you a “hybrid” category between setosa and versicolor, and calculating an average of factor levels is meaningless. The numeric coding is only there for efficiency and to allow R to keep track of categories in a consistent way.</p>
-<p>This distinction also helps us see why categorical data are considered discrete. With continuous variables such as <code>Sepal.Length</code>, we could in principle measure infinitely fine differences — 5.1 cm, 5.11 cm, 5.111 cm, and so on. But with a factor, there is no continuum between <code>setosa</code> and <code>virginica</code>. The categories are separate bins, and an observation must fall entirely into one of them.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Individual variables can only host one data type (i.e., nominal, ordinal, interval, or ratio). In cases where there are, for some reason, multiple different types of data (e.g., numbers and words) contained within the same column, <code>R</code> will revert to classifying the column according to the least restrictive classification.</p>
-<p>For example, if one of your variables contains a mixture of words and numbers (e.g., zero, 1, 2, 3 …), then <code>R</code> will classify everything in that column as a word. Or, more precisely, as a <code>string</code> variable. String variables represent textual data (i.e., words) and form a separate class of data in <code>R</code>. What makes them interesting is that each unique string value is often mapped internally to a number, while the original string is retained as a label. This is exactly how factor variables work: for instance, the <code>Species</code> variable in the <code>iris</code> dataset is a factor. Internally, <code>setosa</code>, <code>versicolor</code>, and <code>virginica</code> are stored as the integers 1, 2, and 3, but <code>R</code> keeps the original string labels so that outputs remain readable. This mapping allows <code>R</code> to efficiently store categorical data and perform statistical operations that depend on levels rather than the textual content itself.</p>
-<p>Another important special type is date-time data. Variables that represent dates or times, such as <code>2025-09-03</code> or <code>12:30:00</code>, are stored in classes like <code>Date</code> or <code>POSIXct</code> in <code>R</code>. These are technically numeric under the hood (representing days or seconds since a reference point), but they behave differently because <code>R</code> provides specialized functions for comparison, formatting, and arithmetic with dates and times. For example, you can calculate the difference between two dates, extract the month or weekday, or filter data by date ranges. This type of data are not so important for beginners but can become quite important if you wish to work with time-series or longitudinal data, for example.</p>
-</div>
-</div>
-<p>When thinking about the distinction between nominal and ordinal data in <code>R</code>, things become a bit more tricky as you can make this distinction in <code>R</code> by creating “unordered” and “ordered” factor variables, but this distinction usually only matters in more advanced contexts. As a result, they will be covered in a seperate post. What is important for now is that nominal and ordinal data are both categorical. From an <code>R</code> perspective, this means they should take a factor form. But nominal data can also be represented using <code>string</code>. But, as explained above, it is difficult to do any statistics with this type of data. Meanwhile, ordinal data can be represented using <code>numeric</code>, but this is theoretically problematic and makes the interpretation of any statistical analysis difficult, something which will also be covered in later posts. Bottom line: categorical data are factor data.</p>
-</section>
-<section id="looking-at-your-data-a-primer" class="level1">
-<h1>Looking at your data: A Primer</h1>
-<p>When working with categorical variables, it is often convenient to look at how well each of the categories are represented in your data. A simple way to do this is through the <code>table()</code> command.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Look at categories more closely</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris_data<span class="sc">$</span>Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    setosa versicolor  virginica 
-        50         50         50 </code></pre>
-</div>
-</div>
-<p>The <code>$</code> operator in <code>R</code> is a convenient way to access individual columns (variables) from a dataset. For instance, if we have the <code>iris</code> dataset loaded, <code>iris$Sepal.Length</code> returns the column (sometimes called “vector”) of all sepal lengths. Using <code>$</code> is often more readable and faster than alternative methods, like indexing with <code>iris[, "Sepal.Length"]</code>, and it allows you to chain operations using packages like <code>tidyverse</code>. One important thing to remember is that <code>$</code> only works with column names that are valid <code>R</code> identifiers — if a column name has spaces or unusual characters, you’ll need to use a different indexing method. Using <code>$</code> in combination with functions like <code>table()</code> makes it simple to explore and summarize individual variables (<code>Species</code>) in a dataset (<code>iris_data</code>).</p>
-<p>Here we see that we have an equal number of observations for each species of flower. This may or may not be meaningful, depending on your context. Where things can become interesting is when, for example, you have categories which are represented by hardly any observations. In more advanced statistical analyses, this can raise questions around, for example, whether such categories should be aggregated and combined. Usually, this type of decision is inspired by both empirics and theory. Theoretically, it becomes a question of what these categories mean and the extent to which you are actually interested in them. Empirically, it is often difficult to work with categories which only report a small number of observations.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To take another example, when studying property prices, it is often important to consider the type of building people are living in. It seems obvious that houses, boats, and apartments are probably priced differently, so this makes sense. But there are potentially dozens of way to classify a building, depending on whether you are considering architectural, land-use, and/or household differences, for example.</p>
-<p>Most people are not explicitly interested in all the specific categories you can make, but rather just a handful (e.g., standalone houses and apartments). In such cases, it makes sense to think about aggregating many highly detailed categories into broader groups because, theoretically, these broader groups better capture what you are interested in theoretically, while these highly disaggregated categories offer little-to-no value to your empirical work.</p>
-<p>You see similar problems emerge in countless other contexts. Studies of race/ethnicity, age, and gender are three examples which come directly to mind.</p>
-</div>
-</div>
+<p>Projects provide a dedicated folder structure for storing all files related to specific pieces of analysis. <code>R</code> projects help keep files organized, but also make it easier to collaborate and share your work. They do this by providing users with consistent links and file paths, and therefore simplify reproducibility and portability across different systems. Thus, when you create a Project File, the working directory for that project will automatically be set to wherever you saved this file. Once created, you should see that instead of saying Project: (None), that icon on the top-right corner now displays the project name.</p>
+<p>Each project usually contains a certain number of files and has a particular structure. Part of this structure can be intuited through the cover picture of this post, but some more specific details on the files you <em>need</em> to keep together are provided below:</p>
+<ol type="1">
+<li>An <em>R Project</em> File (<code>.Rproj</code>) <br></li>
+<li>A <code>Rproj.user</code> folder <br></li>
+<li>A <code>Rhistory</code> source file <br></li>
+<li>Some file for storing your code/analysis (e.g., an R Script (<code>.R</code>) or a Quarto file (<code>.qmd</code>)) <br></li>
+<li>An <em>R Workspace</em> <br></li>
+</ol>
+<p>The folder that contains 1), 2), and 3) is the ecosystem of your analysis; this is your project directory. Anything outside of this folder will not be included by default, nor will you be able to work with it in <code>R</code> – any file you want to include in your analysis must be in this project directory. 4) is the file you will use to conduct your analysis. That is, the file where you can insert code, generate tables and graphs, and produce statistical outputs. 5) is the dataset you will use throughout the research.</p>
+<p>If you are a student in my University of Groningen courses, you do not need to create R Projects from scratch. Nor will you have to create Quarto documents and independently source data sets. Rather, we do all that work for you. This means that you will have everything you need to get started on your assignments right away, meaning you can open the Quarto document right away and begin working. Once you leave this course however, things won’t be so easy, so it is important that you learn how these projects and files work. The best way to do this is to practice by making your own and experimenting with them, but here are some useful resources you can use to learn more about them:</p>
+<ol type="1">
+<li><p>Working with Scripts and Projects: <a href="https://r4ds.hadley.nz/workflow-scripts.html">https://r4ds.hadley.nz/workflow-scripts.html</a></p></li>
+<li><p>Using R Projects: <a href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects">https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects</a></p></li>
+<li><p>Using R Projects: <a href="https://www.youtube.com/watch?v=MdTtTN8PUqU">https://www.youtube.com/watch?v=MdTtTN8PUqU</a></p></li>
+</ol>
 
 
 </section>

@@ -2,8 +2,8 @@
 title: "Datasets and Data Types As Seen in R"
 author: "Conor O'Driscoll"
 date: 2025-08-19
-categories: [Applied Statistics (Beginners)]
-image: "/img/r-logo.svg"
+categories: [Working With R, Applied Statistics (Beginners)]
+image: "/img/r_data.jpg"
 description: "A practical application of some of my earlier posts."
 ---
 

@@ -1,0 +1,153 @@
+---
+title: "Getting Started With R and RStudio"
+author: "Conor O'Driscoll"
+date: 2025-08-18
+categories: [Working With R, Applied Statistics (Beginners)]
+image: "/img/r-logo.svg"
+description: "Navigating the installation process of R and RStudio while also introducing you to the RStudio environment."
+---
+
+`R` is a powerful and flexible programming language used for data analysis, visualization, and statistical modeling. Coupled with `RStudio`, a feature-rich integrated development environment (IDE), it provides a smooth workflow for beginners and experienced users alike. This guide will walk you through getting started with `R` and `RStudio`, from installation to working with scripts, Quarto documents, and `R` projects; all of which are essential for the successful completion of computer practical assignments and research projects alike.
+
+
+Installing R
+======
+
+Before you can start coding in `R`, you need to install two pieces of software: `R`, the programming language itself, and `RStudio`, the IDE that makes working with `R` easier. You must install them in this order. `R` itself is a command-line language, so if you were to run it without an IDE, you would interact with it in a basic console. This works, but it lacks many productivity features such as syntax highlighting, project management, and integrated help that RStudio provides. Thus, you can think of `R` as a car’s engine while `RStudio` is like a car’s dashboard.
+
+Step 1: Installing `R` <br>
+
+Navigate to [https://cran.r-project.org/](https://cran.r-project.org/) where you can find various versions of `R`. On top, there is a list of 3 links redirecting you towards the most appropriate `R` version for you, depending on your operating system. Then, click on the link which is suitable for your operating system. 
+
+*If you work on Windows*, click on install `R` for the first time. And then click on `Download R-X.X.X` for Windows on top (R-X.X.X indicates
+the current version of R, which at the time of writing is `R-4.4.2`). Your browser will start downloading the installation file for `R` and, once
+downloaded, start the installation of `R` (you can safely click on Next on all the default settings).
+
+*If you work on macOS*, select the `R` version which is suitable for your operating system. Your browser will start downloading the installation file for `R` and, once downloaded, start the installation of R (you can safely click on Next on all the default settings). You will also have to install [XQuartz](https://www.xquartz.org/) for some libraries in `R` to work, so do that before you advance further.
+
+::: callout-note
+
+*If you work on Linux*, installing `R`  can be a bit awkward becuase involves using your distribution’s package manager. Therefore, the exact commands depend on whether you are using Ubuntu/Debian, Fedora, or another distribution. For Ubuntu or Debian-based systems, open a terminal and run: <br>
+
+`sudo apt update` <br>
+`sudo apt install r-base` <br>
+
+This installs the base R system. You can verify the installation by typing: `R --version`. <br>
+
+For Fedora or Red Hat-based systems, you can use: `sudo dnf install R` <br>
+
+Once installed, you can start R in the terminal by typing `R`.
+
+:::
+
+
+Installing RStudio
+======
+
+Once `R` is installed on your computer, navigate to [https://posit.co/download/rstudiodesktop/](https://posit.co/download/rstudiodesktop/) to download `RStudio` Desktop. Click on Download `RStudio Desktop for X`, where X is your operating system. The webpage automatically recognizes your operating system and suggests the correct version of `RStudio` to be downloaded. 
+
+Your browser will start downloading the installation file for `RStudio` and, once downloaded, start the installation of `RStudio` (you can safely click on Next on all the default settings). When running `RStudio` for the first time, the software will ask you to select an existing `R` version installed on your computer, select the one you installed in the previous point. 
+
+::: callout-note
+
+For Linux users, the process is, once again, a bit more complex. <br>
+
+You download the `.deb` (for Debian/Ubuntu) or `.rpm` (for Fedora/Red Hat) installer from [https://posit.co/download/rstudiodesktop/](https://posit.co/download/rstudiodesktop/). <br>
+
+Once downloaded, open the terminal and navigate to the download location and run: <br>
+
+`sudo dpkg -i rstudio-x.yy.zzz-amd64.deb` (replace `x.yy.zzz` with the actual version number) <br>
+
+On Fedora, download the `.rpm` file and run: <br>
+
+`sudo rpm -i rstudio-x.yy.zzz-x86_64.rpm` <br>
+
+After installation, you can launch RStudio from your application menu, just like on Windows or macOS. The interface and workflow are identical across platforms, so once installed, you can follow the same instructions for navigating the console, scripts, and Quarto documents.
+
+:::
+
+
+In case these instructions are difficult to follow and/or raise questions, you can consult the following videos which offer helpful step-by-step guides in installing R on your device.
+
+For Windows: [https://www.youtube.com/watch?v=TsnGd6p9oTk](https://www.youtube.com/watch?v=TsnGd6p9oTk) <br>
+For macOS: [https://www.youtube.com/watch?v=CICcOLgKxl0](https://www.youtube.com/watch?v=CICcOLgKxl0) <br>
+For Linux: [https://www.youtube.com/watch?v=7RSq4uuS36A](https://www.youtube.com/watch?v=7RSq4uuS36A) <br>
+
+
+Introduction to RStudio and its Environment
+======
+
+After installation, open `RStudio`. You will see a layout divided into three main panes by default:
+
+1. *Console (left):* This is where you can type and run R commands directly. For example, if you type `1 + 1` into your console and click enter, you will see the answer `2` emerge.
+
+```{r}
+
+1 + 1
+
+```
+
+The console is great for quick calculations, testing small code snippets, and exploring data interactively.
+
+2. *Global Environment/History (top-right):* The Global Environment pane displays all objects (variables, datasets, functions) that exist in your current `R` session. This is basically our workspace. Any variables that we define, or data that we import and save in a dataframe, are stored,
+and listed in our Global Environment. For example, if you type into your console
+
+```{r}
+
+result <- 1 + 1
+
+```
+
+
+and hit enter, you will see a new object appear in your environment tab called `result`. The value of this object will be the sum of `1 + 1`, because that is what we have told `R` it should be. We do this using the `<-` convention. This helps us to generate a discrete output using a series of inputs, and forms the foundation of basically all commands in `R`. In other words, we use the `<-` to tell `R` to create a new object called `result` which is made up of the sum `1 + 1`. This new object will be stored in your global environment for you to use, should you wish to do so, until you close `RStudio`.
+
+Theoretically, your global environment can store many objects. But we are usually not interested in everything, and sometimes we create "temporary objects" which might be only for testing or whose primary purpose is to be used as an intermediary input. If you want to tidy up this environment, you can do so very easily. Simply click the broom icon at the top of the window, and that will remove every object. If you want to remove only some
+elements, select the Grid view from the dropdown menu, then you can check the boxes of the objects you would like to remove and use the broom icon to remove them.
+
+Within this area, you can also import data from various sources, and you can access the History tab, which lists the commands that have been used previously.
+
+3. *The area in the bottom-right*: The area on the bottom-right contains multiple tabs, such as files, plots, packages, help, and viewer. 
+
+The Files tab shows the files and directories that are available within the default workspace of `R`. The Plots tab shows the plots that are generated during the current session. The Packages tab helps you to look at what are the packages that are already installed in `RStudio`, and it gives a user interface to install new packages (more on this in another post). The Help tab is the most important one where you can get help from the `R` Documentation on the functions that are in built-in `R`. The final and last tab is the Viewer tab which can be used to see the local web content that’s generated using `R`.
+
+To familiarize even further on the RStudio environment, watch the following video and replicate what is shown in the video in your own RStudio session on your computer: [https://www.youtube.com/watch?v=FIrsOBy5k58](https://www.youtube.com/watch?v=FIrsOBy5k58)
+
+
+Different File Types in R
+======
+
+`R` code can be written and executed in one of two places (normally). The console is where you execute code line-by-line, but not saved. So, if you run code in this pane, it is impossible to save it without transferring it to another file/place first. Consequently, working solely from the
+console is not advised. If we want to be able to reproduce and reuse our code for further needs, we should write it in a Script file rather than directly in the Console. To start recording a `Script, click File > New File > R Script`. This will open a text editor in the top-left corner of the `RStudio` interface (above the Console tab, which moves the console tab to the bottom-left).
+
+`R` scripts are plain text files containing a series of R commands and code that execute specific tasks or analyses. These scripts typically end with the .R extension and can include anything from data manipulation, statistical analysis, visualization, to machine learning algorithms. They can be run interactively within an R environment or executed in batch mode for larger tasks. By organizing code into scripts, users can save, modify, and share their work easily, making them a fundamental part of `R` programming. The idea is that you can open this file at any time, in any place, and execute the same code as you did originally.
+
+While writing a Script, it's a good idea to add comments (using the # symbol followed by a line of comment text) to explain the purpose behind certain pieces of code to a future reader. Additionally, it's helpful to provide important context at the beginning of the Script, such as the
+author and contributors of the code, its creation and modification dates, scope, etc. Another useful practice is to load all the necessary R packages at the start of the Script, following the initial information.
+
+Quarto documents are the modern equivalent of R Markdown. They allow you to combine `R` code, narrative text, equations, and visualizations in a single document. Quarto is ideal for creating reports (like those in the CP assignments), blog posts (like the one you are currently reading), or academic papers where you want both analysis and narrative integrated seamlessly. A simple Quarto code chunk looks like the code examples you have seen earlier in this post.
+
+You can create other types of files in `R`, such as presentation files and interactive dashboards, but the fundamentals lay with scripts and quarto documents. Indeed, the website on which this blog post is hosted has been created using a combination of script files, quarto documents, and one `R` project, illustrating how far you can go with a good understanding of these files.
+
+
+Getting Started With Quarto
+======
+
+Quarto is a tool which allows you to create documents that combine text, code, and results from running that code in R. It's kind of like a recipe book, where you can write down instructions for doing some analysis or creating a graph, and then also include the code and the output of that code right alongside the text. This makes it easy for others to follow along with what you're doing and reproduce your results.
+
+With Quarto, you can create documents that include code written in multiple programming languages, not just R. You can also use different types of outputs, like HTML, PDF, or Word documents, and you have more control over the formatting and styling of your document.
+
+Overall, Quarto is a tool that helps you create documents that combine text, code, and output in a way that's easy to read and share with others. It is great for doing data analysis or creating reports, and it can make your work more transparent and reproducible. 
+
+Watch the following videos and replicate what is shown in these videos in your own RStudio session on your computer:
+
+1. Install Quarto on your computer: [https://www.youtube.com/watch?v=4rKWIJXe3mA&list=PLEzw67WWDg80-fT1hq2IZf7D62tRmKy8f](https://www.youtube.com/watch?v=4rKWIJXe3mA&list=PLEzw67WWDg80-fT1hq2IZf7D62tRmKy8f) <br>
+
+2. Introduction to Quarto (part 1): [https://www.youtube.com/watch?v=31Q9ZTZOHIM&list=PLEzw67WWDg80-fT1hq2IZf7D62tRmKy8f&index=2](https://www.youtube.com/watch?v=31Q9ZTZOHIM&list=PLEzw67WWDg80-fT1hq2IZf7D62tRmKy8f&index=2) <br>
+
+3. Introduction to Quarto (part 2): [https://www.youtube.com/watch?v=QlYgnf_qCNo&list=PLEzw67WWDg80-fT1hq2IZf7D62tRmKy8f&index=3](https://www.youtube.com/watch?v=QlYgnf_qCNo&list=PLEzw67WWDg80-fT1hq2IZf7D62tRmKy8f&index=3) <br>
+
+
+Getting started with `R` and `RStudio` involves more than just installing software. Understanding the layout of `RStudio` and the types of files you can work with will set you up for a productive workflow. Scripts allow you to save and organize your code and Quarto documents enable reproducible reports and dynamic documents. In my next post I will introduce `R` Projects, which act as the scaffolding that keeps everything structured and isolated.
+
+Once you are comfortable with these basics, you can start exploring datasets, creating visualizations, and performing analyses with confidence. As you progress, `RStudio`’s rich features — including debugging tools, integrated help, and package management — will make it easier to tackle increasingly complex data challenges.
+

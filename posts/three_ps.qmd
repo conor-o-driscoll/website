@@ -1,0 +1,95 @@
+---
+title: "The Three P's: Programming, Packages, and Projects"
+author: "Conor O'Driscoll"
+date: 2025-08-18
+categories: [Working With R, Applied Statistics (Beginners)]
+image: "/img/r_proj.png"
+description: "Digging a bit deeper into RStudio"
+
+---
+
+Starting To Programme in R
+======
+
+One of the strong points of `R` (and `RStudio`) is its extensive community. It is very easy to find answers to questions about functions or commands on Google (using sources like Stack Overflow, Cross Validated, Reddit, and R Bloggers) or ChatGPT. So, whenever you have a problem, a question or a doubt, try these tools to find the answer!
+
+Moreover, `R` contains a help repository about all the functions. You can use the `help()` function to access the supporting material related to a specific function or package. You can also find a help tab in the bottom-right corner of `RStudio`. Another very useful resource is represented by the `R` Cheatsheets. Those are compacted documents with some of the most useful functions to work in R in different topics and applications: [https://posit.co/resources/cheatsheets/?type=posit-cheatsheets&_page=1/](https://posit.co/resources/cheatsheets/?type=posit-cheatsheets&_page=1/)
+
+One problem shared by these resources in general is that they require you to know what you are talking about when describing `R`-related queries and problems. From the community forum angle, this is important because this community is so diverse in its expertise and background that oftentimes, different levels of R knowledge are assumed, and different R conventions are employed. Other times however, it is simply because you can describe the same problem in one hundred different ways, but some ways are better, and more efficient, than others. Another problem not really faced by the forums but very much relevant to OpenAI is the varying quality of solutions. Answers in forums are judged by the community while answers in OpenAI are
+judged by you, the person who has the problem to begin with. 
+
+To competently navigate this landscape therefore, you need to (roughly) know what you are looking for, and in this case that basically means learning how to “read code”. To read code, you must either gain extensive experience in working with code (i.e., through research), or you must study coding in some capacity. It is worth pointing out that I believe that the best way to learn how to do statistical analyses and to code is to practice. Studying these resources will only get you so far, and in our experience, doing statistics and using `R` in real life is the best way to develop proficiency. In this way, learning statistics and `R` is quite literally like learning a new language.
+
+
+Navigating Errors: Functions and Packages
+======
+
+`R` requires a high level of precision when working with it. For example, it is case sensitive. If you have a dataset called `Dataset` and you tell `R` to create some graphs using `dataset`, your code will not work. Similarly, some functions and commands only work with a specific type of data/variable. Finally, if you tell `R` to import a dataset or a file, and that file is not stored in the correct directory (i.e., the project directory/folder), `R` will not be able to find it, and your code will not work. 
+
+`R` will generally tell you what is wrong with some degree of clarity, but sometimes these error messages can be cryptic. Most of the error messages you are likely to encounter early on in your `R` experience are, fortunately, relatively straightforward to fix. Many of you are likely to encounter errors before you do any data work.
+
+Some errors will occur if there has been problems loading in the dataset you wish to use. The contents of this message will usually read `Error in [code]: object [code] not found` or `Error in [code]: object [code] not found`. In nearly all cases this is the result of either misspelling the dataset name or it is the result of `R` not being able to find the dataset you are referring to (more on this below). Remember you must load the dataset into `R` every time you want to use it! 
+
+Another error occurs when you basically make a typo in your code. For example, you spell a variable name wrong, or you put a comma in the wrong place. In these cases, you may get errors which say something like `Error: Unexpected […] in [code]`. This message means that, whatever code you have just tried to run, `R` is having difficulties making sense of it. More specifically, `R` thinks there is a mistake and will not be able to execute the code until you make changes. In many cases, `R` may even tell you precisely where this code is, often in the form of “lines and chunks”. For example, it might say this Error occurred in `Chunk 1 and line 20` – providing you with clear instructions on where to look for this mistake.
+
+`R` comes with some basic built-in functionalities. For example, you can use `R` to do simple arithmetic operations like addition, subtraction, multiplication, and division. You can also use `R` to create variables, store data, and manipulate data in various ways. However, the power of `R` really comes from the fact that you can add extra tools to it through packages. These packages contain pre-written code that you can use to do more advanced tasks that may not be possible or efficient with just the basic functionalities of `R`.
+
+Every function in `R` requires a certain number of inputs (so-called “arguments”) so that the function can work properly. For example, you cannot calculate the mean of a variable without first specifying data points. Or you cannot draw a bar chart without first picking the relevant variables. Your function will not work if you specify your inputs/arguments incorrectly. If you make a mistake of this nature, the error may read as `Error in [function]: argument [argument] is missing, with no default` or `Error in [Function(Argument)]: unused argument [argument]`. To solve these errors, you need to make sure that function is being used properly (read the help documentation!) and that all inputs are correctly specified.
+
+`R` packages extend the default functionality of `R` by providing additional functions, data, and documentation. They are written by the worldwide community of `R` users. You can think of `R` packages like apps that you can install on your mobile phone. In order to access the functions and the data contained in one specific `R` package, you need to install the package (you only need to do this once, if the package has not been installed before, exactly like an app) and you can do this using the `install.packages()` function. 
+
+Once an `R` package has been installed, you need to open it (you need to do this in every session in which you use that `R` package) and you can do this using the `library()` function. This is necessary because there are so many packages in `R` that many share the same functionality and contain the same commands. 
+
+::: callout-warning
+
+A consequence of this is that some packages do the same things and employ the same name for commands (i.e., `filter()`) even though these commands are slightly different in how they work in different packages. This creates what are known as “conflicts” (i.e., the same command name is used for two distinct tasks). By telling `R` that you specifically want to use, say, the `tidyverse` package, you are reducing the chance that conflicts will emerge. If that does not work however, `R` will clearly signal this and tell you which commands get priority. In general, commands from packages “activated” last get priority. Conflicts are not a problem in themselves, but understanding what they are and why the occur will prove extremely useful as you come to grips with `R`.
+
+For some additional information on how to install and load packages in `R` by watching the following video: [https://www.youtube.com/watch?v=- wTcDqJWSzA&list=PLGPGLQRuosDKwjTbOknj12ASPFpJ-V6vK&index=8](https://www.youtube.com/watch?v=- wTcDqJWSzA&list=PLGPGLQRuosDKwjTbOknj12ASPFpJ-V6vK&index=8) <br>
+
+:::
+
+Another common error message you are likely to encounter will read something like `Error in [code]: Could not find function [code]`. This error means you are trying to use a function belonging to a package which is not yet installed or loaded. To solve this error, you have to install the package (if it is not installed yet) and load it with the `install.packages()` and `library()` functions. Remember that every time you start `R`, you must load in any packages you want to use!
+
+
+R Projects
+======
+
+As your work in `R` grows, it becomes important to organize your files and maintain reproducibility. This is where `R` Projects come in. `R` projects are organized workflows within the R programming environment, designed to manage code, data, and outputs in a structured way. 
+
+For those of you with experience using other statistical software, such as `STATA`, `SPSS`, or `GIS`, the concept of a “working directory” may sound familiar. A working directory is what `R` assumes to be your workspace, and when looking for files to import, or when exporting files, the first place it will go to is this directory. By default, `RStudio` will pick the user-directory on your computer or the directory “My Documents” as this workspace, so this is what you usually see in the Files tab the first time you open `RStudio`.
+
+Projects are basically `R`’s equivalent of a “(working) directory”. This is where `R` looks for files that you ask it to load, and where it will put any files that you ask it to save. Indeed, keeping all the files associated with a given project (input data, `R` scripts, analytical results, and figures) together in one directory is such a wise and common practice that RStudio has built-in support for this via projects. 
+
+Each project has its own `R` session, helping to prevent objects from other projects from interfering. For more advanced users, `R` projects integrate seamlessly with Git, allowing you to track changes over time. This is actually how I keep this website and these blog posts up-to-date.
+
+To create a new project, you can navigate to the top-right corner of `RStudio` (below the red X and above the global environment). From there, you can either open an existing project, or create a new one. For creating a new project, you will normally go through the following steps:
+
+1. Click `File > New Project` OR Click `Project: (None) > New Project` <br>
+
+2. If you have not made a dedicated folder already for your project, click `New Directory`. If you have made a dedicated folder already, click `Existing Directory`. More advanced users to integrate `Version Control` should they wish to do so, but I will not cover that here. <br>
+
+3. If you clicked `New Directory` in 2., you need to decide what type of project you will make. The most straightforward is the first option (`New Project`), but you can also click `Quarto Project` if you intend to use quarto files as the main source of analysis. <br>
+
+4. If you clicked `Existing Directory` in 2., you need to tell `R` where the folder you want your `R` project to live in is located and what it is called. You need to do this so `R` knows where to save all the relevant project files. <br>
+
+5. Following from 3a, you need to give your directory a name. This will become the name of the folder which stores your `R` project. The box below `Directory Name` allows you to tell `R` where you want this folder to be stored. <br>
+
+Projects provide a dedicated folder structure for storing all files related to specific pieces of analysis. `R` projects help keep files organized, but also make it easier to collaborate and share your work. They do this by providing users with consistent links and file paths, and therefore simplify reproducibility and portability across different systems. Thus, when you create a Project File, the working directory for that project will automatically be set to wherever you saved this file. Once created, you should see that instead of saying Project: (None), that icon on the top-right corner now displays the project name.
+
+Each project usually contains a certain number of files and has a particular structure. Part of this structure can be intuited through the cover picture of this post, but some more specific details on the files you _need_ to keep together are provided below:
+
+1. An _R Project_ File (`.Rproj`) <br>
+2. A `Rproj.user` folder <br>
+3. A `Rhistory` source file <br>
+4. Some file for storing your code/analysis (e.g., an R Script (`.R`) or a Quarto file (`.qmd`)) <br> 
+5. An _R Workspace_ <br>
+
+The folder that contains 1), 2), and 3) is the ecosystem of your analysis; this is your project directory. Anything outside of this folder will not be included by default, nor will you be able to work with it in `R` – any file you want to include in your analysis must be in this project directory. 4) is the file you will use to conduct your analysis. That is, the file where you can insert code, generate tables and graphs, and produce statistical outputs. 5) is the dataset you will use throughout the research.
+
+If you are a student in my University of Groningen courses, you do not need to create R Projects from scratch. Nor will you have to create Quarto documents and independently source data sets. Rather, we do all that work for you. This means that you will have everything you need to get started on your assignments right away, meaning you can open the Quarto document right away and begin working. Once you leave this course however, things won’t be so easy, so it is important that you learn how these projects and files work. The best way to do this is to practice by making your own and experimenting with them, but here are some useful resources you can use to learn more about them: 
+
+1. Working with Scripts and Projects: [https://r4ds.hadley.nz/workflow-scripts.html](https://r4ds.hadley.nz/workflow-scripts.html)
+
+2. Using R Projects: [https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects)
+
+3. Using R Projects: [https://www.youtube.com/watch?v=MdTtTN8PUqU](https://www.youtube.com/watch?v=MdTtTN8PUqU)
