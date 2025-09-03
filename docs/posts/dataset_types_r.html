@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Conor O’Driscoll">
-<meta name="dcterms.date" content="2025-07-30">
-<meta name="description" content="What if the data you’re analyzing tells one story in aggregate—but the exact opposite when you break it down?">
+<meta name="dcterms.date" content="2025-08-19">
+<meta name="description" content="A practical application of some of my earlier posts.">
 
-<title>Always visualise your data: Simpsons Paradox in action – Conor O’Driscoll</title>
+<title>Datasets and Data Types As Seen in R – Conor O’Driscoll</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,12 +115,14 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../include/webex.css">
-<meta property="og:title" content="Always visualise your data: Simpsons Paradox in action – Conor O’Driscoll">
-<meta property="og:description" content="What if the data you’re analyzing tells one story in aggregate—but the exact opposite when you break it down?">
+<meta property="og:title" content="Datasets and Data Types As Seen in R – Conor O’Driscoll">
+<meta property="og:description" content="A practical application of some of my earlier posts.">
+<meta property="og:image" content="/img/r-logo.svg">
 <meta property="og:site_name" content="Conor O'Driscoll">
-<meta name="twitter:title" content="Always visualise your data: Simpsons Paradox in action – Conor O’Driscoll">
-<meta name="twitter:description" content="What if the data you’re analyzing tells one story in aggregate—but the exact opposite when you break it down?">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Datasets and Data Types As Seen in R – Conor O’Driscoll">
+<meta name="twitter:description" content="A practical application of some of my earlier posts.">
+<meta name="twitter:image" content="/img/r-logo.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -180,11 +182,10 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#setting-the-scene" id="toc-setting-the-scene" class="nav-link active" data-scroll-target="#setting-the-scene">Setting The Scene</a></li>
-  <li><a href="#aggregate-trends-a-broad-overview" id="toc-aggregate-trends-a-broad-overview" class="nav-link" data-scroll-target="#aggregate-trends-a-broad-overview">Aggregate Trends: A Broad Overview</a></li>
-  <li><a href="#digging-a-bit-deeper-department-specific-heterogeneity" id="toc-digging-a-bit-deeper-department-specific-heterogeneity" class="nav-link" data-scroll-target="#digging-a-bit-deeper-department-specific-heterogeneity">Digging A Bit Deeper: Department-Specific Heterogeneity?</a></li>
-  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping Up</a></li>
-  <li><a href="#hungry-for-more" id="toc-hungry-for-more" class="nav-link" data-scroll-target="#hungry-for-more">Hungry For More?</a></li>
+  <li><a href="#understanding-data-types-in-r-from-nominal-to-ratio" id="toc-understanding-data-types-in-r-from-nominal-to-ratio" class="nav-link active" data-scroll-target="#understanding-data-types-in-r-from-nominal-to-ratio">Understanding Data Types in R: From Nominal To Ratio</a></li>
+  <li><a href="#loading-in-a-dataset" id="toc-loading-in-a-dataset" class="nav-link" data-scroll-target="#loading-in-a-dataset">Loading in a dataset</a></li>
+  <li><a href="#exploring-the-structure-of-datasets" id="toc-exploring-the-structure-of-datasets" class="nav-link" data-scroll-target="#exploring-the-structure-of-datasets">Exploring the structure of datasets</a></li>
+  <li><a href="#looking-at-your-data-a-primer" id="toc-looking-at-your-data-a-primer" class="nav-link" data-scroll-target="#looking-at-your-data-a-primer">Looking at your data: A Primer</a></li>
   </ul>
 </nav>
     </div>
@@ -193,16 +194,15 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Always visualise your data: Simpsons Paradox in action</h1>
+<h1 class="title">Datasets and Data Types As Seen in R</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Applied Statistics (Beginners)</div>
-    <div class="quarto-category">Applied Statistics (Intermediate)</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    What if the data you’re analyzing tells one story in aggregate—but the exact opposite when you break it down?
+    A practical application of some of my earlier posts.
   </div>
 </div>
 
@@ -219,7 +219,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 30, 2025</p>
+      <p class="date">August 19, 2025</p>
     </div>
   </div>
   
@@ -231,224 +231,134 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </header>
 
 
-<p>If you’ve ever opened a dataset and jumped straight into statistical testing, you’re not alone. It’s tempting to rush toward a result — an effect, a relationship, a difference — and get to work writing it up. But what if the “result” you find hides a deeper contradiction? What if the truth is visible in your data, but only if you look at it the right way?</p>
-<p>This is where data visualization comes in. Visualization is how we make our data legible not just to others, but to ourselves. Indeed, I would make the case that you cannot fully understand what is going on in your data without some form of data visualisation as it helps us detect patterns, check assumptions, and avoid being misled.</p>
-<p>To illustrate this, let’s explore one of the most famous cases where misleading aggregate data can lead to erroneous conclusions: Simpson’s Paradox, using the classic UC Berkeley admissions dataset from 1973.</p>
-<section id="setting-the-scene" class="level1">
-<h1>Setting The Scene</h1>
-<p>Imagine that you’re interested in studying gender bias in university admissions. You obtain real administrative data from UC Berkeley’s graduate programs from 1973 and start with what seems like a straightforward question:</p>
-<p><em>Were men more likely to be admitted than women?</em></p>
-<p>You begin by exploring what type of data you have available in your dataset.</p>
-<p>In this post, we will use the UCBAdmissions dataset: A well-known built-in R dataset derived from real administrative records of graduate admissions at UC Berkeley in 1973.</p>
+<section id="understanding-data-types-in-r-from-nominal-to-ratio" class="level1">
+<h1>Understanding Data Types in R: From Nominal To Ratio</h1>
+<p>When we begin working with data in R, one of the first challenges is learning how to think about the different types of variables. In statistics, we often distinguish between four levels of measurement: nominal, ordinal, interval, and ratio. These levels aren’t just technicalities. They determine what we can meaningfully do with our data, and just as importantly, what we cannot do. R doesn’t enforce these distinctions for us, but it does represent variables in certain ways (i.e., as numbers, factors, or characters) that shape how we interact with them.</p>
+<p>To make these ideas more concrete, let’s start by loading a dataset. R comes with several datasets built in (sometimes called “data frames”), which makes practice very easy. One of the most famous is the <code>iris</code> dataset, which contains measurements of sepal and petal dimensions for 150 flowers across three species. In your <code>R</code> Console, you can type <code>help(iris)</code> if you want more information on the dataset.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>R</code> comes with extensive built-in documentation for every function, dataset, and object. The <code>help()</code> function is the primary way to access this documentation. For example, running <code>help(iris)</code> or <code>?iris</code> in the console brings up a page describing the <code>iris</code> dataset: how many rows and columns it has, what each variable represents, and sometimes even references to the original source. Using <code>help()</code> is essential when you are exploring a new dataset or learning a new function, because it provides the authoritative explanation of how the object is structured and what operations make sense. It also shows examples of usage, which is invaluable when you are experimenting in <code>R</code> for the first time.</p>
+</div>
+</div>
+</section>
+<section id="loading-in-a-dataset" class="level1">
+<h1>Loading in a dataset</h1>
+<p>When we are working with any dataset in R, the first task is to load it into our R environment. Typically, we do this using the <code>load()</code>command. But because <code>iris</code> is comes built into <code>R</code>, we do not need to do this, nor do we have to downlaod anything. All we have to do is type <code>data(iris)</code> to make it available in our session.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The relevant packages have been loaded elsewhere</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Load the data</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(UCBAdmissions)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ucb_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(UCBAdmissions)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#What are the variable names?</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ucb_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Call the dataset that we would like to use</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once called, you should see the <code>iris</code> dataset appear in your environment tab. Its name should be <code>iris</code> and you should see the label <code>&lt;Promise&gt;</code> next to it. This signals that the dataset is ready for use.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This <code>&lt;Promise&gt;</code> and activation step only happen when working with <code>R</code>’s built-in datasets. When we load external data (i.e., datasets used in the CP assignments), they become instantly available for use and manipulation.</p>
+<p>In this case, the <code>iris</code> dataset is also instantly available for use and manipulation, you just have to explicitly do something with the dataset for it to become activated. For example, if you hover your mouse over the <code>iris</code> object and click on it, you will see that the <code>&lt;Promise&gt;</code> label disappears and is replaced with […]. Similarly, if you run any form of command, as we will do shortly, using the dataset in question, then it will automatically activate.</p>
+</div>
+</div>
+<p>Once loaded into <code>R</code>, we can do a whole host of things to the dataset. One recommended starting point is to create a carbon copy of the raw data you are using. This can be helpful if you plan on manipulating the data or changing it in some way. It is always advisable to keep an unaltered copy of the raw data on hand in case you make a bags of it and need to start over - if you alter the only copy of your raw data and it turns out to be incorrect, you could land yourself in hot water.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Generate a copy of our dataset and call it iris_data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>iris_data <span class="ot">&lt;-</span> iris</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>All we have done here is created an identical object but given it a new name. In <code>R</code>-speak, what we have done is, using the object <code>iris</code>, we created a new object called <code>iris_data</code>. The direction of the arrow illustrates which object is an input of the function, and which is an output. For example, we could also do it this way:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Flip the sign of the arrow</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>iris <span class="ot">-&gt;</span> iris_flip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>It is, however, much less typical to structure your code this way because there are normally far more inputs than there are outputs. So having your ouptuts on the left-hand side of the arrow (i.e., <code>iris_data &lt;- iris</code>) allows you utilise the full breadth of the document when constructing code and commands.</p>
+</section>
+<section id="exploring-the-structure-of-datasets" class="level1">
+<h1>Exploring the structure of datasets</h1>
+<p>Okay. Enough about loading datasets in. If we want to explore our dataset in more detail, we can go about it in a few ways. On one hand, you can use your mouse and simply hover over your dataset, click on it, and navigate the table that automatically opens. This table is your data. Each cell represents a data point. In most datasets, the rows will represent cases; so that, in this case, each row represents a different flower. Meanwhile, the columns will usually represent variables - that is, the different characteristics of each flower that this dataset captures.</p>
+<p>In this case, for example, we see that there are five variables (characteristics) in total and 150 observations (flowers) in total. We can confirm this in the table, but also in the environment tab, as this information now replaces the <code>&lt;Promise&gt;</code> label. For each of these 150 flowers, we have information about their petals and sepals, as well as the type of iris species they belong to. We see that, for four of these variables, their values are expressed as numbers, whereas for the fifth, its values are expressed in words.</p>
+<p>This is about the most we can gather from this table without having to make educated guesses about the underlying structure of the data. To dig a bit deeper we will have to use some code to examine the structure of the dataset and its different variables. Many of these commands will give us the same information as did the table anyway, so it is often more convenient to skip the table and jump straight into the code. That being said, it is always valuable to look at your raw data, something which will be explored in more detail in later posts.</p>
+<p>Anyway, lets say we want to explicitly examine the structure of the dataset. By that I mean we want to examine the type of data each variable captures. To do this, we can use the <code>str()</code> command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Examine a dataset's structure</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Admit"  "Gender" "Dept"   "Freq"  </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#A broad overview of the structure these variables take</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ucb_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 24
-Columns: 4
-$ Admit  &lt;fct&gt; Admitted, Rejected, Admitted, Rejected, Admitted, Rejected, Adm…
-$ Gender &lt;fct&gt; Male, Male, Female, Female, Male, Male, Female, Female, Male, M…
-$ Dept   &lt;fct&gt; A, A, A, A, B, B, B, B, C, C, C, C, D, D, D, D, E, E, E, E, F, …
-$ Freq   &lt;dbl&gt; 512, 313, 89, 19, 353, 207, 17, 8, 120, 205, 202, 391, 138, 279…</code></pre>
+<pre><code>'data.frame':   150 obs. of  5 variables:
+ $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+ $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+ $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+ $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+ $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 </div>
 </div>
-<p>Ok. These commands already tells us a lot about the structure of the dataset. There are four variables (columns) and 24 unique data points (rows). More specifically, we can see that it counts the number of applications for six departments by admissions status and sex. To really ensure that you understand the structure of this dataset, try answering the following questions:</p>
+<p>The output of this command is quite informative. We see the total number of observations (flowers) and variables (characteristics). But we also see the structure of each variable. We can confirm now that <code>R</code> interprets four of the five variables as <code>numeric</code>, meaning it treats them as numbers. Interestingly, <code>R</code> does not distinguish between the <em>type</em> of numeric data these variables are. Although they all appear to be ratio variables, we cannot be sure without digging a bit deeper. Fortunately, we do not need to dig deeper, as in practice all that matters in nine-cases-out-of-ten is whether these data are numbers or not. In other words, in practice the distinction between ratio and interval seldom comes into play beyond the extent to which we use theory to interpret their meaning - at least not at the level of Beginners statistics.</p>
+<p>Meanwhile, the fifth variable in our dataset is classified as a <code>Factor</code> variable. This factor variable has three levels, described through words (although in the output we can only see two) and each level is associated with a specific value. You cannot really infer this directly from the output, but take it from me as being true. This variable thus appears to contain two types of data: words and numbers. What gives?</p>
 <div class="webex-check webex-box">
 <ol type="1">
-<li><p>What type of variable is Admit? <select class="webex-select"><option value="blank"></option><option value="">Ratio</option><option value="">Interval</option><option value="answer">Binary</option><option value="">Nominal</option><option value="">Ordinal</option></select></p></li>
-<li><p>What type of variable is Gender? <select class="webex-select"><option value="blank"></option><option value="">Ratio</option><option value="">Interval</option><option value="answer">Nominal</option><option value="">Ordinal</option></select></p></li>
-<li><p>What type of variable is Freq? <select class="webex-select"><option value="blank"></option><option value="answer">Ratio</option><option value="">Interval</option><option value="">Binary</option><option value="">Nominal</option><option value="">Ordinal</option></select></p></li>
-<li><p>What type of variable is Dept? <select class="webex-select"><option value="blank"></option><option value="">Ratio</option><option value="">Interval</option><option value="">Binary</option><option value="answer">Nominal</option><option value="">Ordinal</option></select></p></li>
-<li><p>What type of variable is labelled as <code>fct</code>? <select class="webex-select"><option value="blank"></option><option value="">Binary</option><option value="">Nominal</option><option value="">Ordinal</option><option value="answer">All of these</option></select></p></li>
-<li><p>What type of variable is labelled as <code>dbl</code>? <select class="webex-select"><option value="blank"></option><option value="">Interval</option><option value="">Ratio</option><option value="answer">Both of these</option></select></p></li>
+<li><p><code>TRUE</code> or <code>FALSE</code>: The variable <code>Species</code> is categorical. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+<li><p><code>TRUE</code> or <code>FALSE</code>: The variable <code>Species</code> is interval. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>Which of the following most accurately describes the structure of the variable <code>Species</code>: <select class="webex-select"><option value="blank"></option><option value="">interval</option><option value="">ratio</option><option value="answer">nominal</option><option value="">ordinal</option></select></p></li>
 </ol>
 </div>
-</section>
-<section id="aggregate-trends-a-broad-overview" class="level1">
-<h1>Aggregate Trends: A Broad Overview</h1>
-<p>Now that we know how our dataset is structured and broadly what the variables look like, we can revisit our main research question: <em>Were men more likely to be admitted than women?</em></p>
-<p>How might we begin answering such a question? A logical first step might be to summarize overall admission rates by sex:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculate overall admission rates by gender</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>overall_admit <span class="ot">&lt;-</span> ucb_df <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gender, Admit) <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Freq =</span> <span class="fu">sum</span>(Freq)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Admit, </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values_from =</span> Freq) <span class="sc">%&gt;%</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Total =</span> Admitted <span class="sc">+</span> Rejected,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">AdmitRate =</span> Admitted <span class="sc">/</span> Total) <span class="sc">%&gt;%</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'Gender'. You can override using the
-`.groups` argument.</code></pre>
+<p>Well, this is something of a trick. Levels in factor variables are better thought of as labels, labels that are discrete in nature. Thus, the label <code>setosa</code>, for example, is really just a placeholder to give more intuitive meaning to the actual value within the cell, which is 1. This is an interesting case where the distinction between discrete and continuous variables becomes important. Factors in R are technically stored as integers under the hood, with each level corresponding to a number. You can check this by converting a factor back into numeric form: what once looked like setosa, versicolor, and virginica will suddenly appear as 1, 2, and 3.</p>
+<p>The crucial point is that even though factors are stored as numbers, those numbers do not carry any quantitative meaning. Adding 1 and 2 does not give you a “hybrid” category between setosa and versicolor, and calculating an average of factor levels is meaningless. The numeric coding is only there for efficiency and to allow R to keep track of categories in a consistent way.</p>
+<p>This distinction also helps us see why categorical data are considered discrete. With continuous variables such as <code>Sepal.Length</code>, we could in principle measure infinitely fine differences — 5.1 cm, 5.11 cm, 5.111 cm, and so on. But with a factor, there is no continuum between <code>setosa</code> and <code>virginica</code>. The categories are separate bins, and an observation must fall entirely into one of them.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Display the table</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(overall_admit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Individual variables can only host one data type (i.e., nominal, ordinal, interval, or ratio). In cases where there are, for some reason, multiple different types of data (e.g., numbers and words) contained within the same column, <code>R</code> will revert to classifying the column according to the least restrictive classification.</p>
+<p>For example, if one of your variables contains a mixture of words and numbers (e.g., zero, 1, 2, 3 …), then <code>R</code> will classify everything in that column as a word. Or, more precisely, as a <code>string</code> variable. String variables represent textual data (i.e., words) and form a separate class of data in <code>R</code>. What makes them interesting is that each unique string value is often mapped internally to a number, while the original string is retained as a label. This is exactly how factor variables work: for instance, the <code>Species</code> variable in the <code>iris</code> dataset is a factor. Internally, <code>setosa</code>, <code>versicolor</code>, and <code>virginica</code> are stored as the integers 1, 2, and 3, but <code>R</code> keeps the original string labels so that outputs remain readable. This mapping allows <code>R</code> to efficiently store categorical data and perform statistical operations that depend on levels rather than the textual content itself.</p>
+<p>Another important special type is date-time data. Variables that represent dates or times, such as <code>2025-09-03</code> or <code>12:30:00</code>, are stored in classes like <code>Date</code> or <code>POSIXct</code> in <code>R</code>. These are technically numeric under the hood (representing days or seconds since a reference point), but they behave differently because <code>R</code> provides specialized functions for comparison, formatting, and arithmetic with dates and times. For example, you can calculate the difference between two dates, extract the month or weekday, or filter data by date ranges. This type of data are not so important for beginners but can become quite important if you wish to work with time-series or longitudinal data, for example.</p>
+</div>
+</div>
+<p>When thinking about the distinction between nominal and ordinal data in <code>R</code>, things become a bit more tricky as you can make this distinction in <code>R</code> by creating “unordered” and “ordered” factor variables, but this distinction usually only matters in more advanced contexts. As a result, they will be covered in a seperate post. What is important for now is that nominal and ordinal data are both categorical. From an <code>R</code> perspective, this means they should take a factor form. But nominal data can also be represented using <code>string</code>. But, as explained above, it is difficult to do any statistics with this type of data. Meanwhile, ordinal data can be represented using <code>numeric</code>, but this is theoretically problematic and makes the interpretation of any statistical analysis difficult, something which will also be covered in later posts. Bottom line: categorical data are factor data.</p>
+</section>
+<section id="looking-at-your-data-a-primer" class="level1">
+<h1>Looking at your data: A Primer</h1>
+<p>When working with categorical variables, it is often convenient to look at how well each of the categories are represented in your data. A simple way to do this is through the <code>table()</code> command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Look at categories more closely</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris_data<span class="sc">$</span>Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 5
-  Gender Admitted Rejected Total AdmitRate
-  &lt;fct&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
-1 Male       1198     1493  2691     0.445
-2 Female      557     1278  1835     0.304</code></pre>
+<pre><code>
+    setosa versicolor  virginica 
+        50         50         50 </code></pre>
 </div>
 </div>
-<p>To ensure that you understand what this code is doing, try answering the following questions:</p>
-<div class="webex-check webex-box">
-<ol start="7" type="1">
-<li><p>True or False: Grouping by <code>Gender</code> and <code>Admit</code> allows us to generate seperate counts of admissions and rejections by Gender and Department. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
-<li><p>True or False: Grouping by <code>Admit</code> is unnecessary to generate the values used to compute <code>AdmitRate</code>. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
-<li><p>If we wanted to make this table more professional in its presentation, which of the following packages might we use? <select class="webex-select"><option value="blank"></option><option value="">ggplot2</option><option value="">tidyverse</option><option value="answer">kableExtra</option><option value="">stargazer</option></select></p></li>
-<li><p>Which type of table does this example most closely resemble? <select class="webex-select"><option value="blank"></option><option value="">summary statistics table</option><option value="">crosstable</option><option value="answer">frequency table</option></select></p></li>
-</ol>
+<p>The <code>$</code> operator in <code>R</code> is a convenient way to access individual columns (variables) from a dataset. For instance, if we have the <code>iris</code> dataset loaded, <code>iris$Sepal.Length</code> returns the column (sometimes called “vector”) of all sepal lengths. Using <code>$</code> is often more readable and faster than alternative methods, like indexing with <code>iris[, "Sepal.Length"]</code>, and it allows you to chain operations using packages like <code>tidyverse</code>. One important thing to remember is that <code>$</code> only works with column names that are valid <code>R</code> identifiers — if a column name has spaces or unusual characters, you’ll need to use a different indexing method. Using <code>$</code> in combination with functions like <code>table()</code> makes it simple to explore and summarize individual variables (<code>Species</code>) in a dataset (<code>iris_data</code>).</p>
+<p>Here we see that we have an equal number of observations for each species of flower. This may or may not be meaningful, depending on your context. Where things can become interesting is when, for example, you have categories which are represented by hardly any observations. In more advanced statistical analyses, this can raise questions around, for example, whether such categories should be aggregated and combined. Usually, this type of decision is inspired by both empirics and theory. Theoretically, it becomes a question of what these categories mean and the extent to which you are actually interested in them. Empirically, it is often difficult to work with categories which only report a small number of observations.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>At first glance, the results seem clear: men are more likely to be admitted to graduate school in UC Berkeley than woman.</p>
-<div class="webex-check webex-box">
-<ol start="11" type="1">
-<li>Which column do we use to come to this conclusion? <select class="webex-select"><option value="blank"></option><option value="">Gender</option><option value="">Admitted</option><option value="">Rejected</option><option value="">Total</option><option value="answer">AdmitRate</option></select></li>
-</ol>
-</div>
-</section>
-<section id="digging-a-bit-deeper-department-specific-heterogeneity" class="level1">
-<h1>Digging A Bit Deeper: Department-Specific Heterogeneity?</h1>
-<p>You might stop here and think your work is done. But this only tells us what is going on in the aggregate. Unless you are a macroeconomist, you should know better than to trust aggregate data; something interesting probably lies beneath the surface. So, with this in mind, we shall dig a bit deeper.</p>
-<p>Let’s start by breaking this down by department. The data includes six departments, labeled A–F. What happens when we examine admission rates within departments?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dept_admit <span class="ot">&lt;-</span> ucb_df <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Dept, Gender, Admit) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Freq =</span> <span class="fu">sum</span>(Freq)) <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Admit, </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values_from =</span> Freq) <span class="sc">%&gt;%</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Total =</span> Admitted <span class="sc">+</span> Rejected,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">AdmitRate =</span> Admitted <span class="sc">/</span> Total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'Dept', 'Gender'. You can override using
-the `.groups` argument.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dept_admit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 6
-# Groups:   Dept, Gender [12]
-   Dept  Gender Admitted Rejected Total AdmitRate
-   &lt;fct&gt; &lt;fct&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
- 1 A     Male        512      313   825    0.621 
- 2 A     Female       89       19   108    0.824 
- 3 B     Male        353      207   560    0.630 
- 4 B     Female       17        8    25    0.68  
- 5 C     Male        120      205   325    0.369 
- 6 C     Female      202      391   593    0.341 
- 7 D     Male        138      279   417    0.331 
- 8 D     Female      131      244   375    0.349 
- 9 E     Male         53      138   191    0.277 
-10 E     Female       94      299   393    0.239 
-11 F     Male         22      351   373    0.0590
-12 F     Female       24      317   341    0.0704</code></pre>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
-<div class="webex-check webex-box">
-<ol start="12" type="1">
-<li>One of the following statements best describes the core difference between <code>dept_admit</code> and <code>overall_admit</code>. Pick the most appropriate:
-<div id="radio_CBJPDZRDAT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CBJPDZRDAT" value="answer"> <span>overall_admit counts admissions and rejections by sex; dept_admit further breaks this down by sex</span></label><label><input type="radio" autocomplete="off" name="radio_CBJPDZRDAT" value=""> <span>overall_admit gives us aggregate trends while dept_admit provides more disaggregated insights</span></label><label><input type="radio" autocomplete="off" name="radio_CBJPDZRDAT" value=""> <span>dept_admit fails to account for admission status while overall_admit does</span></label>
-</div></li>
-</ol>
-</div>
-<p>Now the story flips: in most departments, women have higher admission rates than men. So how can the overall numbers suggest the opposite? This reversal is a textbook example of Simpson’s Paradox - a phenomenon where a trend appears in different groups but reverses when the groups are combined.</p>
-<p>In this case, women were more likely to apply to departments with lower overall admission rates (e.g., departments C, D, E, F), while men applied more to departments with higher admission rates (departments A and B). The aggregate numbers hide this because they mix different denominators across departments.</p>
-<p>This illustrates a broader lesson: data summaries without disaggregation can obscure the underlying structure of your data. And without visualization, this kind of paradox is hard to detect.</p>
-<p>Let’s visualize the department-level admission rates by gender.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dept_admit, <span class="fu">aes</span>(<span class="at">x =</span> Dept, </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> AdmitRate, </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Admission Rates by Gender and Department (UC Berkeley, 1973)"</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Admission Rate"</span>, </span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Department"</span>) <span class="sc">+</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Male"</span> <span class="ot">=</span> <span class="st">"#377eb8"</span>, </span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Female"</span> <span class="ot">=</span> <span class="st">"#e41a1c"</span>)) <span class="sc">+</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="data_vis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="callout-body-container callout-body">
+<p>To take another example, when studying property prices, it is often important to consider the type of building people are living in. It seems obvious that houses, boats, and apartments are probably priced differently, so this makes sense. But there are potentially dozens of way to classify a building, depending on whether you are considering architectural, land-use, and/or household differences, for example.</p>
+<p>Most people are not explicitly interested in all the specific categories you can make, but rather just a handful (e.g., standalone houses and apartments). In such cases, it makes sense to think about aggregating many highly detailed categories into broader groups because, theoretically, these broader groups better capture what you are interested in theoretically, while these highly disaggregated categories offer little-to-no value to your empirical work.</p>
+<p>You see similar problems emerge in countless other contexts. Studies of race/ethnicity, age, and gender are three examples which come directly to mind.</p>
 </div>
 </div>
-</div>
-<div class="webex-check webex-box">
-<ol start="13" type="1">
-<li><p>Which of the following charts best describes the chart displayed above? <select class="webex-select"><option value="blank"></option><option value="">histogram</option><option value="">pie chart</option><option value="answer">bar chart</option><option value="">scatterplot</option><option value="">stem-and-leaf diagram</option></select></p></li>
-<li><p>What do the letters <code>x</code> and <code>y</code> refer to, in statistical terms?</p>
-<div id="radio_ECQFOYISYD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ECQFOYISYD" value="answer"> <span>X refers to an independent variable; Y refers to a dependent variable</span></label><label><input type="radio" autocomplete="off" name="radio_ECQFOYISYD" value=""> <span>X refers to an dependent variable; Y refers to a independent variable</span></label><label><input type="radio" autocomplete="off" name="radio_ECQFOYISYD" value=""> <span>X refers to an endogenous variable; Y refers to a exogenous variable</span></label><label><input type="radio" autocomplete="off" name="radio_ECQFOYISYD" value=""> <span>X refers to the variable which determines the value of Y</span></label><label><input type="radio" autocomplete="off" name="radio_ECQFOYISYD" value=""> <span>Y refers to the variable which determines the value of X</span></label>
-</div></li>
-<li><p>Which of the following might best describe why we have put <code>AdmitRate</code> as the Y variable in this chart?</p>
-<div id="radio_PCLRRJWKWN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PCLRRJWKWN" value=""> <span>Because admission rates determine which department an applicant chooses</span></label><label><input type="radio" autocomplete="off" name="radio_PCLRRJWKWN" value="answer"> <span>Because we want to compare how likely applicants are to be admitted across departments and genders</span></label><label><input type="radio" autocomplete="off" name="radio_PCLRRJWKWN" value=""> <span>Because AdmitRate is a control variable in the admissions process</span></label><label><input type="radio" autocomplete="off" name="radio_PCLRRJWKWN" value=""> <span>Because AdmitRate belongs on the Y-axis for statistical validity</span></label>
-</div></li>
-</ol>
-</div>
-<p>This plot shows that in nearly all departments, women had similar or higher admission rates than men. The illusion of bias in the aggregate comes from differences in application patterns, not unfair decisions within departments. To confirm this, let’s also show how department choice varied by gender.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>applicants <span class="ot">&lt;-</span> ucb_df <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Dept, Gender) <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Applicants =</span> <span class="fu">sum</span>(Freq))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'Dept'. You can override using the
-`.groups` argument.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(applicants, <span class="fu">aes</span>(<span class="at">x =</span> Dept, </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> Applicants, </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"..."</span>,</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"..."</span>, </span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Department"</span>) <span class="sc">+</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Male"</span> <span class="ot">=</span> <span class="st">"#377eb8"</span>, </span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Female"</span> <span class="ot">=</span> <span class="st">"#e41a1c"</span>)) <span class="sc">+</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="data_vis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This second chart reveals that men were more likely to apply to departments A and B, which had higher acceptance rates, while women applied more often to departments C through F, where competition was steeper.</p>
-<div class="webex-check webex-box">
-<ol start="16" type="1">
-<li>What is the core difference between the two charts presented above?
-<div id="radio_JUFPGGVAAA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JUFPGGVAAA" value=""> <span>The first displays raw admission counts, while the second displays admission rates</span></label><label><input type="radio" autocomplete="off" name="radio_JUFPGGVAAA" value="answer"> <span>The first displays admission rates, while the second displays raw admission counts</span></label><label><input type="radio" autocomplete="off" name="radio_JUFPGGVAAA" value=""> <span>the first chart is inappropriate and brings no added value to the analysis, while the second chart is highly valuable</span></label><label><input type="radio" autocomplete="off" name="radio_JUFPGGVAAA" value=""> <span>the second chart is inappropriate and brings no added value to the analysis, while the first chart is highly valuable</span></label><label><input type="radio" autocomplete="off" name="radio_JUFPGGVAAA" value=""> <span>there is no core difference between the two charts; this is a trick question</span></label>
-</div></li>
-</ol>
-</div>
-</section>
-<section id="wrapping-up" class="level1">
-<h1>Wrapping Up</h1>
-<p>This example is more than a historical curiosity—it’s a powerful reminder of what can go wrong when we skip visual exploration. Without breaking down the data into meaningful subgroups or visualizing it, we risk drawing misleading conclusions from aggregated numbers—a mistake that can easily obscure important patterns or biases hidden within the data. Here are a few key takeaways:</p>
-<ol type="1">
-<li><p>Never Rely on Aggregates Alone Always ask: What groups might I be collapsing? Can different subgroups tell different stories?</p></li>
-<li><p>Use the Right Visualization for the Question Tables are great for precision, but bar plots, dot plots, and faceted graphics help reveal structure. In this case, side-by-side bar charts made the paradox visible in seconds.</p></li>
-<li><p>Visuals Help You Understand Your Own Data Good graphics aren’t just for presentations. They’re how you, as a researcher or analyst, come to understand the texture of the data you’re working with.</p></li>
-<li><p>Tabulation Has Added Value When It Reveals Structure A well-designed cross-tab or grouped summary tells you what’s driving a result. Don’t just count things—count them strategically.</p></li>
-</ol>
-</section>
-<section id="hungry-for-more" class="level1">
-<h1>Hungry For More?</h1>
-<p>For more information on the exact data used in this post, check out the full paper <a href="https://www.science.org/doi/10.1126/science.187.4175.398">here</a>. Alternatively, type <code>help(UCBAdmissions)</code> into the R console if you wish to replicate or extend the analyses conducted here.</p>
 
 
 </section>
