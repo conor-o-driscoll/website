@@ -1,0 +1,168 @@
+---
+title: "Populations and Samples"
+author: "Conor O'Driscoll"
+date: 2025-08-21
+categories: [Applied Statistics (Beginners)]
+image: "/img/pop_samp.png"
+description: "Discussing the difference between statistical populations and samples"
+---
+
+``` {r, echo=FALSE, output=FALSE}
+
+if(!("webexercises" %in% installed.packages()[,"Package"])) install.packages("webexercises")
+
+library("webexercises")
+
+```
+
+
+When we use statistics, we are always trying to say something about the world. But the world is big, messy, and full of variation. So the first step in any statistical study is to decide what part of the world we are trying to understand. This is where the idea of a population comes in — and why, in practice, we usually rely on samples instead.
+
+
+Statistical Populations: The Ideal Starting Point
+======
+
+In statistics, a population is the complete set of individuals, objects, or events that share a common characteristic of interest - a characteristic that we wish to study.
+
+If we are studying election outcomes, the population might be all eligible voters in a country. <br>
+
+If we want to know the average height of trees in a national park, the population is every tree in that park. <br>
+
+If we are testing the reliability of a product, like lightbulbs, the population could be all lightbulbs manufactured by a company. <br>
+
+In each case, the population is the entire universe of cases we want to understand. This makes them conceptually appealing because they capture everything. If we could measure an entire population, we would have no uncertainty — we would know the true average tree height, the exact proportion of voters supporting each candidate, or the precise distribution of lightbulb lifespans. This is the logic behind a census, where every single member of a population is measured. Censuses are the statistical ideal, because they eliminate the guesswork.
+
+The most well-known example of a census is, of course, a national population census, which attempts to count every single person in a country. These efforts are monumental undertakings, requiring years of planning, vast budgets, and enormous data-collection infrastructures - highlighting some of the difficulties associated with reaching this ideal.
+
+Unfortunately, studying populations directly is rarely feasible. National population censuses are the exception, but even they are massive undertakings requiring years of preparation, vast budgets, and armies of workers. Outside of such special cases, researchers usually cannot access an entire population. There are several reasons for this:
+
+1. Cost and time: Measuring every single unit is almost always too expensive and too slow.
+
+2. Logistics: Some populations are too large or widely dispersed. Measuring every tree in the Amazon rainforest is simply impossible.
+
+3. Destructive measurement: Sometimes, testing requires destroying the unit. You cannot measure the lifespan of every lightbulb if each test means running it until it burns out.
+
+4. Changing populations: Populations are often dynamic. People are born, products roll off production lines, ecosystems evolve. By the time you measure everyone, the population itself has already changed.
+
+::: callout-note
+
+It is also worth noting that defining the population itself is not always straightforward. Sometimes it is clear and obvious (e.g., all registered voters in an election). Other times, it requires careful thought. What counts as the relevant population when testing a new medicine? Just the trial participants, or everyone who might one day take the drug? Defining the population is often a conceptual decision, not just a logistical one. Similarly: 
+
+A survey of 2,000 voters is a sample from the population of all voters. If the sample includes people of different ages, regions, and political leanings in roughly the right proportions, it can give us reliable insights into voting intentions. 
+
+Measuring 50 trees from different areas of a park is a sample from the population of all trees. If the trees are chosen carefully from across the park, the sample average height will be a good approximation of the population average. 
+
+Testing 100 lightbulbs is a sample from the population of all bulbs made by a manufacturer. If those bulbs are chosen randomly, their measured lifespan can be generalized to the entire production line.
+
+:::
+
+This is why most statistical studies must settle for something more practical: sampling.
+
+
+Sampling: Building a Bridge to the Population
+======
+
+Because populations are so hard to study directly, we work with samples. A sample is a subset of the population that we actually collect data from. It is the part of the population that we observe directly, with the goal of using it to make claims about the whole.
+
+But a sample is not just “a smaller group.” The power of a sample comes from the fact that each member of it shares some common attribute that defines the population we are interested in. Every tree in our sample is still a tree in the park. Every voter surveyed is still an eligible voter. Every lightbulb tested still came from the manufacturer’s production line. This shared attribute makes it meaningful to ask: how do characteristics (like height, opinion, or lifespan) vary across different members?
+
+At the same time, no two members are identical. Each tree has a slightly different height. Each voter has their own political leanings. Each bulb lasts a different number of hours. Some of these differences matter more than others — and the whole point of sampling is to understand and measure these variations in a way that allows us to make statements about the broader population.
+
+Considering this, the value of a sample lies in its representativeness. Sampling allows us to use a manageable amount of data to make inferences about the larger population. The underlying idea is that, if the sample is chosen carefully, the information it provides will reflect the characteristics of the whole. That is, a good sample reflects the key characteristics of the population, so that any patterns we observe in the sample mirror those in the larger group.
+
+However, not all samples are equally useful. A good sample has two key qualities:
+
+1. *Representativeness:* The sample should reflect the important characteristics of the population. If young people and older people have different voting patterns, a representative sample must include both groups in appropriate proportions.
+
+2. *Sufficient size:* Larger samples tend to provide more precise estimates, because they reduce the role of chance. That said, size alone is not enough — a large but biased sample can still lead to misleading conclusions.
+
+Imagine stirring a pot of soup. You don’t need to drink the entire pot to know how it tastes — you just need a spoonful. But the spoonful must be taken after stirring, so that it is representative. If you scoop only from the top, you might end up with just broth, missing the vegetables and seasoning below. Sampling in statistics works the same way: the sampling method matters as much as the size.
+
+Sampling method is about how you select the units, and we will discuss this in more detail in another post. Whereas sample size affects how much variability we expect by chance. With small samples, results can swing widely just due to randomness. With larger samples, estimates stabilize and become more reliable. That said, bigger is not always better. A small, well-designed random sample can be more reliable than a large, biased sample. For example, a carefully randomized survey of 1,500 people can be more accurate than a self-selected online poll of 100,000.
+
+The ideal is a sample that is both representative and large enough to provide stable estimates.
+
+Ensuring that a sample is truly representative of a wider population requires a surprising amount of work. Bias can creep in at almost any stage of the process: from how the population is defined, to how the sample is selected, to who actually responds. For instance, even if you start with a random sample, you may run into nonresponse bias if certain groups are less likely to answer your survey than others, making response rates particularly important for survey data. Similarly, coverage bias can occur if your sampling frame leaves people out altogether, such as surveying only landline users when many younger people rely exclusively on mobile phones. Even small design choices — like where data is collected, when surveys are distributed, or how questions are worded — can systematically shape the kinds of people who participate and the answers they provide.
+
+
+::: {.webex-check .webex-box}
+
+Try your hand at some of these questions to see whether you truly get the logic of sampling. For each scenario, identify whether the chosen sample is _truly_ representative of the wider population. 
+
+That is, given the information provided, select `TRUE` in cases where you believe the samples are representative and that there is little-to-no risk of systematic bias entering the estimates, and `FALSE` when these conditions do not hold.
+
+1. A study wants to understand the travel behaviours of university students across the Netherlands. Researchers collect data only from students living and studying in Groningen. `r torf(FALSE)`
+
+2. A company wants to understand job satisfaction across its entire workforce. Researchers select 300 employees, making sure to include exactly 150 men and 150 women. `r torf(FALSE)`
+
+3. A pre-election survey randomly selects 2,000 names from the national register of voters at random and asks about voting intentions. All 2,000 individuals respond truthfully. `r torf(TRUE)`
+
+4. A study wants to understand attitudes toward climate change in the United States. Individuals are randomly selected from San Francisco to complete a survey on the topic. The survey had a 100% response rate. `r torf(FALSE)`
+
+5. City planners in Utrecht want to estimate average household size in the city. They randomly select several neighborhoods across the city and survey all households in those areas. The surveys have a 100% response rate. `r torf(TRUE)` 
+
+:::
+
+Below are some more exercises to really drive home the point that representativeness is quite hard to achieve in practice and requires a lot of work. Clearly, some of the examples (i.e., the distinguishing factors between 10 and 11) are artificial and unrealistic in many ways. But they do serve as a useful thought exercise for thinking about bias, the topic of our next section.
+
+::: {.webex-check .webex-box}
+
+Try your hand at some of these questions to see whether you truly get the logic of sampling. For each scenario, identify whether the chosen sample is _truly_ representative of the wider population. 
+
+That is, given the information provided, select `TRUE` in cases where you believe the samples are representative and that there is little-to-no risk of systematic bias entering the estimates, and `FALSE` when these conditions do not hold.
+
+6. Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews at distinct spots in the city on one Saturday afternoon in October. `r torf(FALSE)`
+
+7. Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews at distinct spots in city on twelve random Saturday afternoons throughout the year, ensuring to capture responses in every month. `r torf(FALSE)`
+
+8. Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews across the city on twelve random Saturday afternoons throughout the year, ensuring to capture responses in every month. Prior to each Saturday, the interviewees randomise the locations they will visit. `r torf(FALSE)`
+
+9. Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews across the city on twelve random Saturday afternoons throughout the year, ensuring to capture responses in every month. Prior to each Saturday, the interviewees randomise the locations they will visit. Every 5th person to walk by the interviewer is asked to interview. Not everyone that is asked agrees. `r torf(FALSE)`
+
+10. Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews across the city on twelve random Saturday afternoons throughout the year, ensuring to capture responses in every month. Prior to each Saturday, the interviewees randomise the locations they will visit. Every 5th person to walk by the interviewer is asked to interview. Everyone that is asked agrees, but you are not convinced that everyone answered truthfully. `r torf(FALSE)`
+
+11. Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews across the city on twelve random Saturday afternoons throughout the year, ensuring to capture responses in every month. Prior to each Saturday, the interviewees randomise the locations they will visit. Every 5th person to walk by the interviewer is asked to interview. Everyone that is asked agrees, you know that everyone answered truthfully. `r torf(TRUE)`
+
+:::
+
+
+Bias and Generalisation
+======
+
+A major threat to useful sampling is bias. Bias occurs when the sample systematically differs from the population in ways that matter for the outcome of interest.
+
+A representative sample captures the diversity of the population, while a biased sample systematically excludes some groups or overrepresents others. If we conduct an online poll about political views, but only younger people respond, the sample may not represent the full voting population. If we only measure trees close to the park entrance, we might miss variation in tree heights deeper inside the forest. If we test only lightbulbs from the beginning of a production run, our estimate of lifespan may not reflect bulbs produced later. Bias can creep in through poor sampling design or low response rates. Recognizing and minimizing these risks is a central concern in applied statistics.
+
+For example:
+
+If a voter survey only includes people with internet access, it may miss older or rural populations. <br>
+
+If tree measurements are taken only near trails, the sample may not reflect conditions deeper in the forest. <br>
+
+If product tests only use the first items produced in a manufacturing run, they may not capture variability in later batches. <br>
+
+Bias undermines the goal of sampling: *to generalize to the population*.
+
+One of the strongest tools to mitigate bias is randomization. Randomly selecting units ensures that, on average, the sample will resemble the population. Randomization does not eliminate all differences — chance variation remains — but it removes systematic distortions. This is why randomization is central not only to survey design but also to experiments, where random assignment of participants helps balance out hidden differences between groups. The guiding principle is always the same: *the purpose of sampling is to learn about the population, not just about the sample itself*.
+
+Try your hand at some of the following questions. In situations where you think the results of these studies are generalised appropriately, click `TRUE`. If the generalisations are not appropriate, click `FALSE`.
+
+::: {.webex-check .webex-box}
+
+12. A survey of 100 residents randomly distributed across the Groningen municipality is used to conclude that all municipalities in the Netherlands should adopt the same traffic-calming measures. Note: this sample is representative of the population of Groningen province. `r torf(FALSE)`
+
+13. A survey of 500 students at University College Cork is used to conclude that all university students in the Ireland prefer online lectures to in-person lectures. Note: every faculty and department in University College Cork is represented and the sample as a whole is representative of the student body in University College Cork. `r torf(FALSE)`
+
+14. A representative sample of 500 students studying in 5 of the 8 universities in Ireland is used to conclude that all university students in the Ireland prefer online lectures to in-person lectures. `r torf(FALSE)`
+
+15. A nationally representative survey of 2,500 adults, randomly sampled across regions, ages, ethnicities, and genders, is used to conclude that approximately 60% of adults in the country report having visited a museum in the past year. `r torf(TRUE)`
+
+16. A survey of 1,500 households living in urban areas is used to conclude that rural areas require greater investment in public transport infrastructure. `r torf(FALSE)`
+
+:::
+
+When drawing conclusions from a sample, it is important to remember that not all samples support broad generalizations. Even if a sample seems well-constructed, its scope, size, or coverage may limit the extent to which findings can be applied to the wider population. Overgeneralizing from small, localized, or biased samples can lead to misleading conclusions, particularly in contexts like regional policy, where local conditions and preferences vary widely. Always consider whether the sample truly reflects the diversity and characteristics of the population before making sweeping statements. When in doubt, it is safer to frame findings as observations about the sample itself rather than the population as a whole.
+
+The ultimate reason we sample is to generalize. By carefully selecting and analyzing a subset of the population, we aim to draw conclusions about the whole. If a sample is representative and unbiased, the patterns we observe — average values, relationships between variables, differences between groups — can be taken as evidence of what exists in the population.
+
+This is the engine of statistical inference: starting with the limited, and carefully reasoning our way to the broader.

@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Conor O’Driscoll">
-<meta name="dcterms.date" content="2025-08-15">
-<meta name="description" content="Internal and External. Primary and Secondary.">
+<meta name="dcterms.date" content="2025-08-21">
+<meta name="description" content="Discussing the difference between statistical populations and samples">
 
-<title>Different Types of Data: Part 1 – Conor O’Driscoll</title>
+<title>Populations and Samples – Conor O’Driscoll</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,13 +81,13 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../include/webex.css">
-<meta property="og:title" content="Different Types of Data: Part 1 – Conor O’Driscoll">
-<meta property="og:description" content="Internal and External. Primary and Secondary.">
-<meta property="og:image" content="/img/diff_data1.jpeg">
+<meta property="og:title" content="Populations and Samples – Conor O’Driscoll">
+<meta property="og:description" content="Discussing the difference between statistical populations and samples">
+<meta property="og:image" content="/img/pop_samp.png">
 <meta property="og:site_name" content="Conor O'Driscoll">
-<meta name="twitter:title" content="Different Types of Data: Part 1 – Conor O’Driscoll">
-<meta name="twitter:description" content="Internal and External. Primary and Secondary.">
-<meta name="twitter:image" content="/img/diff_data1.jpeg">
+<meta name="twitter:title" content="Populations and Samples – Conor O’Driscoll">
+<meta name="twitter:description" content="Discussing the difference between statistical populations and samples">
+<meta name="twitter:image" content="/img/pop_samp.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -148,11 +148,9 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-data-a-continuation" id="toc-what-is-data-a-continuation" class="nav-link active" data-scroll-target="#what-is-data-a-continuation">What Is Data? A Continuation</a></li>
-  <li><a href="#sources-of-data-internal-vs.-external" id="toc-sources-of-data-internal-vs.-external" class="nav-link" data-scroll-target="#sources-of-data-internal-vs.-external">Sources of Data: Internal vs.&nbsp;External</a></li>
-  <li><a href="#primary-versus-secondary-data" id="toc-primary-versus-secondary-data" class="nav-link" data-scroll-target="#primary-versus-secondary-data">Primary Versus Secondary Data</a></li>
-  <li><a href="#metadata-data-about-data" id="toc-metadata-data-about-data" class="nav-link" data-scroll-target="#metadata-data-about-data">Metadata: Data about Data</a></li>
-  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  <li><a href="#statistical-populations-the-ideal-starting-point" id="toc-statistical-populations-the-ideal-starting-point" class="nav-link active" data-scroll-target="#statistical-populations-the-ideal-starting-point">Statistical Populations: The Ideal Starting Point</a></li>
+  <li><a href="#sampling-building-a-bridge-to-the-population" id="toc-sampling-building-a-bridge-to-the-population" class="nav-link" data-scroll-target="#sampling-building-a-bridge-to-the-population">Sampling: Building a Bridge to the Population</a></li>
+  <li><a href="#bias-and-generalisation" id="toc-bias-and-generalisation" class="nav-link" data-scroll-target="#bias-and-generalisation">Bias and Generalisation</a></li>
   </ul>
 </nav>
     </div>
@@ -161,7 +159,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Different Types of Data: Part 1</h1>
+<h1 class="title">Populations and Samples</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Applied Statistics (Beginners)</div>
   </div>
@@ -169,7 +167,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 <div>
   <div class="description">
-    Internal and External. Primary and Secondary.
+    Discussing the difference between statistical populations and samples
   </div>
 </div>
 
@@ -186,7 +184,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 15, 2025</p>
+      <p class="date">August 21, 2025</p>
     </div>
   </div>
   
@@ -198,67 +196,103 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </header>
 
 
-<section id="what-is-data-a-continuation" class="level1">
-<h1>What Is Data? A Continuation</h1>
-<p>Data describe the universe we wish to study. There are no ends to the universes which can be studied, and therefore the universes represented by data.</p>
-<p>Data is everywhere. From the number of emails in your inbox to city traffic counts, data help us make sense of the world. But not all data are the same. Understanding the types of data, where they come from, and how they’re documented is essential for using them effectively.</p>
-</section>
-<section id="sources-of-data-internal-vs.-external" class="level1">
-<h1>Sources of Data: Internal vs.&nbsp;External</h1>
-<p>At the most basic level, we distinguish between data that already exist in some form, from data that we propose to collect ourselves in the course of our research. Data are said to be internal when they are available in some form through existing records/files of an institution undertaking the study. That is, the data are already available to you internally and thus you do not have to collect it. With this in mind, a key characteristic of internal data is that the researcher knows an awful lot about how the data was collected and what they are measuring. Examples include sales figures, employee records, or website analytics. These data are often easier to access and tailor-made for your (organisation’s) specific needs.</p>
-<p>Data are said to be external when they are obtained from an external entity/organisation. That is, the data are coming from outside sources. In these situations, many important characteristics about the data (i.e., how they were collected and measured) may not be known. Examples include census data, market reports, or climate records from government agencies. External data can enrich internal analysis by providing context or allowing comparisons across organizations or regions.</p>
-<p>Both internal and external data can be valuable, but they may differ in format, quality, and availability. Understanding the source helps determine how much you can trust it and how it can be used. Indeed, it is not unusual to derive results in a statistical analysis that cannot be explained without detailed knowledge of the data source.</p>
-<p>Because internal data is often tailor-made to suit a specific objective, many institutions, researchers, and organisations collect what are otherwise very similar data but are both measured and used in different ways. One obvious example here concerns geographical statistics (i.e., urbanisation) across countries. Many countries have different definitions for cities and urban areas, thus making measurements of urbanisation very different. Yet most are interested in measuring urbanisation in some sense. The differing objectives and approach to collecting such data raises immediate issues for researchers and organisations interested in, say, comparing urbanisation levels across countries. At times, statisticians are called upon to make comparisions across countries, in this case, for which data collection procedures are different, data accurracy differs, and even data definitions differ - hence the considerable resources dedicated by organisations like the UN to gather and integrate such disparate data sources. With this in mind, caution should always be exercised in the use of external data.</p>
-<div class="webex-check webex-box">
-<p>To test your understanding of the different types of data, try to answer the following questions:</p>
+<p>When we use statistics, we are always trying to say something about the world. But the world is big, messy, and full of variation. So the first step in any statistical study is to decide what part of the world we are trying to understand. This is where the idea of a population comes in — and why, in practice, we usually rely on samples instead.</p>
+<section id="statistical-populations-the-ideal-starting-point" class="level1">
+<h1>Statistical Populations: The Ideal Starting Point</h1>
+<p>In statistics, a population is the complete set of individuals, objects, or events that share a common characteristic of interest - a characteristic that we wish to study.</p>
+<p>If we are studying election outcomes, the population might be all eligible voters in a country. <br></p>
+<p>If we want to know the average height of trees in a national park, the population is every tree in that park. <br></p>
+<p>If we are testing the reliability of a product, like lightbulbs, the population could be all lightbulbs manufactured by a company. <br></p>
+<p>In each case, the population is the entire universe of cases we want to understand. This makes them conceptually appealing because they capture everything. If we could measure an entire population, we would have no uncertainty — we would know the true average tree height, the exact proportion of voters supporting each candidate, or the precise distribution of lightbulb lifespans. This is the logic behind a census, where every single member of a population is measured. Censuses are the statistical ideal, because they eliminate the guesswork.</p>
+<p>The most well-known example of a census is, of course, a national population census, which attempts to count every single person in a country. These efforts are monumental undertakings, requiring years of planning, vast budgets, and enormous data-collection infrastructures - highlighting some of the difficulties associated with reaching this ideal.</p>
+<p>Unfortunately, studying populations directly is rarely feasible. National population censuses are the exception, but even they are massive undertakings requiring years of preparation, vast budgets, and armies of workers. Outside of such special cases, researchers usually cannot access an entire population. There are several reasons for this:</p>
 <ol type="1">
-<li><p>You work in the Sales Department of Albert Heijn’s corporate offices and wish to study the profit margins of the in-store bakeries across the Netherlands. The data you are using is … <select class="webex-select"><option value="blank"></option><option value="answer">Internal</option><option value="">External</option><option value="">Neither</option><option value="">A Mix of Both</option></select></p></li>
-<li><p>You work for the University of Groningen and wish to use CBS microdata to study wage distributions across different Dutch municipalities. The data you are using is … <select class="webex-select"><option value="blank"></option><option value="">Internal</option><option value="answer">External</option><option value="">Neither</option><option value="">A Mix of Both</option></select></p></li>
-<li><p>You want to study how your personal expenditures on groceries have changed over the past twelve months. To this effect, you have kept all of your receipts and wish to conduct some statistical analysis. The data you are using is … <select class="webex-select"><option value="blank"></option><option value="answer">Internal</option><option value="">External</option><option value="">Neither</option><option value="">A Mix of Both</option></select></p></li>
+<li><p>Cost and time: Measuring every single unit is almost always too expensive and too slow.</p></li>
+<li><p>Logistics: Some populations are too large or widely dispersed. Measuring every tree in the Amazon rainforest is simply impossible.</p></li>
+<li><p>Destructive measurement: Sometimes, testing requires destroying the unit. You cannot measure the lifespan of every lightbulb if each test means running it until it burns out.</p></li>
+<li><p>Changing populations: Populations are often dynamic. People are born, products roll off production lines, ecosystems evolve. By the time you measure everyone, the population itself has already changed.</p></li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</section>
-<section id="primary-versus-secondary-data" class="level1">
-<h1>Primary Versus Secondary Data</h1>
-<p>Another useful distinction is between <em>primary</em> and <em>secondary</em> data. Primary data are data collected firsthand by a researcher, organization, or system for a specific purpose. They come directly from the original source. Some examples include: survey responses, experiments, observations, sales transactions. Secondary data are data that were collected by someone else, often for a different purpose, and are later reused for analysis. Some examples include: census statistics, published research datasets, government or NGO reports.</p>
-<p>Internal data are always primary because they are collected firsthand within the organization for a specific purpose. The advantage of primary data is that you have control over the process, measurement, and definitions. The downside is that collecting primary data can be costly and time-consuming.</p>
-<p>Secondary data, by contrast, are collected by someone else, often for a different purpose, and are reused for your analysis. Examples include government statistics, academic datasets, or industry reports. Secondary data are usually easier and cheaper to access, but you must critically evaluate whether they are appropriate, reliable, and up-to-date for your questions.</p>
-<p>When using external data, it is important to always important to get as close to the primary source as possible. The difficulty with secondary sources is that they may contain data that has been altered by recording or editing errors, selective data omission, rounding, aggregation, questionable merging of datasets from different sources, or various <em>ad hoc</em> corrections. For example, never use an encyclopedia to get a list of the 10 largest cities in Europe; use the data collected by <a href="https://ec.europa.eu/eurostat">Eurostat</a> - the statistics agency dedicated to collecting consistent socio-economic statistics across European countries.</p>
-<p>Often, good research combines both: using secondary data for context or historical perspective, and collecting primary data to answer specific, current questions.</p>
-<div class="webex-check webex-box">
-<p>To test your understanding of the different types of data, try to answer the following questions:</p>
-<ol start="4" type="1">
-<li><p>You wish to study sentiments of stock markets before, during, and after financial crises. You reason that reports from leading newspapers of the time offer reasonable approximations of how society felt about financial markets. So you read through these articles and generate an index from the information provided. The type of data you are using is … <select class="webex-select"><option value="blank"></option><option value="answer">Primary</option><option value="">Secondary</option><option value="">Neither</option><option value="">A Mix of Both</option></select></p></li>
-<li><p>You are studying student housing affordability in Barcelona, Spain, and conduct a survey at the Univeristy of Barcelona which asks questions concerning things like income, rental prices, and living arrangements. The type of data you are using is … <select class="webex-select"><option value="blank"></option><option value="answer">Primary</option><option value="">Secondary</option><option value="">Neither</option><option value="">A Mix of Both</option></select></p></li>
-<li><p>You are studying the evolution of property prices in England and Wales since the Great Recession and use the property price index developed in <a href="https://cep.lse.ac.uk/_new/publications/abstract.asp?index=10580">Ahlfeldt, Carozzi, and Makovsky (2023)</a> to do this. The data you are using is <select class="webex-select"><option value="blank"></option><option value="">Primary</option><option value="answer">Secondary</option><option value="">Neither</option><option value="">A Mix of Both</option></select></p></li>
-<li><p>You are studying labour market outcomes across the United States and use U.S Census data to do so. The data you are using is <select class="webex-select"><option value="blank"></option><option value="">Primary</option><option value="answer">Secondary</option><option value="">Neither</option><option value="">A Mix of Both</option></select>.</p></li>
-</ol>
+<div class="callout-title-container flex-fill">
+Note
 </div>
-</section>
-<section id="metadata-data-about-data" class="level1">
-<h1>Metadata: Data about Data</h1>
-<p>Finally, any serious discussion of data types is incomplete without mentioning metadata.</p>
-<p>Metadata are data about data. They describe how, when, where, and by whom the data were collected, as well as definitions, units, and any limitations. For example, a dataset of school test scores might include metadata detailing the grade level, the subjects tested, the testing dates, and how missing values were handled.</p>
-<p>Metadata are essential for interpreting and reusing data correctly. Without metadata, even well-collected data can be confusing or misleading. Think of metadata as the instruction manual for your dataset — it tells you what the numbers or categories really mean and how to use them responsibly. They are usually presented in document (i.e., pdf) or spreadsheet (i.e., excel) format, and if they do not come directly with the data themselves, will usually be readily available from whatever source they come from.</p>
-<p>Any dataset worth its salt contains some form of metadata. Admittedly, some will be better than others, but nearly all modern datasets have something to work from.</p>
-<div class="webex-check webex-box">
-<p>Considering the characteristics of metadata, answer the following question:</p>
-<ol start="8" type="1">
-<li>Metadata are readily available with primary data.
-<div id="radio_QHSQADZXLX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QHSQADZXLX" value="answer"> <span>No, not unless you make metadata to accompany whatever primary data you have collected.</span></label><label><input type="radio" autocomplete="off" name="radio_QHSQADZXLX" value=""> <span>Yes, any dataset worth its salt contains some form of metadata. Therefore, every dataset will come with some</span></label><label><input type="radio" autocomplete="off" name="radio_QHSQADZXLX" value=""> <span>No.&nbsp;It is impossible to have metadata for primary data since you must collect the data yourself</span></label>
-</div></li>
-</ol>
 </div>
-<p>Data can be distinguished in several ways. Source (internal or external) and collection method (primary or secondary) are two ways which we have explored today. But there are others, namely by nature, something that will be explored in my next post.</p>
-<p>Alongside the data itself, metadata provides essential documentation about its structure, meaning, and quality. Recognizing these distinctions helps you select the right data, apply it effectively, and interpret it responsibly; because data is powerful only when we understand where it comes from, how it was collected, and what it truly represents.</p>
+<div class="callout-body-container callout-body">
+<p>It is also worth noting that defining the population itself is not always straightforward. Sometimes it is clear and obvious (e.g., all registered voters in an election). Other times, it requires careful thought. What counts as the relevant population when testing a new medicine? Just the trial participants, or everyone who might one day take the drug? Defining the population is often a conceptual decision, not just a logistical one. Similarly:</p>
+<p>A survey of 2,000 voters is a sample from the population of all voters. If the sample includes people of different ages, regions, and political leanings in roughly the right proportions, it can give us reliable insights into voting intentions.</p>
+<p>Measuring 50 trees from different areas of a park is a sample from the population of all trees. If the trees are chosen carefully from across the park, the sample average height will be a good approximation of the population average.</p>
+<p>Testing 100 lightbulbs is a sample from the population of all bulbs made by a manufacturer. If those bulbs are chosen randomly, their measured lifespan can be generalized to the entire production line.</p>
+</div>
+</div>
+<p>This is why most statistical studies must settle for something more practical: sampling.</p>
 </section>
-<section id="bibliography" class="level1">
-<h1>Bibliography</h1>
+<section id="sampling-building-a-bridge-to-the-population" class="level1">
+<h1>Sampling: Building a Bridge to the Population</h1>
+<p>Because populations are so hard to study directly, we work with samples. A sample is a subset of the population that we actually collect data from. It is the part of the population that we observe directly, with the goal of using it to make claims about the whole.</p>
+<p>But a sample is not just “a smaller group.” The power of a sample comes from the fact that each member of it shares some common attribute that defines the population we are interested in. Every tree in our sample is still a tree in the park. Every voter surveyed is still an eligible voter. Every lightbulb tested still came from the manufacturer’s production line. This shared attribute makes it meaningful to ask: how do characteristics (like height, opinion, or lifespan) vary across different members?</p>
+<p>At the same time, no two members are identical. Each tree has a slightly different height. Each voter has their own political leanings. Each bulb lasts a different number of hours. Some of these differences matter more than others — and the whole point of sampling is to understand and measure these variations in a way that allows us to make statements about the broader population.</p>
+<p>Considering this, the value of a sample lies in its representativeness. Sampling allows us to use a manageable amount of data to make inferences about the larger population. The underlying idea is that, if the sample is chosen carefully, the information it provides will reflect the characteristics of the whole. That is, a good sample reflects the key characteristics of the population, so that any patterns we observe in the sample mirror those in the larger group.</p>
+<p>However, not all samples are equally useful. A good sample has two key qualities:</p>
 <ol type="1">
-<li>Statistics: A Very Short Introduction, by David J. Hand<br></li>
-<li>Elementary Statistics For Geographers by James Burt, Gerald Barber, and David Rigby<br></li>
+<li><p><em>Representativeness:</em> The sample should reflect the important characteristics of the population. If young people and older people have different voting patterns, a representative sample must include both groups in appropriate proportions.</p></li>
+<li><p><em>Sufficient size:</em> Larger samples tend to provide more precise estimates, because they reduce the role of chance. That said, size alone is not enough — a large but biased sample can still lead to misleading conclusions.</p></li>
 </ol>
+<p>Imagine stirring a pot of soup. You don’t need to drink the entire pot to know how it tastes — you just need a spoonful. But the spoonful must be taken after stirring, so that it is representative. If you scoop only from the top, you might end up with just broth, missing the vegetables and seasoning below. Sampling in statistics works the same way: the sampling method matters as much as the size.</p>
+<p>Sampling method is about how you select the units, and we will discuss this in more detail in another post. Whereas sample size affects how much variability we expect by chance. With small samples, results can swing widely just due to randomness. With larger samples, estimates stabilize and become more reliable. That said, bigger is not always better. A small, well-designed random sample can be more reliable than a large, biased sample. For example, a carefully randomized survey of 1,500 people can be more accurate than a self-selected online poll of 100,000.</p>
+<p>The ideal is a sample that is both representative and large enough to provide stable estimates.</p>
+<p>Ensuring that a sample is truly representative of a wider population requires a surprising amount of work. Bias can creep in at almost any stage of the process: from how the population is defined, to how the sample is selected, to who actually responds. For instance, even if you start with a random sample, you may run into nonresponse bias if certain groups are less likely to answer your survey than others, making response rates particularly important for survey data. Similarly, coverage bias can occur if your sampling frame leaves people out altogether, such as surveying only landline users when many younger people rely exclusively on mobile phones. Even small design choices — like where data is collected, when surveys are distributed, or how questions are worded — can systematically shape the kinds of people who participate and the answers they provide.</p>
+<div class="webex-check webex-box">
+<p>Try your hand at some of these questions to see whether you truly get the logic of sampling. For each scenario, identify whether the chosen sample is <em>truly</em> representative of the wider population.</p>
+<p>That is, given the information provided, select <code>TRUE</code> in cases where you believe the samples are representative and that there is little-to-no risk of systematic bias entering the estimates, and <code>FALSE</code> when these conditions do not hold.</p>
+<ol type="1">
+<li><p>A study wants to understand the travel behaviours of university students across the Netherlands. Researchers collect data only from students living and studying in Groningen. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>A company wants to understand job satisfaction across its entire workforce. Researchers select 300 employees, making sure to include exactly 150 men and 150 women. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>A pre-election survey randomly selects 2,000 names from the national register of voters at random and asks about voting intentions. All 2,000 individuals respond truthfully. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+<li><p>A study wants to understand attitudes toward climate change in the United States. Individuals are randomly selected from San Francisco to complete a survey on the topic. The survey had a 100% response rate. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>City planners in Utrecht want to estimate average household size in the city. They randomly select several neighborhoods across the city and survey all households in those areas. The surveys have a 100% response rate. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+</ol>
+</div>
+<p>Below are some more exercises to really drive home the point that representativeness is quite hard to achieve in practice and requires a lot of work. Clearly, some of the examples (i.e., the distinguishing factors between 10 and 11) are artificial and unrealistic in many ways. But they do serve as a useful thought exercise for thinking about bias, the topic of our next section.</p>
+<div class="webex-check webex-box">
+<p>Try your hand at some of these questions to see whether you truly get the logic of sampling. For each scenario, identify whether the chosen sample is <em>truly</em> representative of the wider population.</p>
+<p>That is, given the information provided, select <code>TRUE</code> in cases where you believe the samples are representative and that there is little-to-no risk of systematic bias entering the estimates, and <code>FALSE</code> when these conditions do not hold.</p>
+<ol start="6" type="1">
+<li><p>Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews at distinct spots in the city on one Saturday afternoon in October. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews at distinct spots in city on twelve random Saturday afternoons throughout the year, ensuring to capture responses in every month. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews across the city on twelve random Saturday afternoons throughout the year, ensuring to capture responses in every month. Prior to each Saturday, the interviewees randomise the locations they will visit. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews across the city on twelve random Saturday afternoons throughout the year, ensuring to capture responses in every month. Prior to each Saturday, the interviewees randomise the locations they will visit. Every 5th person to walk by the interviewer is asked to interview. Not everyone that is asked agrees. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews across the city on twelve random Saturday afternoons throughout the year, ensuring to capture responses in every month. Prior to each Saturday, the interviewees randomise the locations they will visit. Every 5th person to walk by the interviewer is asked to interview. Everyone that is asked agrees, but you are not convinced that everyone answered truthfully. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>Researchers in the RUG want to explore citizen satisfaction with amenities in the City of Groningen. To achieve this, they conduct street interviews across the city on twelve random Saturday afternoons throughout the year, ensuring to capture responses in every month. Prior to each Saturday, the interviewees randomise the locations they will visit. Every 5th person to walk by the interviewer is asked to interview. Everyone that is asked agrees, you know that everyone answered truthfully. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+</ol>
+</div>
+</section>
+<section id="bias-and-generalisation" class="level1">
+<h1>Bias and Generalisation</h1>
+<p>A major threat to useful sampling is bias. Bias occurs when the sample systematically differs from the population in ways that matter for the outcome of interest.</p>
+<p>A representative sample captures the diversity of the population, while a biased sample systematically excludes some groups or overrepresents others. If we conduct an online poll about political views, but only younger people respond, the sample may not represent the full voting population. If we only measure trees close to the park entrance, we might miss variation in tree heights deeper inside the forest. If we test only lightbulbs from the beginning of a production run, our estimate of lifespan may not reflect bulbs produced later. Bias can creep in through poor sampling design or low response rates. Recognizing and minimizing these risks is a central concern in applied statistics.</p>
+<p>For example:</p>
+<p>If a voter survey only includes people with internet access, it may miss older or rural populations. <br></p>
+<p>If tree measurements are taken only near trails, the sample may not reflect conditions deeper in the forest. <br></p>
+<p>If product tests only use the first items produced in a manufacturing run, they may not capture variability in later batches. <br></p>
+<p>Bias undermines the goal of sampling: <em>to generalize to the population</em>.</p>
+<p>One of the strongest tools to mitigate bias is randomization. Randomly selecting units ensures that, on average, the sample will resemble the population. Randomization does not eliminate all differences — chance variation remains — but it removes systematic distortions. This is why randomization is central not only to survey design but also to experiments, where random assignment of participants helps balance out hidden differences between groups. The guiding principle is always the same: <em>the purpose of sampling is to learn about the population, not just about the sample itself</em>.</p>
+<p>Try your hand at some of the following questions. In situations where you think the results of these studies are generalised appropriately, click <code>TRUE</code>. If the generalisations are not appropriate, click <code>FALSE</code>.</p>
+<div class="webex-check webex-box">
+<ol start="12" type="1">
+<li><p>A survey of 100 residents randomly distributed across the Groningen municipality is used to conclude that all municipalities in the Netherlands should adopt the same traffic-calming measures. Note: this sample is representative of the population of Groningen province. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>A survey of 500 students at University College Cork is used to conclude that all university students in the Ireland prefer online lectures to in-person lectures. Note: every faculty and department in University College Cork is represented and the sample as a whole is representative of the student body in University College Cork. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>A representative sample of 500 students studying in 5 of the 8 universities in Ireland is used to conclude that all university students in the Ireland prefer online lectures to in-person lectures. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>A nationally representative survey of 2,500 adults, randomly sampled across regions, ages, ethnicities, and genders, is used to conclude that approximately 60% of adults in the country report having visited a museum in the past year. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+<li><p>A survey of 1,500 households living in urban areas is used to conclude that rural areas require greater investment in public transport infrastructure. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+</ol>
+</div>
+<p>When drawing conclusions from a sample, it is important to remember that not all samples support broad generalizations. Even if a sample seems well-constructed, its scope, size, or coverage may limit the extent to which findings can be applied to the wider population. Overgeneralizing from small, localized, or biased samples can lead to misleading conclusions, particularly in contexts like regional policy, where local conditions and preferences vary widely. Always consider whether the sample truly reflects the diversity and characteristics of the population before making sweeping statements. When in doubt, it is safer to frame findings as observations about the sample itself rather than the population as a whole.</p>
+<p>The ultimate reason we sample is to generalize. By carefully selecting and analyzing a subset of the population, we aim to draw conclusions about the whole. If a sample is representative and unbiased, the patterns we observe — average values, relationships between variables, differences between groups — can be taken as evidence of what exists in the population.</p>
+<p>This is the engine of statistical inference: starting with the limited, and carefully reasoning our way to the broader.</p>
 
 
 </section>
