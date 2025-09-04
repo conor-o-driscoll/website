@@ -1,6 +1,6 @@
 ---
 title: "Curriculum Vitae: Download pdf [here](CV/CV.pdf)"
-subtitle: "Last Updated: 13-06-2025"
+subtitle: "Last Updated: 04-09-2025"
 format: html
 ---
 
@@ -175,20 +175,19 @@ PhD Development Series.
 
 2.  **Conor O’Driscoll** and Milad Abbasiharofteh. 2025. "Roots and
     Routes: Residential Relocation and Relatedness".
-
-3.  **Conor O’Driscoll** and Federica Rossi. 2025. "Residential
-    Relocation Decisions and Destinations: The Role of Working From
-    Home".
-
-4.  **Conor O’Driscoll** and Ana Maria Silva. 2025. "Working From Home
-    and Labour Market Outcomes: The Case of Earnings and Hours Worked".
-
-5.  **Conor O'Driscoll** and Luise Koeppen. 2025. "Subnational
+    
+3.  **Conor O'Driscoll** and Luise Koeppen. 2025. "Subnational
     Institutional Corruption and Political Discontent".
 
+4.  **Conor O’Driscoll** and Federica Rossi. 2025. "Residential
+    Relocation Decisions and Destinations: The Role of Working From
+    Home". *Under Review in Regional Studies*.
+
+5.  **Conor O’Driscoll** and Ana Maria Silva. 2025. "Working From Home
+    and Labour Market Outcomes: The Case of Earnings and Hours Worked". *Under Review in Oxford Economic Papers*.
+
 6.  **Conor O’Driscoll**. 2025. "Navigating Change: Residential
-    Relocation, Travel Behaviours, and Built Environments". *Major
-    Revisions in Papers in Regional Science*.
+    Relocation, Travel Behaviours, and Built Environments". *Major Revisions in Papers in Regional Science*.
 
 #### Peer-Reviewed Journal Articles
 
