@@ -1,0 +1,107 @@
+---
+title: "Learning To Code"
+author: "Conor O'Driscoll"
+date: 2025-09-05
+categories: [Working With R]
+image: "/img/matrix.jpg"
+description: "Discussing the really useful coding tips in Gentzkow and Shapiro (2014)"
+---
+
+Let’s be honest: most of us who work with data in the social sciences didn’t sign up to become programmers. We came here for the ideas—the questions, the theories, the discoveries. But somewhere along the way, research turned into endless hours of writing, fixing, and occasionally cursing at code. This is certainly reflective of my journey.
+
+Although I teach quantitative research methods and am a massive advocate of using R in research, coding is not a skill that I take to naturally - it feels like a continuous uphill battle; even more so as I begin to learn how to do _real_ code. That is, as I learn how to use version control, automate my workflows, and make my research more efficient.
+
+
+Matthew Gentzkow and Jesse Shapiro, two world-leading economists, wrote _Code and Data for the Social Sciences: A Practitioner’s Guide_ to help us escape this chaos. Their central message is simple: stop reinventing the wheel. Programmers, software engineers, and database managers have been solving these problems for decades. We can borrow their tricks, adapt them to our work, and spend less time wrestling with Stata or R and more time thinking about the research itself.
+
+So what are those tricks? 
+
+
+Automate Everything
+======
+
+Rule number one: don’t do by hand what your computer can do for you.
+
+If you find yourself manually exporting 200 Excel sheets into CSVs, stop. If you find yourself manually running different scripts for multiple datasets each time you want to revise regression results, stop. Write a script. Automation is the cure for lost steps, inconsistent outputs, and that sinking feeling of “wait, why does my table look different this week?”
+
+Even better, string all your scripts together into one master script that runs your entire project from raw data to final PDF. That way, if someone deletes your outputs, you just hit run and recreate everything. No mystery buttons, no half-broken steps. Just push play.
+
+
+Use Version Control Like a Real Programmer
+======
+
+We’ve all done it: saving files with names like regressions_final_v2_revised_REALfinal.do. That way lies madness, suggests Gentzkow and Shapiro, and I firmly agree.
+
+Instead, learn from the pros: use version control systems like Git. They keep a full history of your files, tell you who changed what, and let you roll back mistakes instantly. It’s basically “undo” for your entire research project, something desperately needed for novice R users who, like me, delete entire scripts on occassion by clumisly hitting the wrong key. 
+
+
+Clean Directories, Clear Minds
+======
+
+Think of your project directory as your workspace. If it’s cluttered, future-you (or your coauthors) will get lost.
+
+Gentzkow and Shapiro recommend structuring your directories by function: separate raw data, cleaned data, code, outputs, and temporary files. Keep inputs and outputs distinct. Use relative paths so the whole project is portable; that is, you can move it to another computer and it’ll still run.
+
+It’s like labeling your kitchen shelves: future-you will thank you when you’re hungry and looking for the salt.
+
+
+Respect Your Keys
+======
+
+Data merges are where dreams go to die. The handbook insists on a simple but powerful rule: every table should have a unique, non-missing key.
+
+In other words, don’t try to merge datasets on messy or ambiguous identifiers. Normalize your data structure (think [relational databases](https://cloud.google.com/learn/what-is-a-relational-database)) so it’s clear what belongs where. This minimizes errors and makes your datasets easier to understand later.
+
+
+Abstract Without Overdoing It
+======
+
+Copy-paste is the silent killer of good code. You copy some lines, tweak a variable name, and before you know it, you’ve introduced three subtle bugs.
+
+The antidote is abstraction: write general-purpose functions that you can reuse. For example, instead of pasting the same block of code to calculate moving averages at different levels, or simplify large categorical variables, write a function that does it for any grouping variable. Cleaner, safer, faster.
+
+But beware: don’t abstract just for the sake of it. If you’ll only use a piece of code once, keep it simple.
+
+
+Documentation: Less Is More
+======
+
+Here’s a surprising lesson: don’t over-document your code.
+
+Why? Because comments get stale. You update your code but forget the comment, and now they contradict each other. That’s worse than no comment at all. 
+
+Instead, aim for self-documenting code: use descriptive variable names, clear structure, and meaningful functions so the code speaks for itself. Add comments only where code alone can’t capture the context (like pointing to the source of an elasticity estimate).
+
+This resonates strongly with me, an over-commenter. When I go back to revise code for papers, I often get confused by the comments as opposed to the code itself. I also tend to feel that, sometimes, such comments are superflous and unecessary. So it is gratifying to see this sentiment echoed here.
+
+
+Manage Tasks Like Adults
+======
+
+Email is not a task management system. (Let’s all repeat that together).
+
+If you’re working with coauthors or research assistants, Gentzkow and Shapiro recommend using a proper system like Asana, Trello, or JIRA. But I believe you could also use something like Github repositories. 
+
+Either way, these platforms allow you to assign tasks clearly, track progress, and keep the discussion tied to the task. That way, no one’s left wondering who was supposed to run each robustness check.
+
+
+Style Matters
+======
+
+Finally, don’t ignore style. Code has multiple audiences: the computer, your future self, and whoever inherits your project down the line.
+
+Keep scripts short and purposeful. Use descriptive names instead of cryptic abbreviations. Be consistent with formatting. Write [unit tests](https://smartbear.com/learn/automated-testing/what-is-unit-testing/) when you can. [Profile](https://en.wikipedia.org/wiki/Profiling_(computer_programming)) slow code. And separate slow, rarely changing parts of your project (like model estimation) from fast, frequently tweaked parts (like table formatting).
+
+Good code is like good writing: clear, purposeful, and easy to follow.
+
+
+The Big Picture
+======
+
+Here’s the bottom line, as espoused by Gentzkow and Shapiro: doing empirical social science means doing a lot of coding. You can either muddle through with messy folders, cryptic scripts, and sleepless nights - or you can borrow decades of wisdom from computer scientists.
+
+Gentzkow and Shapiro aren’t asking us to become software engineers. They’re asking us to adopt a few basic habits—automation, version control, clean structure, sensible abstraction, minimal but useful documentation, proper task management—that make our research more reliable, replicable, and less of a headache.
+
+The payoff? Less time debugging, more time discovering.
+
+So next time you open a directory full of mysterious .do files with names like final_FINAL2_reallyfinal.do, take a deep breath, thank your past self for downloading this guide, and start fresh. Your future self (and your coauthors) will thank you for it.

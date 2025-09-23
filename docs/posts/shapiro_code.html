@@ -7,8 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Conor O’Driscoll">
+<meta name="dcterms.date" content="2025-09-05">
+<meta name="description" content="Discussing the really useful coding tips in Gentzkow and Shapiro (2014)">
 
-<title>Data, Data, Data – Conor O’Driscoll</title>
+<title>Learning To Code – Conor O’Driscoll</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9d882aefbe6880e209bb4e231fcedeb2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9d882aefbe6880e209bb4e231fcedeb2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,13 +81,15 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </script>
 
 
-<link rel="stylesheet" href="include/webex.css">
-<meta property="og:title" content="Data, Data, Data – Conor O’Driscoll">
-<meta property="og:description" content="">
+<link rel="stylesheet" href="../include/webex.css">
+<meta property="og:title" content="Learning To Code – Conor O’Driscoll">
+<meta property="og:description" content="Discussing the really useful coding tips in Gentzkow and Shapiro (2014)">
+<meta property="og:image" content="/img/matrix.jpg">
 <meta property="og:site_name" content="Conor O'Driscoll">
-<meta name="twitter:title" content="Data, Data, Data – Conor O’Driscoll">
-<meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learning To Code – Conor O’Driscoll">
+<meta name="twitter:description" content="Discussing the really useful coding tips in Gentzkow and Shapiro (2014)">
+<meta name="twitter:image" content="/img/matrix.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -95,7 +99,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Conor O’Driscoll</span>
     </a>
   </div>
@@ -106,23 +110,23 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./CV.html"> 
+    <a class="nav-link" href="../CV.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">Publications and Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
+    <a class="nav-link" href="../teaching.html"> 
 <span class="menu-text">Teaching Materials</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../blog.html"> 
 <span class="menu-text">News and Musings</span></a>
   </li>  
 </ul>
@@ -145,7 +149,15 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#from-observation-to-data-a-refresher" id="toc-from-observation-to-data-a-refresher" class="nav-link active" data-scroll-target="#from-observation-to-data-a-refresher">From Observation To Data: A Refresher</a></li>
+  <li><a href="#automate-everything" id="toc-automate-everything" class="nav-link active" data-scroll-target="#automate-everything">Automate Everything</a></li>
+  <li><a href="#use-version-control-like-a-real-programmer" id="toc-use-version-control-like-a-real-programmer" class="nav-link" data-scroll-target="#use-version-control-like-a-real-programmer">Use Version Control Like a Real Programmer</a></li>
+  <li><a href="#clean-directories-clear-minds" id="toc-clean-directories-clear-minds" class="nav-link" data-scroll-target="#clean-directories-clear-minds">Clean Directories, Clear Minds</a></li>
+  <li><a href="#respect-your-keys" id="toc-respect-your-keys" class="nav-link" data-scroll-target="#respect-your-keys">Respect Your Keys</a></li>
+  <li><a href="#abstract-without-overdoing-it" id="toc-abstract-without-overdoing-it" class="nav-link" data-scroll-target="#abstract-without-overdoing-it">Abstract Without Overdoing It</a></li>
+  <li><a href="#documentation-less-is-more" id="toc-documentation-less-is-more" class="nav-link" data-scroll-target="#documentation-less-is-more">Documentation: Less Is More</a></li>
+  <li><a href="#manage-tasks-like-adults" id="toc-manage-tasks-like-adults" class="nav-link" data-scroll-target="#manage-tasks-like-adults">Manage Tasks Like Adults</a></li>
+  <li><a href="#style-matters" id="toc-style-matters" class="nav-link" data-scroll-target="#style-matters">Style Matters</a></li>
+  <li><a href="#the-big-picture" id="toc-the-big-picture" class="nav-link" data-scroll-target="#the-big-picture">The Big Picture</a></li>
   </ul>
 </nav>
     </div>
@@ -154,9 +166,17 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data, Data, Data</h1>
-</div>
+<h1 class="title">Learning To Code</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Working With R</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Discussing the really useful coding tips in Gentzkow and Shapiro (2014)
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -168,6 +188,12 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 5, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -177,57 +203,63 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </header>
 
 
-<p>Introduction:</p>
-<p>What Is Data?</p>
-<ul>
-<li>definition;</li>
-<li>description;</li>
-<li>datasets [pp.16-24 in textbook] - link to from observation to data</li>
-</ul>
-<p>Collecting Data</p>
-<ul>
-<li>pp.16-24 in textbook</li>
-</ul>
-<p>Data: Some Key Considerations</p>
-<ul>
-<li>What are you measuring?</li>
-<li>How are you measuring it?</li>
-<li>How meaningful are your measures?</li>
-</ul>
-<p>Introduction</p>
-<p>Data is the core input of statistics. But more than that, they are the raw material on which the discipline of statistics is built, as well as the raw material from which individual statistics themselves are calculated.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The word data itself comes from the Latin <em>datum</em>, basically meaning “something given”. As such, many people opt to describe data as a plural term (i.e., the data are poor), rather than as a singular (i.e., the data is poor). But it is also common to treat the word data as if it were a continuum. For example, you would never say the water are wet. Rather, you would say water is wet. I tend to jump between both depending on the context.</p>
-</div>
-</div>
-<p>Data are typically numbers: the results of measurements, counts, or other processes. But it is not always numbers. Sometimes, data represents categories, or it could even represent plain text, sentences and pictures, depending on the context in which you are working. In saying that, closer examination will usually reveal that when you try to use such data in any type of analysis, it is usually transformed in some way such that it becomes numeric.</p>
-<p>It is all well-and-good saying that statistics primarily deals with numeric data, but for this data to be useful - that is, for us to be able to do some meaningful analysis - these numbers need to mean something. For example, we need to know, first-and-foremost, what the measurements we have collected are measurements of, and just what has been counted, when data is expressed in counts. Further, to produce reliable and accurate results, we also ought to know a fair deal about how these numbers were collected, alongside who and where they were collected from.</p>
-<p>Did everyone we asked give answers to our questionnaire, or did only some people answer? If only some people answered, are they properly representative of the wider group we wish to study, or has it been distorted in some way? For example, did a disproportionately large number of males answer our survey? Did people only answer specific questions? If so, how do we handle the missing data for the remaining questions? Is there something specific about that question that people did not like, or do these questions appear to have been avoided by specific groups of people (i.e., ethnic minorities).</p>
-<p>Likewise, we need to know if our data is up to date, and whether the measurement instrument we use is reliable. Can we assume that people accurately self-report their income, rent/mortgage payments, and commute times? Or are they better treated as a rough estiminate?</p>
-<p>There are an infinite number of questions we could ask in this realm. What matters is that we stay alert to any which could influence the conclusions we draw. Failure to consider these questions is what vindicates people who are suspicious of statistics as they constitute a clear failure to apply and interpret the numbers appropriately.</p>
-<p>With that in mind, another way of thinking about data is to consider it a form of evidence. Without data, our ideas and theories about the world around us are little more than speculations. Data provide a grounding, linking our ideas and theories to reality, while also allowing us to test and validate this understanding. Statistical methods can then be used to compare the data with our ideas and theories, to see how good a match they are. A poor match forces us to think again and reformulate them based on what we observe in the data, while a good match might signal that we have a good intuitive understanding of the problem at hand.</p>
-<p>Implicit in this is that, to be meaningful, our ideas and theories must yield plausible predictions; predictions which we can also compare with our data. If our theories and ideas to do not tell us what we should expect to observe, or if the predictions are so general that any data will conform with our theories (e.g., astrology), then evidently our theories and ideas are no good.</p>
-<p>Data also allow us to steer our way through a complex world and make decisions about the best actions to take. We take our measurements, count our totals, and use statistical methods to extract information from these data to describe how the world is behaving and what we should do to make it behave how we want. These principles are illustrated when we seek to evaluate complex regional or social policies.</p>
-<p>Data plays a fundamental role in tying observations about the world around us to our ideas and understanding of that world.</p>
-<p>For example, a relatively basic category like “sex” can take two categories: male and female. Literally speaking, these are words, but when using them in any form of quantitative analysis, they are converted into numbers (usually, 1 and 0), where a value of 1 might represent Males and a value of 0 might represent females or <em>vice versa</em>.</p>
-<p>In his book, <em>Statistics: A Very Short Introduction</em>, David Hand makes the nice point that even when working with more complicated categories, like entire sentences, these can be processed into word counts, or measures of similarity between words and phrases; and that this is the sort of representation used by search engines like Google.</p>
-<p>I prefer to think of data as an umbrella term capturing any inputs you use when conducting an analysis which contributes to the formation of an answer to your proposed (research) question. In saying that, although many forms of data do not start out as numeric, they will eventually be transformed into numbers, making it somewhat fair to generalise that data is a numeric object; especially seeing as most forms of statistics require numerical data as inputs.</p>
-<p><em>Insert MCQ - Which of the following might count as “data”, given the above description</em>.</p>
-<p>It is convenient to think of data as providing a simplified representation of whatever we are studying; be it people, firms, or places. Admittedly, the representation would not be perfect, because many underlying characteristics of people, firms, and places cannot be neatly captured by numeric measures, but they often tell us enough such that the core characteristics of interest can be identified. In saying that, it is important to bear in mind that data quality is extremely important. Like in life, if you have poor material to work with then the results you generate will also be poor. We can do amazing things with statistics, but we cannot perform miracles.</p>
-<section id="from-observation-to-data-a-refresher" class="level1">
-<h1>From Observation To Data: A Refresher</h1>
-<p>Sometimes, we observe a single thing — a person, a place, an event — and note several of its features. More interestingly, we often observe many things that are similar in some respects but quite different in others. We notice patterns across people, places, or time. We end up with a collection of observations, or, in the language of statistics, data.</p>
-<p>Faced with such a collection, it is natural to start comparing. What is the same? What is different? What might explain those differences? This is where statistical thinking deepens. The overarching question becomes: what can we learn from this data?</p>
-<p>Statistics helps us summarize what we have found so we can be clear about the facts. But it also helps us go further: to compare, to explain, and to predict. It reminds us to be cautious. What appears true in one context may not hold in another, as I am sure you are all acutely aware. If we want to generalize more confidently, the logical starting point is to gather more experience - that is, collect more data. This speaks to the fact that the more contexts, situations, and experiences we observe, the more confident we can be in drawing conclusions and making suggestions. In other words, if we want to generalize more confidently, we need more data, which happens to be the logic underpinning one of the most powerful ideas in statistics: the Central Limit Theorem.</p>
+<p>Let’s be honest: most of us who work with data in the social sciences didn’t sign up to become programmers. We came here for the ideas—the questions, the theories, the discoveries. But somewhere along the way, research turned into endless hours of writing, fixing, and occasionally cursing at code. This is certainly reflective of my journey.</p>
+<p>Although I teach quantitative research methods and am a massive advocate of using R in research, coding is not a skill that I take to naturally - it feels like a continuous uphill battle; even more so as I begin to learn how to do <em>real</em> code. That is, as I learn how to use version control, automate my workflows, and make my research more efficient.</p>
+<p>Matthew Gentzkow and Jesse Shapiro, two world-leading economists, wrote <em>Code and Data for the Social Sciences: A Practitioner’s Guide</em> to help us escape this chaos. Their central message is simple: stop reinventing the wheel. Programmers, software engineers, and database managers have been solving these problems for decades. We can borrow their tricks, adapt them to our work, and spend less time wrestling with Stata or R and more time thinking about the research itself.</p>
+<p>So what are those tricks?</p>
+<section id="automate-everything" class="level1">
+<h1>Automate Everything</h1>
+<p>Rule number one: don’t do by hand what your computer can do for you.</p>
+<p>If you find yourself manually exporting 200 Excel sheets into CSVs, stop. If you find yourself manually running different scripts for multiple datasets each time you want to revise regression results, stop. Write a script. Automation is the cure for lost steps, inconsistent outputs, and that sinking feeling of “wait, why does my table look different this week?”</p>
+<p>Even better, string all your scripts together into one master script that runs your entire project from raw data to final PDF. That way, if someone deletes your outputs, you just hit run and recreate everything. No mystery buttons, no half-broken steps. Just push play.</p>
+</section>
+<section id="use-version-control-like-a-real-programmer" class="level1">
+<h1>Use Version Control Like a Real Programmer</h1>
+<p>We’ve all done it: saving files with names like regressions_final_v2_revised_REALfinal.do. That way lies madness, suggests Gentzkow and Shapiro, and I firmly agree.</p>
+<p>Instead, learn from the pros: use version control systems like Git. They keep a full history of your files, tell you who changed what, and let you roll back mistakes instantly. It’s basically “undo” for your entire research project, something desperately needed for novice R users who, like me, delete entire scripts on occassion by clumisly hitting the wrong key.</p>
+</section>
+<section id="clean-directories-clear-minds" class="level1">
+<h1>Clean Directories, Clear Minds</h1>
+<p>Think of your project directory as your workspace. If it’s cluttered, future-you (or your coauthors) will get lost.</p>
+<p>Gentzkow and Shapiro recommend structuring your directories by function: separate raw data, cleaned data, code, outputs, and temporary files. Keep inputs and outputs distinct. Use relative paths so the whole project is portable; that is, you can move it to another computer and it’ll still run.</p>
+<p>It’s like labeling your kitchen shelves: future-you will thank you when you’re hungry and looking for the salt.</p>
+</section>
+<section id="respect-your-keys" class="level1">
+<h1>Respect Your Keys</h1>
+<p>Data merges are where dreams go to die. The handbook insists on a simple but powerful rule: every table should have a unique, non-missing key.</p>
+<p>In other words, don’t try to merge datasets on messy or ambiguous identifiers. Normalize your data structure (think <a href="https://cloud.google.com/learn/what-is-a-relational-database">relational databases</a>) so it’s clear what belongs where. This minimizes errors and makes your datasets easier to understand later.</p>
+</section>
+<section id="abstract-without-overdoing-it" class="level1">
+<h1>Abstract Without Overdoing It</h1>
+<p>Copy-paste is the silent killer of good code. You copy some lines, tweak a variable name, and before you know it, you’ve introduced three subtle bugs.</p>
+<p>The antidote is abstraction: write general-purpose functions that you can reuse. For example, instead of pasting the same block of code to calculate moving averages at different levels, or simplify large categorical variables, write a function that does it for any grouping variable. Cleaner, safer, faster.</p>
+<p>But beware: don’t abstract just for the sake of it. If you’ll only use a piece of code once, keep it simple.</p>
+</section>
+<section id="documentation-less-is-more" class="level1">
+<h1>Documentation: Less Is More</h1>
+<p>Here’s a surprising lesson: don’t over-document your code.</p>
+<p>Why? Because comments get stale. You update your code but forget the comment, and now they contradict each other. That’s worse than no comment at all.</p>
+<p>Instead, aim for self-documenting code: use descriptive variable names, clear structure, and meaningful functions so the code speaks for itself. Add comments only where code alone can’t capture the context (like pointing to the source of an elasticity estimate).</p>
+<p>This resonates strongly with me, an over-commenter. When I go back to revise code for papers, I often get confused by the comments as opposed to the code itself. I also tend to feel that, sometimes, such comments are superflous and unecessary. So it is gratifying to see this sentiment echoed here.</p>
+</section>
+<section id="manage-tasks-like-adults" class="level1">
+<h1>Manage Tasks Like Adults</h1>
+<p>Email is not a task management system. (Let’s all repeat that together).</p>
+<p>If you’re working with coauthors or research assistants, Gentzkow and Shapiro recommend using a proper system like Asana, Trello, or JIRA. But I believe you could also use something like Github repositories.</p>
+<p>Either way, these platforms allow you to assign tasks clearly, track progress, and keep the discussion tied to the task. That way, no one’s left wondering who was supposed to run each robustness check.</p>
+</section>
+<section id="style-matters" class="level1">
+<h1>Style Matters</h1>
+<p>Finally, don’t ignore style. Code has multiple audiences: the computer, your future self, and whoever inherits your project down the line.</p>
+<p>Keep scripts short and purposeful. Use descriptive names instead of cryptic abbreviations. Be consistent with formatting. Write <a href="https://smartbear.com/learn/automated-testing/what-is-unit-testing/">unit tests</a> when you can. <a href="https://en.wikipedia.org/wiki/Profiling_(computer_programming)">Profile</a> slow code. And separate slow, rarely changing parts of your project (like model estimation) from fast, frequently tweaked parts (like table formatting).</p>
+<p>Good code is like good writing: clear, purposeful, and easy to follow.</p>
+</section>
+<section id="the-big-picture" class="level1">
+<h1>The Big Picture</h1>
+<p>Here’s the bottom line, as espoused by Gentzkow and Shapiro: doing empirical social science means doing a lot of coding. You can either muddle through with messy folders, cryptic scripts, and sleepless nights - or you can borrow decades of wisdom from computer scientists.</p>
+<p>Gentzkow and Shapiro aren’t asking us to become software engineers. They’re asking us to adopt a few basic habits—automation, version control, clean structure, sensible abstraction, minimal but useful documentation, proper task management—that make our research more reliable, replicable, and less of a headache.</p>
+<p>The payoff? Less time debugging, more time discovering.</p>
+<p>So next time you open a directory full of mysterious .do files with names like final_FINAL2_reallyfinal.do, take a deep breath, thank your past self for downloading this guide, and start fresh. Your future self (and your coauthors) will thank you for it.</p>
 
 
 </section>
@@ -848,7 +880,7 @@ window.onload = function() {
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Built with <img src="./img/r-logo.svg" style="vertical-align: middle; filter: grayscale(100%);" height="20"> and <a href="https://quarto.org/">Quarto</a></p>
+<p>Built with <img src="../img/r-logo.svg" style="vertical-align: middle; filter: grayscale(100%);" height="20"> and <a href="https://quarto.org/">Quarto</a></p>
 </div>
   </div>
 </footer>

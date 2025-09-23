@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/shapiro_code.html",
       "/posts/ersa_2025.html",
       "/posts/samp_pop.html",
       "/posts/dataset_types_r.html",
