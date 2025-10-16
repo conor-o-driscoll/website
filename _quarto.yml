@@ -40,4 +40,5 @@ format:
     toc: true
     include-after-body: include/webex.js
     css: include/webex.css
+    math: mathjax
 editor: source

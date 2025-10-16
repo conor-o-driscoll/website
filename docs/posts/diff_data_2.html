@@ -80,6 +80,35 @@ gtag('js', new Date());
 gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 <meta property="og:title" content="Different Types of Data: Part 2 – Conor O’Driscoll">
@@ -270,6 +299,7 @@ Note
 </ol>
 </div>
 <p>In short, data is never just data. Its source, structure, and type all shape what we can learn from it. By paying attention to how data is collected, how it is organized, and what kind of information it contains, we can ask better questions, avoid common mistakes, and make stronger, more reliable conclusions.</p>
+
 
 
 </section>

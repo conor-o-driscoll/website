@@ -115,6 +115,35 @@ gtag('js', new Date());
 gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 <meta property="og:title" content="Getting Started With R and RStudio – Conor O’Driscoll">
@@ -336,6 +365,7 @@ Note
 </ol>
 <p>Getting started with <code>R</code> and <code>RStudio</code> involves more than just installing software. Understanding the layout of <code>RStudio</code> and the types of files you can work with will set you up for a productive workflow. Scripts allow you to save and organize your code and Quarto documents enable reproducible reports and dynamic documents. In my next post I will introduce <code>R</code> Projects, which act as the scaffolding that keeps everything structured and isolated.</p>
 <p>Once you are comfortable with these basics, you can start exploring datasets, creating visualizations, and performing analyses with confidence. As you progress, <code>RStudio</code>’s rich features — including debugging tools, integrated help, and package management — will make it easier to tackle increasingly complex data challenges.</p>
+
 
 
 </section>

@@ -80,6 +80,35 @@ gtag('js', new Date());
 gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 <meta property="og:title" content="Welcome to my website! – Conor O’Driscoll">
@@ -213,6 +242,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="miscellaneous">Miscellaneous</h2>
 <p>Other elements of this site contain a copy of my cv in pdf and raw html form as well as a News and Musings section in which you can find personal and professional updates, alongside blog posts related to my research and teaching activities.</p>
 <p>Happy reading and looking forward to seeing how this project evolves and grows! Conor</p>
+
 
 
 </section>

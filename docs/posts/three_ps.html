@@ -80,6 +80,35 @@ gtag('js', new Date());
 gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 <meta property="og:title" content="The Three P’s: Programming, Packages, and Projects – Conor O’Driscoll">
@@ -261,6 +290,7 @@ Warning
 <li><p>Using R Projects: <a href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects">https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects</a></p></li>
 <li><p>Using R Projects: <a href="https://www.youtube.com/watch?v=MdTtTN8PUqU">https://www.youtube.com/watch?v=MdTtTN8PUqU</a></p></li>
 </ol>
+
 
 
 </section>

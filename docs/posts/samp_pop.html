@@ -80,6 +80,35 @@ gtag('js', new Date());
 gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 <meta property="og:title" content="Populations and Samples – Conor O’Driscoll">
@@ -294,6 +323,7 @@ Note
 <p>When drawing conclusions from a sample, it is important to remember that not all samples support broad generalizations. Even if a sample seems well-constructed, its scope, size, or coverage may limit the extent to which findings can be applied to the wider population. Overgeneralizing from small, localized, or biased samples can lead to misleading conclusions, particularly in contexts like regional policy, where local conditions and preferences vary widely. Always consider whether the sample truly reflects the diversity and characteristics of the population before making sweeping statements. When in doubt, it is safer to frame findings as observations about the sample itself rather than the population as a whole.</p>
 <p>The ultimate reason we sample is to generalize. By carefully selecting and analyzing a subset of the population, we aim to draw conclusions about the whole. If a sample is representative and unbiased, the patterns we observe — average values, relationships between variables, differences between groups — can be taken as evidence of what exists in the population.</p>
 <p>This is the engine of statistical inference: starting with the limited, and carefully reasoning our way to the broader.</p>
+
 
 
 </section>

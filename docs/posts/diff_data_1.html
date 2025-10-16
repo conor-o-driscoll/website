@@ -80,6 +80,35 @@ gtag('js', new Date());
 gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 <meta property="og:title" content="Different Types of Data: Part 1 – Conor O’Driscoll">
@@ -246,8 +275,8 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 <p>Considering the characteristics of metadata, answer the following question:</p>
 <ol start="8" type="1">
 <li>Metadata are readily available with primary data.
-<div id="radio_YFWAHVTCUX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YFWAHVTCUX" value="answer"> <span>No, not unless you make metadata to accompany whatever primary data you have collected.</span></label><label><input type="radio" autocomplete="off" name="radio_YFWAHVTCUX" value=""> <span>Yes, any dataset worth its salt contains some form of metadata. Therefore, every dataset will come with some</span></label><label><input type="radio" autocomplete="off" name="radio_YFWAHVTCUX" value=""> <span>No.&nbsp;It is impossible to have metadata for primary data since you must collect the data yourself</span></label>
+<div id="radio_XEDHZEKFMA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XEDHZEKFMA" value="answer"> <span>No, not unless you make metadata to accompany whatever primary data you have collected.</span></label><label><input type="radio" autocomplete="off" name="radio_XEDHZEKFMA" value=""> <span>Yes, any dataset worth its salt contains some form of metadata. Therefore, every dataset will come with some</span></label><label><input type="radio" autocomplete="off" name="radio_XEDHZEKFMA" value=""> <span>No.&nbsp;It is impossible to have metadata for primary data since you must collect the data yourself</span></label>
 </div></li>
 </ol>
 </div>
@@ -260,6 +289,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 <li>Statistics: A Very Short Introduction, by David J. Hand<br></li>
 <li>Elementary Statistics For Geographers by James Burt, Gerald Barber, and David Rigby<br></li>
 </ol>
+
 
 
 </section>

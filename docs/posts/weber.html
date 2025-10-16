@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Conor O’Driscoll">
+<meta name="dcterms.date" content="2025-09-07">
+<meta name="description" content="How might a single firm decide where to set up shop?">
+
+<title>Weber’s Industrial Location Model – Conor O'Driscoll</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9d882aefbe6880e209bb4e231fcedeb2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-E5KK0XXE44"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../include/webex.css">
+<meta property="og:title" content="Weber’s Industrial Location Model – Conor O’Driscoll">
+<meta property="og:description" content="How might a single firm decide where to set up shop?">
+<meta property="og:image" content="/img/weber_tri.jpeg">
+<meta property="og:site_name" content="Conor O'Driscoll">
+<meta name="twitter:title" content="Weber’s Industrial Location Model – Conor O’Driscoll">
+<meta name="twitter:description" content="How might a single firm decide where to set up shop?">
+<meta name="twitter:image" content="/img/weber_tri.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Conor O’Driscoll</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../CV.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html"> 
+<span class="menu-text">Publications and Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../teaching.html"> 
+<span class="menu-text">Teaching Materials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">News and Musings</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://twitter.com/conorodriscollx" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter-x"></i></a>
+    <a href="https://www.linkedin.com/in/conor-o-driscoll-a0624a234/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://www.rug.nl/staff/c.odriscoll/?lang=en" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-building"></i></a>
+    <a href="https://conor-o-driscoll.github.io/website/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-core-idea-location-as-cost-minimization" id="toc-the-core-idea-location-as-cost-minimization" class="nav-link active" data-scroll-target="#the-core-idea-location-as-cost-minimization">The Core Idea: Location as Cost Minimization</a></li>
+  <li><a href="#the-technical-details-of-the-simple-model" id="toc-the-technical-details-of-the-simple-model" class="nav-link" data-scroll-target="#the-technical-details-of-the-simple-model">The Technical Details of The Simple Model</a></li>
+  <li><a href="#changing-factor-prices" id="toc-changing-factor-prices" class="nav-link" data-scroll-target="#changing-factor-prices">Changing Factor Prices</a></li>
+  <li><a href="#what-does-this-all-mean" id="toc-what-does-this-all-mean" class="nav-link" data-scroll-target="#what-does-this-all-mean">What does this all mean?</a></li>
+  <li><a href="#an-empirical-illustration" id="toc-an-empirical-illustration" class="nav-link" data-scroll-target="#an-empirical-illustration">An empirical illustration</a></li>
+  <li><a href="#to-wrap-up" id="toc-to-wrap-up" class="nav-link" data-scroll-target="#to-wrap-up">To wrap up</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Weber’s Industrial Location Model</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Economic Geography</div>
+    <div class="quarto-category">Economic Modelling</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    How might a single firm decide where to set up shop?
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Conor O’Driscoll </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 7, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>When a firm wants to open a factory or plant, how does it decide where to go?</p>
+<p>You could locate near raw materials, near consumers, near cheap labor, or near other firms. Each option has advantages and trade-offs. Transport costs rise with distance, wages differ across regions, clustering may bring efficiencies or congestion. So how does a rational firm make this decision?</p>
+<p>This was the question Alfred Weber tried to answer in his 1909 book <em>Theory of the Location of Industries</em>. His answer became a fundamental building block of microeconomic (and geographic!) firm location decisions — the least-cost model of industrial location.</p>
+<section id="the-core-idea-location-as-cost-minimization" class="level1">
+<h1>The Core Idea: Location as Cost Minimization</h1>
+<p>The starting point for this model begins with the premise that firms exist to make profit and the best way to do this is to minimize production costs. In this model, <em>markets are perfectly competitive</em> and <em>firms are rational</em> as well as <em>price takers</em>. This means that a single firm cannot manipulate prices. There is also no possibility for subsitution in the production process (i.e., there is a <em>fixed relationship between the quantities of each input required to produce a single unit of output</em>). Finally, <em>where inputs are sourced from, and where markets are located, does not change</em> (i.e., they are “given”).</p>
+<p>These assumptions heavily simplify the economic context in which this firm operates. On the geographical side of things, it is further assumed that the availability, price, and quality of land, labour, and capital (the relevant factors of production) are the same everywhere (i.e., geography is homogenous).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A slight word-play perhaps, but this is not to say that the prices of labour, capital, and land are equal to each other. Rather, all locations exhibit the same attributes in terms of the availability of factors of production.</p>
+</div>
+</div>
+<p>Weber’s framework assumes that the prices of all inputs, outputs, and production factors are exogenous and uniform across space. As a result, the only factor influencing the relative profitability of different locations is the distance between input sources and markets. The firm’s sole decision, therefore, is where to locate production.</p>
+<p>By isolating location as the key decision variable, Weber transformed geography into a problem of cost minimization - a search for the point where total costs are lowest and profits highest. This emphasis on least-cost location reflected his view that industrial siting is driven primarily by the economic imperative of efficiency. In this framework, profitability depends on selecting a location that minimizes the total transport costs of moving inputs to the production site and outputs to the market.</p>
+</section>
+<section id="the-technical-details-of-the-simple-model" class="level1">
+<h1>The Technical Details of The Simple Model</h1>
+<p>Visually, we might view this problem using the following diagram:</p>
+<p><img src="../img/weber_tri.jpeg" class="img-fluid"></p>
+<p>Here, the firm is located at <span class="math inline">\(K\)</span> and consumes two material inputs (<span class="math inline">\(M_1, M_2\)</span>) which are combined to produce a single product (<span class="math inline">\(M_3\)</span>) that is eventually sold at market. <span class="math inline">\(d\)</span> represents the geographic distance these respective goods need to travel to get from their source to their end destination. In the case of <span class="math inline">\(M_1\)</span> and <span class="math inline">\(M_2\)</span>, this destination is the firm. In the case of the firm’s output (<span class="math inline">\(M_3\)</span>), this destination is the marketplace. A general production function can be created for this firm:</p>
+<p><span class="math display">\[
+m_3 = ~f~(k_1, m_1, k_2, m_2)
+\]</span></p>
+<p>Where <span class="math inline">\(k\)</span> represents the quantity of each input (i.e., <span class="math inline">\(m\)</span>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Typically, when thinking about transportation costs, you think of the haulage costs associated with moving a specified quantity of something (<span class="math inline">\(k\)</span>) across geographical space (<span class="math inline">\(d\)</span>). These haulage costs are normally calculated by weight, which is typically how scholars technically interpret <span class="math inline">\(m\)</span> in Equation 1.0. A more obvious way to describe this is that the quantity of <span class="math inline">\(m_3\)</span> produced becomes a function of the quantity and weight of each input.</p>
+</div>
+</div>
+<p>In the simplest case, we might assume that the firm needs precisely one unit of each input (i.e., <span class="math inline">\(k_1 = k_2 = 1\)</span>) to produce a single unit of output (<span class="math inline">\(m_3\)</span>), thus simplifying the function to:</p>
+<p><span class="math display">\[
+m_3 = Min(m_1, m_2)
+\]</span></p>
+<p>If the price per unit of output (<span class="math inline">\(p_3\)</span>) is fixed, the firm maximizes profit by choosing the location where the combined transport costs of inputs and outputs are lowest, <em>ceteris paribus</em>. This point is known as the Weber Optimum Location. Finding it involves comparing total transport costs across potential sites and selecting the one that minimizes total costs (<span class="math inline">\(TC\)</span>). That is:</p>
+<p><span class="math display">\[
+TC = Min \sum_{t=1}^{3} m_i, t_i, d_i
+\]</span></p>
+<p>In this case, <span class="math inline">\(i\)</span> reflects the particular weights (i.e., quantity), transport rates (i.e., haulage costs), and geographical distances over which goods are shipped to and from each (potential) firm location point (<span class="math inline">\(K\)</span>). Given the assumptions that this firm will behave so as to maximize its profits, the minimum cost location will be the actual chosen location of the firm, providing a firm empirical lens through which we can assess this model.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every ton of material and every finished good must be transported. If transport cost is proportional to weight and distance, the total transport cost depends on how far materials and goods must travel and how heavy they are. This gives rise to a key trade-off when deciding where to locate:</p>
+<ul>
+<li><p>If raw materials are heavy and lose weight during processing; that is, if goods get heavier/lighter at different stages of production, like in smelting, it might make sense to locate near the source because it is expensive to haul unprocessed materials.</p></li>
+<li><p>If finished goods are heavier than inputs, it might be better to locate near the market.</p></li>
+<li><p>If both have similar weight, the best location may lie somewhere in between.</p></li>
+</ul>
+<p>This dynamic is often described as the “pull” that input sources exert on a firm’s location choice. Though markets can also exert their own pull. In special cases where the firm’s output has zero weight or bulk (e.g., electricity produced from coal), transport costs for the output are zero. The optimal location then lies somewhere along the line connecting the input sources, and the market’s location is irrelevant.</p>
+<p>More typically, however, outputs are bulky and costly to transport, making proximity to markets important. The problem becomes even more interesting if firms differ in technical efficiency—which affects how much output they produce from given inputs, or if products vary in density, since denser goods (e.g., small cars vs.&nbsp;SUVs) generally incur lower per-unit transport costs.</p>
+</div>
+</div>
+</section>
+<section id="changing-factor-prices" class="level1">
+<h1>Changing Factor Prices</h1>
+<p>The simple model, although making some heroic assumptions about the geographic and economic contexts in which individual firms operate, does provide some useful intuition on how to think about why firms locate where they do. However, arguably more interesting than calculating the Weber optimum location for multiple, different firms is trying to figure out how this point changes when elements (i.e., parameters) in the production function (Equation 3.0) change.</p>
+<p>Up until now, we have assumed that labour and land prices are identical across all locations, although in reality we know that factor prices vary significantly over space. The Weber model allows for such considerations, and can thus be extended to think about the conditions under which a firm will look for alternative locations.</p>
+<p>Weber visualized this reasoning using isodapanes — contour rings which show where total production costs change. The closer you are to the center (i.e., the Weber Optimum), the lower the total cost. As you move away, cost increases. If total costs rise, the isodapanes tighten around the optimal point whereby even small deviations become expensive. If transport costs fall, the isodapanes flatten, and the firm has more flexibility in where to locate.</p>
+<p><img src="../img/weber_rings.jpeg" class="img-fluid"> The firm is still consuming inputs from <span class="math inline">\(M_1\)</span> and <span class="math inline">\(M_2\)</span>, and still shipping output from <span class="math inline">\(K^*\)</span> to <span class="math inline">\(M_3\)</span>. Under these conditions, we know that the Weber Optimum is <span class="math inline">\(K*\)</span>; the implication being that if all factor prices are equal across space, then <span class="math inline">\(K^*\)</span> is also where the firm will locate in the end.</p>
+<p>Let’s assume the isodapanes shown above represent changes in transport costs relative to those at the optimal location, <span class="math inline">\(K^\)</span>. For instance, if the firm moved to point <span class="math inline">\(Q\)</span>, transport costs would rise by 10 dollars, <em>ceteris paribus</em>. Without considering other factor costs, such a move clearly reduces profits by 10 dollars and is therefore undesirable. The farther the firm moves from <span class="math inline">\(K^\)</span>, the greater the opportunity cost and the less attractive alternative locations become.</p>
+<p>The key question then: how much must local factor prices fall relative to those at <span class="math inline">\(K^*\)</span> for relocation to make sense? In theory, the answer is straightforward: any increase in transport costs must be fully offset by lower factor costs.</p>
+<p>Thus, at point <span class="math inline">\(Q\)</span>, local factor prices must be at least 10 dollars lower than at <span class="math inline">\(K^*\)</span> for the firm to be indifferent between the two locations. In this case, spatial equilibrium is achieved, and the two sites become perfect substitutes from the firm’s perspective.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This insight captures a real-world logic: firms relocate production to lower-cost labour markets only when the savings outweigh logistical disadvantages. When global shipping costs fell in the late 20th century, for example, isodapanes widened dramatically, allowing production to shift overseas while firms still maintaining profitability.</p>
+</div>
+</div>
+<p>To ensure that you understand the mechanism, try answering the following questions:</p>
+<div class="webex-check webex-box">
+<ol type="1">
+<li><p>For the firm to be indifferent between <span class="math inline">\(K^*\)</span> and <span class="math inline">\(Q\)</span>, local factor prices will have to be at least X dollars less than they are at point <span class="math inline">\(K^*\)</span>. What is the value of X? <select class="webex-select"><option value="blank"></option><option value="answer">$10</option><option value="">$25</option><option value="">$40</option><option value="">$50</option></select></p></li>
+<li><p>For the firm to be indifferent between <span class="math inline">\(K^*\)</span> and <span class="math inline">\(D\)</span>, local factor prices will have to be at least X dollars less than they are at point <span class="math inline">\(K^*\)</span>. What is the value of X? <select class="webex-select"><option value="blank"></option><option value="">$10</option><option value="answer">$25</option><option value="">$40</option><option value="">$50</option></select></p></li>
+<li><p>For the firm to be indifferent between <span class="math inline">\(K^*\)</span> and <span class="math inline">\(X\)</span>, local factor prices will have to be at least X dollars less than they are at point <span class="math inline">\(K^*\)</span>. What is the value of X? <select class="webex-select"><option value="blank"></option><option value="">$10</option><option value="">$25</option><option value="">$40</option><option value="answer">$50</option></select></p></li>
+<li><p>Transport costs at <span class="math inline">\(S\)</span> are 40 dollars greater than they are in <span class="math inline">\(K^*\)</span>. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+<li><p>The firms profits will at <span class="math inline">\(R\)</span> will be equal to those at <span class="math inline">\(K^*\)</span> if local factor prices at <span class="math inline">\(R\)</span> are at least 25 dollars lower than they are at <span class="math inline">\(K^*\)</span>. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+</ol>
+</div>
+<p>Indeed, if you know how much the local factors cost at each location, you can very quickly get a picture of how firm location decisions change with changes in local factor prices.</p>
+<p>This approach allows us to answer a very important question: how will local wage and local land prices have to vary across space in order for the firms profits to be the same across all locations? That is, where does the equilibrium lie?</p>
+<p>The technical answer to this question has already been given: the firms profits will be the same in all locations if the local labour and land factor input prices at each location exactly compensate for the increased total transport costs associated with each location.</p>
+</section>
+<section id="what-does-this-all-mean" class="level1">
+<h1>What does this all mean?</h1>
+<p>We know that some locations are more profitable than others for a firm. In the Weber model, this is associated with the price of moving the inputs for a firms production process and the costs associated with transporting the end goods to market. The Weber optimum is the point at which the firm can make the most profits, and thus, the place that will receive the most investment from firms.</p>
+<p>It also means that in order to make other locations more attractive, local factor prices have to fall relative to those at the Weber Optimum, but they also need to compensate for any increase in transport costs. If you extend this scenario to include many similar firms as the one described above, the same logic would apply: each individual firm wants to locate at the same least-cost site. But if all firms pile into the exact same spot, some costs may rise (e.g., land scarcity, congestion, or higher wages due to competition for workers).</p>
+<p>Once those extra costs are accounted for, the net cost/profit at that location will equal the net cost/profit in other viable locations. This means that, in equilibrium, the level of investment should spread out so that no location has a permanent advantage. That is, every location will have roughly the same net profitability once competition and crowding effects are included.</p>
+<p>On the other hand, if wages are not in equilibrium across space, certain areas will automatically appear more attractive as locations for investment. Thus, geography cam confer different competitive advantages on different locations which can only be compensated for by variations in factor/input prices.</p>
+</section>
+<section id="an-empirical-illustration" class="level1">
+<h1>An empirical illustration</h1>
+<p>Let’s put what we just learned into practice. For the sake of simplicity, I am going to make up some data to illustrate how we might work through a problem using the Weber model.</p>
+<p>To start with, we need to generate a map. In economic modelling, we typically generate a map by creating a grid that contains all the possible locations a firm can choose to locate at:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Generate the x-axis [the numbers are somewhat arbitrary in themselves but they do define the boundaries of your grid]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="fl">0.15</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Generate the y-axis [the numbers are somewhat arbitrary but they do define the boundaries of your grid]</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>y_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="fl">0.15</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Put it all together</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>grid_points <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">x =</span> x_seq, <span class="at">y =</span> y_seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once we have the grid made, we can start thinking about inputs. As in the example above, we imagine a firm that utilizes two inputs and ships its output to one market place. Therefore:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#We need to define where on the grid these factors will go</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>input1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>input2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">0</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>market <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So now we know the extent of the geography that the firm is operating in. We know the location of the inputs that the firm needs to generate output. And we know the location of the market place the firm will use. Now we must decide upon how costly it is to move each of these:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#For the sake of argument, lets just assume that both inputs and the firm's output have the same base transport cost (i.e., they all have a weight of 1)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>w_input1 <span class="ot">&lt;-</span> <span class="fl">1.0</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>w_input2 <span class="ot">&lt;-</span> <span class="fl">1.0</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>w_market <span class="ot">&lt;-</span> <span class="fl">1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Our next step is to calculate the total transport costs for our inputs and outputs. Normally, the Weber model assumes that transport costs rise smoothly and symmetrically from the centre. But this is not entirely realistic; spatial costs are affected by more things than just distance (e.g., topography and infrastructure).</p>
+<p>To make this setup more realistic then, I introduce a random “noise field” that adds a bit of “roughness” to the cost surface. That is, I make transport costs irregular to allow for such differences:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Introduce slight spatial "noise" for realism</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>noise_field <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sin</span>(x <span class="sc">/</span> <span class="fl">1.5</span>) <span class="sc">*</span> <span class="fu">cos</span>(y <span class="sc">/</span> <span class="fl">2.3</span>) <span class="sc">*</span> <span class="fl">0.8</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.05</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With that done, we can define total transport costs. This is done by calculating the Euclidean (i.e., straight-line) distance between each of the points. That is, the distance between <span class="math inline">\(input1\)</span>, <span class="math inline">\(input2\)</span>, and <span class="math inline">\(market\)</span>. We calculate this distance using the following formula (You might recognize this formula from high-school geometry):</p>
+<p><span class="math display">\[
+d_i = \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}
+\]</span></p>
+<p>This gives us the straight-line distance between each of our points, but now we must also take account of the base cost of transporting each input and output. We do that by multiplying these distances by our weights. At the very end we add on our noise term (which I will call <span class="math inline">\(𝝀\)</span>) to generate some variation. This gives us the formula:</p>
+<p><span class="math display">\[
+TC = (w_1d_1) + (w_2d_2) + (w_3d_3) + 𝝀
+\]</span></p>
+<p>Which translates to the following function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>transport_cost <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  d1 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((x <span class="sc">-</span> input1[<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (y <span class="sc">-</span> input1[<span class="dv">2</span>])<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  d2 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((x <span class="sc">-</span> input2[<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (y <span class="sc">-</span> input2[<span class="dv">2</span>])<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  dm <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((x <span class="sc">-</span> market[<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (y <span class="sc">-</span> market[<span class="dv">2</span>])<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  w_input1 <span class="sc">*</span> d1 <span class="sc">+</span> w_input2 <span class="sc">*</span> d2 <span class="sc">+</span> w_market <span class="sc">*</span> dm <span class="sc">+</span> <span class="fu">noise_field</span>(x, y)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>grid_points<span class="sc">$</span>cost <span class="ot">&lt;-</span> <span class="fu">mapply</span>(transport_cost, grid_points<span class="sc">$</span>x, grid_points<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With our transport cost function defined, we can begin calculating the Weber Optimum Location, mathematically described as:</p>
+<p><span class="math display">\[
+(x^*,y^*) = \arg\min_{(x,y)} C(x,y)
+\]</span></p>
+<p>Or, in other words, the location at which:</p>
+<p><span class="math display">\[
+TC = Min \sum_{t=1}^{3} m_i, t_i, d_i
+\]</span> To calculate the Weber Optimum Location, we can use the following R Code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Weber optimum (grid search)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>optimum <span class="ot">&lt;-</span> grid_points <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cost <span class="sc">==</span> <span class="fu">min</span>(cost)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>weber_cost <span class="ot">&lt;-</span> optimum<span class="sc">$</span>cost</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>optimum_xy <span class="ot">&lt;-</span> <span class="fu">c</span>(optimum<span class="sc">$</span>x, optimum<span class="sc">$</span>y)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#View the Weber Optimum Location and the total transport costs firms face at this location</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>optimum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     x   y     cost
+1 5.95 2.2 18.36248</code></pre>
+</div>
+</div>
+<p>This has provided me with the coordinates of the Weber Optimum Location as well as the total transport costs our firm will face at this location. We know that this is the lowest total transport costs our firm will face anywhere within our grid, so we can infer that this is also the most profitable location for this firm.</p>
+<p>But these numbers, especially the coordinates, are hard to make sense of out-of-context. For instance, it is not clear what it means to be 5.95 units along the x-axis and 2.2 units up the y-axis. Nor is it incredibly obvious how much lower 18.36 is compared to the next lowest value. As a result, we can visualize our grid, including contours (i.e., isodapanes) that show how total transport costs differ across different locations inside the grid:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># delta_cost surface (for contour map)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>grid_points <span class="ot">&lt;-</span> grid_points <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">delta_cost =</span> cost <span class="sc">-</span> weber_cost)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>isodapane_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(grid_points, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">aes</span>(<span class="at">x =</span> x, </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> y, </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                             <span class="at">z =</span> delta_cost)) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#define the legend for the graph</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_contour_filled</span>(<span class="at">bins =</span> <span class="dv">8</span>, </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">show.legend =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#plot the location of each input, the market place, and the Weber Optimum</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> input1[<span class="dv">1</span>], </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> input1[<span class="dv">2</span>]), </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"blue"</span>, </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> input2[<span class="dv">1</span>], </span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> input2[<span class="dv">2</span>]), </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"blue"</span>, </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> market[<span class="dv">1</span>], </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> market[<span class="dv">2</span>]), </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"darkgreen"</span>, </span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> optimum_xy[<span class="dv">1</span>], </span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> optimum_xy[<span class="dv">2</span>]), </span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>, </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Annotate these points so it is clear what each point corresponds to</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, </span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> input1[<span class="dv">1</span>], </span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> input1[<span class="dv">2</span>] <span class="sc">-</span> <span class="fl">0.6</span>, </span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"Input 1"</span>, </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, </span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> input2[<span class="dv">1</span>], </span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> input2[<span class="dv">2</span>] <span class="sc">-</span> <span class="fl">0.6</span>, </span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"Input 2"</span>, </span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, </span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> market[<span class="dv">1</span>], </span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> market[<span class="dv">2</span>] <span class="sc">+</span> <span class="fl">0.6</span>, </span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"Market"</span>, </span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, </span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> optimum_xy[<span class="dv">1</span>] <span class="sc">+</span> <span class="fl">0.5</span>, </span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> optimum_xy[<span class="dv">2</span>] <span class="sc">+</span> <span class="fl">0.8</span>,</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Weber Optimum</span><span class="sc">\n</span><span class="st">("</span>, <span class="fu">round</span>(optimum_xy[<span class="dv">1</span>],<span class="dv">2</span>), <span class="st">", "</span>, <span class="fu">round</span>(optimum_xy[<span class="dv">2</span>],<span class="dv">2</span>), <span class="st">")"</span>),</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"red"</span>, </span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">3</span>, </span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">"magma"</span>, </span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>                       <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>                       <span class="at">name =</span> <span class="st">"Δ transport cost ($)"</span>) <span class="sc">+</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Isodapane Map: Extra Transport Cost across Space"</span>,</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"X coordinate"</span>, </span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Y coordinate"</span>) <span class="sc">+</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>,</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>)</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualise the plot</span></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>isodapane_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="weber_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In the figure above, we can get a sense of where everything is. We can see that the Weber Optimum location is comparatively closer to <span class="math inline">\(input2\)</span> than <span class="math inline">\(input1\)</span>, but closer to both inputs than to the <span class="math inline">\(market\)</span>. Moreover, we can also see how transport costs change as we move away from the Weber Optimum. We can generally see that as you get farther away, transport costs tend to increase, but it is not entirely linear and there are some irregularities (recall the noise function).</p>
+<p>To ensure that you understand the mechanics of what this graph is telling us, try answering the following questions:</p>
+<div class="webex-check webex-box">
+<ol start="6" type="1">
+<li><p>If the firm were to relocate anywhere within the yellow (i.e., the first one appearing in the legend), total transport costs would increase by …</p>
+<div id="radio_FWFUOLOKLI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FWFUOLOKLI" value="answer"> <span>0-2.5</span></label><label><input type="radio" autocomplete="off" name="radio_FWFUOLOKLI" value=""> <span>15.0-17.5</span></label><label><input type="radio" autocomplete="off" name="radio_FWFUOLOKLI" value=""> <span>They would not change because all points within each isodapane have the same costs</span></label><label><input type="radio" autocomplete="off" name="radio_FWFUOLOKLI" value=""> <span>It is not possible to infer how total transport costs will change</span></label>
+</div></li>
+<li><p>The Weber Optimum is far closer to both of the inputs than it is to the market place. This must mean that whatever output the firm is producing, it is cheaper to transport than the inputs in the production process. <select class="webex-select"><option value="blank"></option><option value="">TRUE</option><option value="answer">FALSE</option></select></p></li>
+<li><p>The Weber Optimum is the single point with the lowest total transport cost across space. It minimizes total weighted distance. <select class="webex-select"><option value="blank"></option><option value="answer">TRUE</option><option value="">FALSE</option></select></p></li>
+</ol>
+</div>
+<p>For the next step of the analysis we are going to explore how factor prices will need to change such that alternative locations become attractive for this firm. To do this, we are going to randomly select coordinates within our grid and generate the transport costs at each location compared with those at the Weber Optimum Location:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>n_candidates <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>candidates <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">paste0</span>(<span class="st">"Loc"</span>, <span class="fu">seq_len</span>(n_candidates)),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">runif</span>(n_candidates, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">11</span>),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">runif</span>(n_candidates, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">11</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute transport costs</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>candidates <span class="ot">&lt;-</span> candidates <span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">transport_cost =</span> <span class="fu">transport_cost</span>(x, y),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">extra_cost =</span> transport_cost <span class="sc">-</span> weber_cost) <span class="sc">%&gt;%</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will show how total transport costs compare to those at the Weber Optimum. But that is not incredibly interesting, since we could have inferred that from the graph.</p>
+<p>So, in addition to this, we shall add “factor-cost adjustments”. That is, we will change the costs of labour, capital, land etc in each of these locations (<code>factor_saving</code>).</p>
+<p>From there, we calculate how much each location saves (or loses) in non-transport costs (e.g., cheaper labour, land, or taxes), as well as the total cost difference after adjusting for these savings (<code>net_cost_diff</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">99</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Broader variation and slight bias toward positive savings</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>candidates <span class="ot">&lt;-</span> candidates <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Some places have large savings (10–30), others penalties (-5–10)</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">factor_saving =</span> <span class="fu">rnorm</span>(<span class="fu">n</span>(), <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">12</span>),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">net_cost_diff =</span> extra_cost <span class="sc">-</span> factor_saving</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure several (not just one) locations are better (negative net cost) for teaching purposes :)</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">sum</span>(candidates<span class="sc">$</span>net_cost_diff <span class="sc">&lt;</span> <span class="dv">0</span>) <span class="sc">&lt;</span> <span class="dv">2</span>) {</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  better_idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq_len</span>(<span class="fu">nrow</span>(candidates)), <span class="at">size =</span> <span class="dv">2</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  candidates<span class="sc">$</span>net_cost_diff[better_idx] <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">runif</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort by total cost</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>candidates <span class="ot">&lt;-</span> candidates <span class="sc">%&gt;%</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(net_cost_diff) <span class="sc">%&gt;%</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">factor</span>(name, <span class="at">levels =</span> name))</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(candidates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 7
+   name       x      y transport_cost extra_cost factor_saving net_cost_diff
+   &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+ 1 Loc12  7.63  10.4             26.4      8.00         16.1          -8.06 
+ 2 Loc2  10.2    2.07            22.3      3.93         10.8          -6.83 
+ 3 Loc8   0.616  5.72            22.7      4.32         10.9          -6.55 
+ 4 Loc6   5.23   0.410           19.2      0.865         6.47         -5.61 
+ 5 Loc3   2.43   4.55            19.7      1.33          6.05         -4.73 
+ 6 Loc4   8.97  10.3             28.0      9.68         10.3          -0.651
+ 7 Loc1   9.98  10.2             29.3     11.0           7.57          3.40 
+ 8 Loc9   6.88   9.85            24.6      6.19          0.631         5.56 
+ 9 Loc5   6.70  10.7             25.8      7.40          0.646         6.76 
+10 Loc7   7.84   4.70            20.5      2.16         -5.37          7.52 
+11 Loc11  4.49  10.9             24.9      6.58         -3.95         10.5  
+12 Loc10  7.46   0.665           18.9      0.577       -10.5          11.1  </code></pre>
+</div>
+</div>
+<p>So even a site far from the Weber Optimum might be better overall if factor costs are low enough. I engineer such a situation here for teaching purposes, as you can tell from the code and table.</p>
+<p>To test your understanding, answer the following questions to ensure you understand the table.</p>
+<div class="webex-check webex-box">
+<ol start="9" type="1">
+<li><p>At which location does the firm save on factor prices relative to the Weber Optimum, but not by enough to compensate the increase in transport costs? <select class="webex-select"><option value="blank"></option><option value="">Loc5</option><option value="">Loc4</option><option value="">Loc1</option><option value="answer">Loc7</option></select></p></li>
+<li><p>At which location does the firm save on transport costs relative to the Weber Optimum, but not by enough to compensate the increase in local factor costs? <select class="webex-select"><option value="blank"></option><option value="">Loc7</option><option value="answer">None</option><option value="">Loc9</option><option value="">Loc3</option></select></p></li>
+<li><p>At which location will the firm be least profitable? <select class="webex-select"><option value="blank"></option><option value="answer">Loc7</option><option value="">The Weber Optimum</option><option value="">Loc12</option><option value="">Loc2</option></select></p></li>
+<li><p>At which location will the firm be most profitable? <select class="webex-select"><option value="blank"></option><option value="">Loc7</option><option value="">The Weber Optimum</option><option value="answer">Loc12</option><option value="">Loc2</option></select></p></li>
+</ol>
+</div>
+<p>We can also visualize this in a graph, and thus get a sense of how the cost structures at different locations compare with the Weber Optimum identified earlier, and as such, generate a system which can show us the extent to which local factor prices will have to change in each location for these locations to be as attractive as the Weber Optimum.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>equilibrium_line <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(candidates, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">aes</span>(<span class="at">x =</span> name, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Transport-only cost line (dashed)</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> extra_cost), </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"grey60"</span>, </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">linetype =</span> <span class="st">"dashed"</span>, </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Total cost after factor adjustment (solid)</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> net_cost_diff), </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"steelblue"</span>, </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> net_cost_diff), </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>, </span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">y =</span> net_cost_diff, </span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">label =</span> <span class="fu">round</span>(net_cost_diff, <span class="dv">1</span>)), </span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">1.1</span>, </span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, </span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>, </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Equilibrium Comparison: Transport vs Total Cost"</span>,</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Dashed = transport-only; Solid = total cost after factor-price adjustments"</span>,</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Candidate locations (sorted by total cost)"</span>,</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Cost difference vs Weber Optimum ($)"</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">min</span>(candidates<span class="sc">$</span>net_cost_diff) <span class="sc">-</span> <span class="dv">5</span>, </span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>       <span class="fu">max</span>(candidates<span class="sc">$</span>net_cost_diff) <span class="sc">+</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>equilibrium_line </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="weber_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="to-wrap-up" class="level1">
+<h1>To wrap up</h1>
+<p>The Weber industrial location model tackles a problem that remains deeply relevant: firms must balance input, output, and spatial costs in deciding where to locate. While the model assumes only two input points and one market, this triangular setup is deliberately simple as it allows us to visualize how geography shapes investment decisions and how cost differences tilt the economic landscape.</p>
+<p>The model’s first contribution is analytical: it clarifies the factor price conditions under which alternative locations become attractive. Its second is dynamic: it reveals how shifts in factor prices can trigger relocation, reshaping supply chains and inter-firm linkages.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You might wonder why firms do not constantly move in response to changing prices. The reason is that moving is costly. Firms relocate only when the savings from lower factor costs outweigh both higher transport costs and these “relocation frictions”.</p>
+</div>
+</div>
+<p>Weber’s world is intentionally stylized. It omits substitution, agglomeration, and diseconomies, which later models (like Moses’s) incorporate. Yet this simplicity allows us to isolate the spatial minimization of cost. Real economies overlay this logic with clustering effects, congestion, and uneven transport networks, but the underlying principle remains Weberian in many respects.</p>
+
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Conor O’Driscoll</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <img src="../img/r-logo.svg" style="vertical-align: middle; filter: grayscale(100%);" height="20"> and <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

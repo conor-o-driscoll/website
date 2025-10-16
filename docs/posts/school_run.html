@@ -80,6 +80,35 @@ gtag('js', new Date());
 gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../include/webex.css">
 <meta property="og:title" content="Start Young, Drive Less: The Overlooked Power of the School-Run – Conor O’Driscoll">
@@ -220,6 +249,7 @@ gtag('config', 'G-E5KK0XXE44', { 'anonymize_ip': true});
 <p>While behaviour change campaigns are important, our findings suggest that structural conditions, particularly built form, infrastructure quality, and travel distance, remain central to shifting how people move. If we want to support more sustainable school travel, we need to plan for it: shorten distances between home and school, build coherent and safe active travel networks, and improve the quality and reliability of public transport.</p>
 <p>Ultimately, school-runs are not just about getting from A to B. They reflect broader spatial, social, and institutional dynamics. Understanding them better can help us build cities that support more inclusive and sustainable forms of everyday mobility.</p>
 <p>For the full technical details, please check out the full paper <a href="https://doi.org/10.1016/j.rspp.2024.100153">here</a>!</p>
+
 
 
 </section>
