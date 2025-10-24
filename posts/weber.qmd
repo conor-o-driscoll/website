@@ -512,3 +512,10 @@ You might wonder why firms do not constantly move in response to changing prices
 :::
 
 Weber’s world is intentionally stylized. It omits substitution, agglomeration, and diseconomies, which later models (like Moses’s) incorporate. Yet this simplicity allows us to isolate the spatial minimization of cost. Real economies overlay this logic with clustering effects, congestion, and uneven transport networks, but the underlying principle remains Weberian in many respects.
+
+
+Bibliography
+=====
+
+1. McCann, Philip. 2013. _Modern Urban and Regional Economics_
+2. Pike, Andy; Rodríguez-Pose, Andres; Tomaney, John. 2016. _Local and Regional Development_.
