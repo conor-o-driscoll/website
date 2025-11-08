@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/hotelling.html",
       "/posts/moses.html",
       "/posts/weber.html",
       "/posts/shapiro_code.html",
