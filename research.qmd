@@ -28,45 +28,43 @@ format:
 5.  **Conor O'Driscoll** and Luise Koeppen. 2025. "Subnational
     Institutional Corruption and Political Discontent".
 
-6.  **Conor O’Driscoll**. 2025. "Navigating Change: Residential
-    Relocation, Travel Behaviours, and Built Environments". *Major
-    Revisions in Papers in Regional Science*.
-    
-    - [PowerPoint Slides: RSAI BIS 2024, Bristol, UK](PPTs/RSAI-BIS 2024.pdf)
-
 
 ## Published Research Papers
 
+1. **Conor O’Driscoll**. 2025. "Navigating Change: Residential
+    Relocation, Travel Behaviours, and Built Environments". *Papers in Regional Science*, 
+    104(6), pp.1-18. doi: [10.1016/j.pirs.2025.100128](https://doi.org/10.1016/j.pirs.2025.100128).
+    [PowerPoint Slides: RSAI BIS 2024, Bristol, UK](PPTs/RSAI-BIS 2024.pdf).
 
-1.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín McCarthy;
+2.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín McCarthy;
     Josh O’Driscoll. 2025. "Travel Behaviours and Built Environments on
     School-Runs". *Regional Science Policy and Practice*, 17(1),
     pp.1-14. doi:
     [10.1016/j.rspp.2024.100153](https://doi.org/10.1016/j.rspp.2024.100153).
 
-2.  Kevin Credit and **Conor O’Driscoll**. 2024. "Assessing Modal
+3.  Kevin Credit and **Conor O’Driscoll**. 2024. "Assessing Modal
     Tradeoffs and Associated Built Environment Characteristics Using a
     Cost-Distance Framework". *Journal of Transport Geography*, 117,
     pp.1-19. doi:
     [10.1016/j.jtrangeo.2024.103870](https://doi.org/10.1016/j.jtrangeo.2024.103870).
 
-3.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
+4.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
     McCarthy. 2024. "The relationships between socio-demographics,
     residential environments, travel considerations, and commute mode
     choice in Ireland". *Regional Studies*, 58(3), pp.1-18. doi:
     [10.1080/00343404.2023.2199779](https://doi.org/10.1080/00343404.2023.2199779).
 
-4.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
+5.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
     McCarthy. 2023. "Land-Use Mix in Ireland: Implications for
     Sustainable Development". *Journal of Maps*, 19(1), pp.1-7. doi:
     [10.1080/17445647.2023.2214165](https://doi.org/10.1080/17445647.2023.2214165).
 
-5.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
+6.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
     McCarthy. 2023. “Land-Use Mixing in Irish Cities: Implications for
     Sustainable Development”. *Land Use Policy*, 128(5), pp.1-7. doi:
     [10.1016/j.landusepol.2023.106615](https://doi.org/10.1016/j.landusepol.2023.106615).
 
-6.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
+7.  **Conor O’Driscoll**; Frank Crowley; Justin Doran; Nóirín
     McCarthy. 2022. “Retail Sprawl and CO2 Emissions: Retail Centres in
     Irish Cities”. *Journal of Transport Geography*, 102(6), pp.1-12.
     doi:

@@ -1,0 +1,32 @@
+---
+title: "Hotelling's Game"
+author: "Conor O'Driscoll"
+date: 2025-09-18
+categories: [Economic Geography, Economic Modelling]
+image: "/img/beach.jpeg"
+description: "Two firms selling identical products walk into a bar..."
+format:
+  html:
+    math: mathjax
+
+---
+
+The Hotelling Location Game — When Businesses Cluster and Why It Matters
+=====
+
+In our previous posts, we have assumed that the market location is a single point in space. But this is not entirely realistic, as a market is much more than one single point; market areas frequently differ over space due to differences in population densities, differences in income distributions, and differences in consumer demand - just to name a few. Moreover, geography can confer monopoly power on firms, encouraging firms to engage in spatial competition such that they can acquire this monopoly power through locational behaviours.
+
+
+In 1929, Harold Hotelling published a short but influential paper titled _“Stability in Competition”_. In it, he posed a deceptively simple question which provided a glimpse into how we might solve this problem: where should competing firms locate along a street to attract the most customers?
+
+
+The Mechanics of The Model
+=====
+
+Imagine you have two firms, _A_ and _B_, located at points _A_ and _B_ along a one-dimensional market area (i.e., a line) defined by _O_ and _L_. Assume that both firms produce an identical product (e.g., ice-cream vendors at a beach). The production costs for both firms can be assumed to be the same, for the purpose of this post. We can also assume that transport costs rise as we get farther from each firm. For the sake of simplicity, we can also assume that the transport rates (i.e., the transport cost function) is identical for both firms.
+
+Thus, for any location at a distance $$d_a$$ away from firm _A_, the delivered price of the good (i.e., ice-cream) is given by $$(p_a + t_ad_a)$$. And for any location at a distance $$d_b$$ from firm _B_, the delivered price of the good is given as $$(p_b + t_bd_b)$$.
+
+If we assume that consumers (i.e., sunbathers / beach-goers) are evenly distributed along the line (i.e., beach), and we also assume that, consumers, being rational, will buy from the firm which is able to supply their good (i.e., ice-cream) at the lowest deliverable price, the total market area will be divided into 2 sectors, _OX_ and _OL_. 
+
+The reason for this is that between points _O_ and _X_, the delivered price for firm _A_ ....
