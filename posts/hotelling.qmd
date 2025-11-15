@@ -4,7 +4,7 @@ author: "Conor O'Driscoll"
 date: 2025-09-18
 categories: [Economic Geography, Economic Modelling]
 image: "/img/beach.jpeg"
-description: "Two firms selling identical products walk into a bar..."
+description: "Two salesmen selling identical products walk into a bar...they sit side-by-side"
 format:
   html:
     math: mathjax
@@ -40,7 +40,7 @@ If we assume that consumers (i.e., sunbathers / beach-goers) are evenly distribu
 
 The reason for this is that between points _O_ and _X_, the delivered price for firm _A_, given as $$(p_a + t_ad_a)$$, is always lower than that of firm _B_. On the other hand, at all locations between _X_ and _L_, the delivered price of firm _B_, given as $$(p_b + t_bd_b)$$, is always lower than that of firm _A_. You can see this more clearly in the below figure.
 
-![hotelling](img/hotelling.jpeg)
+![](/img/hotelling.jpeg)
 
 Although firm _A_ is more efficient than firm _B_, and although both firms produce an identical product, firm _A_ does not capture all of the market because the transport costs associated with shipping goods to market locations close to firm _B_ increase the delivered price to an noncompetitive level in locations close to firm _B_. In other words, firm _A_ cannot capture all of firm _B_'s consumers because it is too far away.
 
@@ -84,7 +84,7 @@ This works out through two channels.
 
 Firstly, the consumers located in-and-around the midpoint of _OL_ benefit by generally reduced delivered prices, while those located closer to the edges stand to pay higher prices. The net effect of these welfare gains can be inferred in the below figure by examining the areas under the delivered price curves, which compare prices at the start (locations _A_ and _B_) and at the end (location _X_) of the Hotelling game.
 
-![hotelling2](img/hotelling2.jpeg)
+![](/img/hotelling2.jpeg)
 
 The bigger picture from this model appears to be that firms make more money, or at least charge higher prices once the game has been played out - creating a clear incentive to cluster when the conditions surrounding the game (i.e., assumptions about the nature of the competition between firm _A_ and firm _B_) are realistic. 
 
